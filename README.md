@@ -18,3 +18,5 @@ AprilBrother SDK for Android
          android:exported="false"/>
 ```
 
+## Precautions
+* If you want to use change the characteristic you should make sure that our beacon's hardware is above 2.0

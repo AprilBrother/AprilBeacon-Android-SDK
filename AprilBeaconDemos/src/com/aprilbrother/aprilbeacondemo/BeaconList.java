@@ -56,7 +56,6 @@ public class BeaconList extends Activity {
 		ListView lv = (ListView) findViewById(R.id.lv);
 		adapter = new BeaconAdapter(this);
 		lv.setAdapter(adapter);
-
 		beaconManager = new BeaconManager(this);
 		beaconManager.setRangingListener(new RangingListener() {
 
@@ -87,6 +86,7 @@ public class BeaconList extends Activity {
 				bundle.putParcelable("beacon", beacon);
 				intent.putExtras(bundle);
 				startActivity(intent);
+				
 			}
 		});
 	}

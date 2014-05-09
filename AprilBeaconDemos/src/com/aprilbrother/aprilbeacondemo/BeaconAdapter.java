@@ -11,12 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.aprilbrother.aprilbrothersdk.Beacon;
-import com.aprilbrother.aprilbrothersdk.Utils;
-
-
-
-
-
 
 public class BeaconAdapter extends BaseAdapter {
 
@@ -58,7 +52,7 @@ public class BeaconAdapter extends BaseAdapter {
 
 	  private void bind(Beacon beacon, View view) {
 	    ViewHolder holder = (ViewHolder) view.getTag();
-	    holder.macTextView.setText(String.format("MAC: %s (%.2fm)", beacon.getMacAddress(), Utils.computeAccuracy(beacon)));
+	    holder.macTextView.setText(String.format("MAC: %s (%.2fm)", beacon.getMacAddress(), beacon.getDistance()));
 	    holder.uuidTextView.setText("UUID: "+ beacon.getProximityUUID());
 	    holder.majorTextView.setText("Major: " + beacon.getMajor());
 	    holder.minorTextView.setText("Minor: " + beacon.getMinor());

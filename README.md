@@ -6,6 +6,7 @@ AprilBrother SDK for Android
 
 * [Current JavaDoc documentation](//aprilbrother.github.io/aprilbeacon-android-sdk/JavaDocs/index.html)
 * [Community for AprilBeacon](http://bbs.aprbrother.com)
+* [ChangeLog](https://github.com/AprilBrother/AprilBeacon-Android-SDK/wiki/ChangeLog)
 
 ## Installation
 

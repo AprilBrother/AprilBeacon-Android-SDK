@@ -21,4 +21,3 @@ AprilBrother SDK for Android
 
 ## Precautions
 * If you want to use change the characteristic you should make sure that our beacon's hardware is above 2.0
-* When you change the characteristics you should reset the beacon

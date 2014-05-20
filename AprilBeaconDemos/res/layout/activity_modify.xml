@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -27,25 +27,53 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="major" />
-
-            <EditText
-                android:id="@+id/major"
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="minor" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/minor"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="major" />
+
+                <EditText
+                    android:id="@+id/major"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="minor" />
+
+                <EditText
+                    android:id="@+id/minor"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            
+             <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="password" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <Button
                 android:layout_width="wrap_content"
@@ -76,8 +104,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="getBattery"
-                android:textSize="10sp"
-                android:text="获取电量" />
+                android:text="获取电量"
+                android:textSize="10sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -102,8 +130,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="getTxPower"
-                android:textSize="10sp"
-                android:text="获取发射功率" />
+                android:text="获取发射功率"
+                android:textSize="10sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -128,16 +156,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="getAdvinterval"
-                android:textSize="10sp"
-                android:text="获取广播频率" />
-            
+                android:text="获取广播频率"
+                android:textSize="10sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="notify"
-                android:textSize="10sp"
-                android:text="进入通知界面" />
+                android:text="进入通知界面"
+                android:textSize="10sp" />
         </LinearLayout>
-   </ScrollView>
+    </ScrollView>
 
 </RelativeLayout>

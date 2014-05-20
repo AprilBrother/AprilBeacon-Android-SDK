@@ -21,7 +21,6 @@ import com.aprilbrother.aprilbrothersdk.BeaconManager;
 import com.aprilbrother.aprilbrothersdk.BeaconManager.RangingListener;
 import com.aprilbrother.aprilbrothersdk.Region;
 
-
 /**
  * 
  * 搜索展示beacon列表
@@ -64,6 +63,8 @@ public class BeaconList extends Activity {
 					final List<Beacon> beacons) {
 
 				myBeacons.addAll(beacons);
+				
+				Log.i(TAG, "beacons.size = "+beacons.size()+"");
 
 				runOnUiThread(new Runnable() {
 					@Override
@@ -103,6 +104,7 @@ public class BeaconList extends Activity {
 				try {
 					beaconManager.startRanging(ALL_BEACONS_REGION);
 				} catch (RemoteException e) {
+					
 				}
 			}
 		});

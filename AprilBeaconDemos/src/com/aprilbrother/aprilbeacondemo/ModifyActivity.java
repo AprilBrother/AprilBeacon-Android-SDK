@@ -3,11 +3,15 @@ package com.aprilbrother.aprilbeacondemo;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,12 +31,15 @@ public class ModifyActivity extends Activity {
 	private EditText uuid;
 	private EditText major;
 	private EditText minor;
+	private EditText password;
 	private Beacon beacon;
 
 	private AprilBeaconConnection conn;
 	private TextView battery;
 	private TextView txpower;
 	private TextView advinterval;
+	
+	private String oldPassword;
 
 	private AprilBeaconCharacteristics read;
 
@@ -155,6 +162,8 @@ public class ModifyActivity extends Activity {
 		uuid = (EditText) findViewById(R.id.uuid);
 		major = (EditText) findViewById(R.id.major);
 		minor = (EditText) findViewById(R.id.minor);
+		password = (EditText) findViewById(R.id.password);
+		
 		battery = (TextView) findViewById(R.id.battery);
 		txpower = (TextView) findViewById(R.id.txpower);
 		advinterval = (TextView) findViewById(R.id.advinterval);
@@ -164,13 +173,48 @@ public class ModifyActivity extends Activity {
 		Log.i(TAG, beacon.getMacAddress());
 		Log.i(TAG, beacon.getMajor() + "");
 		Log.i(TAG, beacon.getMinor() + "");
-		Log.i(TAG, beacon.getMacAddress());
+		
 		String proximityUUID = beacon.getProximityUUID();
-		uuid.setText(proximityUUID);
+		uuid.setHint(proximityUUID);
+		major.setHint(beacon.getMajor()+"");
+		minor.setHint(beacon.getMinor()+"");
 	}
 
 	public void sure(View v) {
-		aprilWrite();
+		showEnterDialog();
+	}
+	
+	private EditText et_pwd;
+	private Button bt_ok;
+	private Button bt_cancel;
+	private AlertDialog dialog;
+	/**
+	 * 输入密码的对话框
+	 */
+	private void showEnterDialog() {
+
+		AlertDialog.Builder builder = new Builder(this);
+		View view = View.inflate(this, R.layout.dialog_enter_password, null);
+		et_pwd = (EditText) view.findViewById(R.id.et_pwd);
+		bt_ok = (Button) view.findViewById(R.id.bt_ok);
+		bt_cancel = (Button) view.findViewById(R.id.bt_cancel);
+		bt_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		bt_ok.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				oldPassword = "AT+AUTH" + et_pwd.getText().toString().trim();
+				aprilWrite();
+				dialog.dismiss();
+			}
+		});
+		dialog = builder.create();
+		dialog.setView(view, 0, 0, 0, 0);
+		dialog.show();
 	}
 
 	private void aprilWrite() {
@@ -188,8 +232,28 @@ public class ModifyActivity extends Activity {
 			String newUuid = uuid.getText().toString();
 			conn.writeUUID(newUuid);
 		}
+		if (!TextUtils.isEmpty(password.getText().toString())) {
+			String newPassword = password.getText().toString();
+			conn.writePassword(newPassword);
+		}
 
 		conn.connectGattToWrite(new MyWriteCallback() {
+			
+			@Override
+			public void onWriteNewPasswordSuccess(final String oldPassword,
+					final String newPassword) {
+				super.onWriteNewPasswordSuccess(oldPassword, newPassword);
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(
+								ModifyActivity.this,
+								"oldPassword为" + oldPassword + "newPassword为" + newPassword,
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+			
 			@Override
 			public void onWriteMajorSuccess(final int oldMajor,
 					final int newMajor) {
@@ -217,7 +281,7 @@ public class ModifyActivity extends Activity {
 					}
 				});
 			}
-		});
+		}, oldPassword);
 	}
 
 	@Override
@@ -263,7 +327,6 @@ public class ModifyActivity extends Activity {
 						.show();
 			}
 		});
-
 	}
 
 	@Override

@@ -207,7 +207,7 @@ public class ModifyActivity extends Activity {
 		bt_ok.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				oldPassword = "AT+AUTH" + et_pwd.getText().toString().trim();
+				oldPassword = et_pwd.getText().toString().trim();
 				aprilWrite();
 				dialog.dismiss();
 			}

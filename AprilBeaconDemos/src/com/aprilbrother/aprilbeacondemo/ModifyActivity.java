@@ -248,12 +248,34 @@ public class ModifyActivity extends Activity {
 					public void run() {
 						Toast.makeText(
 								ModifyActivity.this,
-								"oldPassword为" + oldPassword + "newPassword为" + newPassword,
+								"oldPassword is " + oldPassword + "newPassword is" + newPassword,
 								Toast.LENGTH_SHORT).show();
 					}
 				});
 			}
 			
+			@Override
+			public void onBeaconError() {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(ModifyActivity.this,"please make sure the beacon is AprilBeacon and the FW should above 2.0",Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+			
+			@Override
+			public void onPasswordWrong(final String password) {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(
+								ModifyActivity.this,
+								"password is wrong what you input is ："+password,
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+			}			
 			@Override
 			public void onWriteMajorSuccess(final int oldMajor,
 					final int newMajor) {
@@ -262,10 +284,34 @@ public class ModifyActivity extends Activity {
 					public void run() {
 						Toast.makeText(
 								ModifyActivity.this,
-								"oldMajor为" + oldMajor + "newMajor为" + newMajor,
+								"oldMajor is " + oldMajor + "newMajor is " + newMajor,
 								Toast.LENGTH_SHORT).show();
 					}
 				});
+			}
+			
+			@Override
+			public void onErrorOfPassword() {
+				Toast.makeText(
+						ModifyActivity.this,
+						"onErrorOfPassword",
+						Toast.LENGTH_SHORT).show();
+			}
+			
+			@Override
+			public void onErrorOfConnection() {
+				Toast.makeText(
+						ModifyActivity.this,
+						"onErrorOfConnection",
+						Toast.LENGTH_SHORT).show();
+			}
+			
+			@Override
+			public void onErrorOfDiscoveredServices() {
+				Toast.makeText(
+						ModifyActivity.this,
+						"onErrorOfDiscoveredServices",
+						Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
@@ -276,7 +322,7 @@ public class ModifyActivity extends Activity {
 					public void run() {
 						Toast.makeText(
 								ModifyActivity.this,
-								"oldMionr为" + oldMionr + "newMinor为" + newMinor,
+								"oldMionr is " + oldMionr + "newMinor is " + newMinor,
 								Toast.LENGTH_SHORT).show();
 					}
 				});

@@ -32,17 +32,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name="com.aprilbrother.aprilbeacondemo.ModifyActivity"></activity>
+        <activity android:name="com.aprilbrother.aprilbeacondemo.ModifyActivity" >
+        </activity>
 
         <!-- 扫描beacon的服务 -->
-       <!--  <service
-            android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
-            android:exported="false" /> -->
-         <service
+        <!--
+             <service
             android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
             android:exported="false" />
-            
+        -->
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
+            android:exported="false" />
     </application>
 
 </manifest>

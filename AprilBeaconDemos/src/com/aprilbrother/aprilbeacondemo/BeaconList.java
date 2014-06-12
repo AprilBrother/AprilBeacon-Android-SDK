@@ -22,20 +22,18 @@ import com.aprilbrother.aprilbrothersdk.BeaconManager.RangingListener;
 import com.aprilbrother.aprilbrothersdk.Region;
 
 /**
- * 
  * 搜索展示beacon列表
- * 
- * @author 周超
- * 
  */
 public class BeaconList extends Activity {
 	private static final int REQUEST_ENABLE_BT = 1234;
-	private static final String TAG = "MainActivity";
+	private static final String TAG = "BeaconList";
 	// private static final Region ALL_BEACONS_REGION = new Region("apr",
 	// "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
 	// null, null);
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
+//	private static final Region ALL_BEACONS_REGION = new Region("apr", "aa000000-0000-0000-0000-000000000000",
+//			null, null);
 	private BeaconAdapter adapter;
 	private BeaconManager beaconManager;
 	private ArrayList<Beacon> myBeacons;
@@ -61,7 +59,7 @@ public class BeaconList extends Activity {
 			@Override
 			public void onBeaconsDiscovered(Region region,
 					final List<Beacon> beacons) {
-
+				
 				myBeacons.addAll(beacons);
 				
 				Log.i(TAG, "beacons.size = "+beacons.size()+"");
@@ -87,11 +85,10 @@ public class BeaconList extends Activity {
 				bundle.putParcelable("beacon", beacon);
 				intent.putExtras(bundle);
 				startActivity(intent);
-				
 			}
 		});
 	}
-
+	
 	/**
 	 * 连接服务 开始搜索beacon
 	 */

@@ -17,6 +17,7 @@
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -33,6 +34,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.aprilbrother.aprilbeacondemo.ModifyActivity" >
+        </activity>
+        
+        <activity android:name="com.aprilbrother.aprilbeacondemo.RequestActivity" >
         </activity>
 
         <!-- 扫描beacon的服务 -->

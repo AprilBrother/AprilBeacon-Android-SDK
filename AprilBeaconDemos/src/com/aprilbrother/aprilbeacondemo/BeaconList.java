@@ -54,6 +54,7 @@ public class BeaconList extends Activity {
 		adapter = new BeaconAdapter(this);
 		lv.setAdapter(adapter);
 		beaconManager = new BeaconManager(this);
+		beaconManager.setForegroundScanPeriod(100, 0);
 		beaconManager.setRangingListener(new RangingListener() {
 
 			@Override
@@ -142,7 +143,7 @@ public class BeaconList extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		beaconManager.disconnect();
+//		beaconManager.disconnect();
 		super.onDestroy();
 	}
 

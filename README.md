@@ -2,6 +2,8 @@
 
 AprilBrother SDK for Android
 
+You can scan beacon and modify beacon
+
 ## Docs
 
 * [Current JavaDoc documentation](//aprilbrother.github.io/aprilbeacon-android-sdk/JavaDocs/index.html)

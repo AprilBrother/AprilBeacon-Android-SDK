@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.aprilbrother.aprilbrothersdk.Beacon;
 import com.aprilbrother.aprilbrothersdk.BeaconManager;
+import com.aprilbrother.aprilbrothersdk.BeaconManager.MonitoringListener;
 import com.aprilbrother.aprilbrothersdk.BeaconManager.RangingListener;
 import com.aprilbrother.aprilbrothersdk.Region;
 
@@ -32,6 +33,8 @@ public class BeaconList extends Activity {
 	// null, null);
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
+//	private static final Region ALL_BEACONS_REGION_1 = new Region("apr", "aa000000-0000-0000-0000-000000000000",
+//			null,null);
 //	private static final Region ALL_BEACONS_REGION = new Region("apr", "aa000000-0000-0000-0000-000000000000",
 //			null, null);
 	private BeaconAdapter adapter;
@@ -54,7 +57,7 @@ public class BeaconList extends Activity {
 		adapter = new BeaconAdapter(this);
 		lv.setAdapter(adapter);
 		beaconManager = new BeaconManager(this);
-		beaconManager.setForegroundScanPeriod(100, 0);
+//		beaconManager.setForegroundScanPeriod(100, 0);
 		beaconManager.setRangingListener(new RangingListener() {
 
 			@Override
@@ -63,7 +66,8 @@ public class BeaconList extends Activity {
 				
 				myBeacons.addAll(beacons);
 				
-				Log.i(TAG, "beacons.size = "+beacons.size()+"");
+				if(beacons!=null && beacons.size()>0)
+				Log.i(TAG, "rssi = "+beacons.get(0).getRssi());
 
 				runOnUiThread(new Runnable() {
 					@Override
@@ -75,6 +79,21 @@ public class BeaconList extends Activity {
 				});
 			}
 		});
+		
+		beaconManager.setMonitoringListener(new MonitoringListener() {
+			
+			@Override
+			public void onExitedRegion(Region arg0) {
+				Toast.makeText(BeaconList.this, "通知离开", 0).show();
+				
+			}
+			
+			@Override
+			public void onEnteredRegion(Region arg0, List<Beacon> arg1) {
+				Toast.makeText(BeaconList.this, "通知进入", 0).show();
+			}
+		});
+		
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -101,6 +120,7 @@ public class BeaconList extends Activity {
 			public void onServiceReady() {
 				try {
 					beaconManager.startRanging(ALL_BEACONS_REGION);
+					beaconManager.startMonitoring(ALL_BEACONS_REGION);
 				} catch (RemoteException e) {
 					
 				}

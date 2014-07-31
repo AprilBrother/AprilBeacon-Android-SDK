@@ -11,6 +11,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,7 +38,7 @@ import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics.My
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection.MyWriteCallback;
 
-public class ModifyActivity extends Activity {
+public class ModifyActivity extends Activity implements OnClickListener {
 
 	protected static final String TAG = "ModifyActivity";
 	private EditText uuid;
@@ -45,147 +48,73 @@ public class ModifyActivity extends Activity {
 	private Beacon beacon;
 
 	private AprilBeaconConnection conn;
-	private TextView battery;
-	private TextView txpower;
-	private TextView advinterval;
-
+	private TextView tv_battery;
+	private TextView tv_txpower;
+	private TextView tv_advinterval;
+	private TextView tv_firmwareRevision;
+	private TextView tv_manufacturerName;
 	private String oldPassword;
+
+	private Button btn_modify, btn_battery, btn_txpower, btn_advinterval,
+			btn_firmwareRevision, btn_manufacturerName;
 
 	private AprilBeaconCharacteristics read;
 
-	private static final int READBATTERY = 0;
-
-	private static final int READTXPOWER = 1;
-
-	private static final int READADVINTERVAL = 2;
-
 	private BeaconManager beaconManager;
+
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
 
 	final String URL_Post = "http://bbs.aprbrother.com";
 	final String URL = "http://bbs.aprbrother.com";
-	
+
 	public final static Uri URI = Uri.parse("http://aprbrother.com");
-	
-	String resultData = "";
-	URL url = null;
-	HttpURLConnection urlConn = null;
-	boolean isPost = true;
+
+	private String resultData = "";
+	private HttpURLConnection urlConn = null;
+
+	private boolean isPost = true;
+
+	public static final int READ_BATTERY = 0;
+	public static final int READ_TXPOWER = 1;
+	public static final int READ_ADVINTERVAL = 2;
+	public static final int READ_FW_REVISON = 3;
+	public static final int READ_MANUFACTURER = 4;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_modify);
 		super.onCreate(savedInstanceState);
-		init();
+		initView();
 	}
 
-	public void getBattery(View v) {
-		setBattery();
-	}
-
-	public void getTxPower(View v) {
-		setTxPower();
-	}
-
-	public void getAdvinterval(View v) {
-		setAdvinterval();
-	}
-
-	private void setAdvinterval() {
-		read = new AprilBeaconCharacteristics(this, beacon);
-		read.connectGattToRead(new MyReadCallBack() {
-			@Override
-			public void readyToGetAdvinterval() {
-				final Integer mAdvinterval;
-				try {
-					mAdvinterval = read.getAdvinterval();
-					ModifyActivity.this.runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							advinterval.setText(mAdvinterval + "00ms");
-							read.close();
-						}
-					});
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}, READADVINTERVAL);
-	}
-
-	private void setTxPower() {
-		read = new AprilBeaconCharacteristics(this, beacon);
-		read.connectGattToRead(new MyReadCallBack() {
-			@Override
-			public void readyToGetTxPower() {
-				final Integer txpowervalue;
-				try {
-					txpowervalue = read.getTxPower();
-					ModifyActivity.this.runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							switch (txpowervalue) {
-							case 0:
-								txpower.setText("0dbm");
-								read.close();
-								break;
-							case 1:
-								txpower.setText("4dbm");
-								read.close();
-								break;
-							case 2:
-								txpower.setText("-6dbm");
-								read.close();
-								break;
-							case 3:
-								txpower.setText("-23dbm");
-								read.close();
-								break;
-							default:
-								break;
-							}
-						}
-					});
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}, READTXPOWER);
-	}
-
-	private void setBattery() {
-		read = new AprilBeaconCharacteristics(this, beacon);
-		read.connectGattToRead(new MyReadCallBack() {
-			@Override
-			public void readyToGetBattery() {
-				final Integer battery2;
-				try {
-					battery2 = read.getBattery();
-					ModifyActivity.this.runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							battery.setText(battery2 + "%");
-							read.close();
-						}
-					});
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}, READBATTERY);
-	}
-
-	private void init() {
+	private void initView() {
 
 		uuid = (EditText) findViewById(R.id.uuid);
 		major = (EditText) findViewById(R.id.major);
 		minor = (EditText) findViewById(R.id.minor);
 		password = (EditText) findViewById(R.id.password);
 
-		battery = (TextView) findViewById(R.id.battery);
-		txpower = (TextView) findViewById(R.id.txpower);
-		advinterval = (TextView) findViewById(R.id.advinterval);
+		tv_battery = (TextView) findViewById(R.id.battery);
+		tv_txpower = (TextView) findViewById(R.id.txpower);
+		tv_advinterval = (TextView) findViewById(R.id.advinterval);
+		tv_firmwareRevision = (TextView) findViewById(R.id.firmwareRevision);
+		tv_manufacturerName = (TextView) findViewById(R.id.manufacturerName);
+
+		btn_modify = (Button) findViewById(R.id.btn_modify);
+		btn_battery = (Button) findViewById(R.id.btn_battery);
+		btn_txpower = (Button) findViewById(R.id.btn_txpower);
+		btn_advinterval = (Button) findViewById(R.id.btn_advinterval);
+		btn_firmwareRevision = (Button) findViewById(R.id.btn_firmwareRevision);
+		btn_manufacturerName = (Button) findViewById(R.id.btn_manufacturerName);
+
+		btn_modify.setOnClickListener(this);
+		btn_battery.setOnClickListener(this);
+		btn_txpower.setOnClickListener(this);
+		btn_advinterval.setOnClickListener(this);
+		btn_firmwareRevision.setOnClickListener(this);
+		btn_manufacturerName.setOnClickListener(this);
+
 		Bundle bundle = getIntent().getExtras();
 		beacon = bundle.getParcelable("beacon");
 
@@ -199,42 +128,188 @@ public class ModifyActivity extends Activity {
 		minor.setHint(beacon.getMinor() + "");
 	}
 
-	public void sure(View v) {
-		showEnterDialog();
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_modify:
+			showEnterDialog();
+			break;
+		case R.id.btn_battery:
+			setBattery();
+			break;
+		case R.id.btn_txpower:
+			setTxPower();
+			break;
+		case R.id.btn_advinterval:
+			setAdvinterval();
+			break;
+		case R.id.btn_firmwareRevision:
+			setFWRevision();
+			break;
+		case R.id.btn_manufacturerName:
+			setManufacturer();
+			break;
+
+		default:
+			break;
+		}
+
 	}
 
-	private EditText et_pwd;
-	private Button bt_ok;
-	private Button bt_cancel;
-	private AlertDialog dialog;
+	private void setAdvinterval() {
+		read = new AprilBeaconCharacteristics(this, beacon);
+		read.connectGattToRead(new MyReadCallBack() {
+			@Override
+			public void readyToGetAdvinterval() {
+				final Integer advinterval;
+				try {
+					advinterval = read.getAdvinterval();
+					ModifyActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							tv_advinterval.setText(advinterval + "00ms");
+							read.close();
+						}
+					});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, READ_ADVINTERVAL);
+	}
+
+	private void setTxPower() {
+		read = new AprilBeaconCharacteristics(this, beacon);
+		read.connectGattToRead(new MyReadCallBack() {
+			@Override
+			public void readyToGetTxPower() {
+				final Integer txPower;
+				try {
+					txPower = read.getTxPower();
+					ModifyActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							switch (txPower) {
+							case 0:
+								tv_txpower.setText("0dbm");
+								read.close();
+								break;
+							case 1:
+								tv_txpower.setText("4dbm");
+								read.close();
+								break;
+							case 2:
+								tv_txpower.setText("-6dbm");
+								read.close();
+								break;
+							case 3:
+								tv_txpower.setText("-23dbm");
+								read.close();
+								break;
+							default:
+								break;
+							}
+						}
+					});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, READ_TXPOWER);
+	}
+
+	private void setBattery() {
+		read = new AprilBeaconCharacteristics(this, beacon);
+		read.connectGattToRead(new MyReadCallBack() {
+			@Override
+			public void readyToGetBattery() {
+				final Integer battery;
+				try {
+					battery = read.getBattery();
+					ModifyActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							tv_battery.setText(battery + "%");
+							read.close();
+						}
+					});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, READ_BATTERY);
+	}
+
+	private void setFWRevision() {
+		read = new AprilBeaconCharacteristics(this, beacon);
+		read.connectGattToRead(new MyReadCallBack() {
+			@Override
+			public void readyToGetFWRevision() {
+
+				final String firmwareRevision;
+				try {
+					firmwareRevision = read.getFWRevision();
+					ModifyActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							tv_firmwareRevision.setText(firmwareRevision);
+							read.close();
+						}
+					});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, READ_FW_REVISON);
+	}
+
+	private void setManufacturer() {
+		read = new AprilBeaconCharacteristics(this, beacon);
+		read.connectGattToRead(new MyReadCallBack() {
+			@Override
+			public void readyToGetManufacturer() {
+				final String manufacturerName;
+				try {
+					manufacturerName = read.getManufacturer();
+					ModifyActivity.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							tv_manufacturerName.setText(manufacturerName);
+							read.close();
+						}
+					});
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, READ_MANUFACTURER);
+	}
 
 	/**
 	 * 输入密码的对话框
 	 */
 	private void showEnterDialog() {
+		TextView textView = (TextView) LayoutInflater.from(this).inflate(
+				R.layout.dialog_text, null);
+		new AlertDialog.Builder(ModifyActivity.this).setTitle("输入密码")
+				.setView(textView)
+				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
-		AlertDialog.Builder builder = new Builder(this);
-		View view = View.inflate(this, R.layout.dialog_enter_password, null);
-		et_pwd = (EditText) view.findViewById(R.id.et_pwd);
-		bt_ok = (Button) view.findViewById(R.id.bt_ok);
-		bt_cancel = (Button) view.findViewById(R.id.bt_cancel);
-		bt_cancel.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				dialog.dismiss();
-			}
-		});
-		bt_ok.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				oldPassword = et_pwd.getText().toString().trim();
-				aprilWrite();
-				dialog.dismiss();
-			}
-		});
-		dialog = builder.create();
-		dialog.setView(view, 0, 0, 0, 0);
-		dialog.show();
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+
+					}
+				})
+				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						aprilWrite();
+						dialog.dismiss();
+
+					}
+				}).create().show();
 	}
 
 	private void aprilWrite() {
@@ -379,17 +454,17 @@ public class ModifyActivity extends Activity {
 
 			@Override
 			public void onEnteredRegion(Region region, List<Beacon> beacons) {
-				
-//				try {
-//					beaconManager.stopMonitoring(ALL_BEACONS_REGION);
-//				} catch (RemoteException e) {
-//					e.printStackTrace();
-//				}
-				
+
+				// try {
+				// beaconManager.stopMonitoring(ALL_BEACONS_REGION);
+				// } catch (RemoteException e) {
+				// e.printStackTrace();
+				// }
+
 				Toast.makeText(getApplicationContext(),
 						"你进入beacon范围 beacons.size =" + beacons.size(), 0)
 						.show();
-				//HttpURL(); 
+				// HttpURL();
 				Intent it = new Intent(Intent.ACTION_VIEW, URI);
 				startActivity(it);
 			}
@@ -405,115 +480,119 @@ public class ModifyActivity extends Activity {
 		});
 	}
 
-	
-	private void HttpURLConnection_Get(){  
-        try{  
-            isPost = false;  
-            //通过openConnection 连接  
-            URL url = new java.net.URL(URL);  
-            urlConn=(HttpURLConnection)url.openConnection();  
-            //设置输入和输出流   
-            urlConn.setDoOutput(true);  
-            urlConn.setDoInput(true);  
-            //关闭连接  
-            urlConn.disconnect();  
-        }catch(Exception e){  
-            resultData = "连接超时";  
-            Message mg = Message.obtain();    
-            mg.obj = resultData;    
-            handler.sendMessage(mg);   
-            e.printStackTrace();  
-        }  
-    }  
-	
-	private void HttpURLConnection_Post(){  
-        try{  
-            //通过openConnection 连接  
-            URL url = new java.net.URL(URL_Post);  
-            urlConn=(HttpURLConnection)url.openConnection();  
-            //设置输入和输出流   
-            urlConn.setDoOutput(true);  
-            urlConn.setDoInput(true);  
-              
-            urlConn.setRequestMethod("POST");  
-            urlConn.setUseCaches(false);  
-            // 配置本次连接的Content-type，配置为application/x-www-form-urlencoded的    
-            urlConn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");    
-            // 连接，从postUrl.openConnection()至此的配置必须要在connect之前完成，  
-            // 要注意的是connection.getOutputStream会隐含的进行connect。    
-            urlConn.connect();  
-            //DataOutputStream流  
-            DataOutputStream out = new DataOutputStream(urlConn.getOutputStream());  
-            //要上传的参数  
-            String content = "par=" + URLEncoder.encode("ylx_Post+中正", "UTF_8");   
-            //将要上传的内容写入流中  
-            out.writeBytes(content);     
-            //刷新、关闭  
-            out.flush();  
-            out.close();     
-              
-        }catch(Exception e){  
-            resultData = "连接超时";  
-            Message mg = Message.obtain();    
-            mg.obj = resultData;    
-            handler.sendMessage(mg);   
-            e.printStackTrace();  
-        }  
-    }  
-	
-	 private void HttpURL() {  
-	        new Thread(){  
-	            public void run() {   
-	  
-	                try{  
-	                    //Get方式  
-	                    //HttpURLConnection_Get();  
-	                    //Post方式  
-	                    HttpURLConnection_Post();   
-	                      
-	                    InputStreamReader in = new InputStreamReader(urlConn.getInputStream());    
-	                    BufferedReader buffer = new BufferedReader(in);    
-	                    String inputLine = null;    
-	                    while (((inputLine = buffer.readLine()) != null)){  
-	                        resultData += inputLine + "\n";    
-	                    }  
-	                    System.out.println(resultData);  
-	                    in.close();   
-	  
-	                }catch(Exception e){  
-	                    resultData = "连接超时";  
-	                    e.printStackTrace();  
-	                }finally{  
-	                    try{  
-	                        //关闭连接  
-	                        if(isPost)  
-	                        urlConn.disconnect();  
-	                          
-	                        Message mg = Message.obtain();    
-	                        mg.obj = resultData;    
-	                        handler.sendMessage(mg);    
-	                    }catch(Exception e){  
-	                        e.printStackTrace();  
-	                    }  
-	                }  
-	            }  
-	        }.start();  
-	    }  
-	 private Handler handler = new Handler() {    
-	        @Override    
-	        public void handleMessage(Message msg) {    
-	            String m = (String) msg.obj;  
-	            
-	            Intent intent = new Intent(ModifyActivity.this,RequestActivity.class);
-	            
-	            intent.putExtra("string", m);
-	            
-	            startActivity(intent);
-	            
-	            Log.i(TAG, m);
-	        }    
-	    };    
-	
+	private void HttpURLConnection_Get() {
+		try {
+			isPost = false;
+			// 通过openConnection 连接
+			URL url = new java.net.URL(URL);
+			urlConn = (HttpURLConnection) url.openConnection();
+			// 设置输入和输出流
+			urlConn.setDoOutput(true);
+			urlConn.setDoInput(true);
+			// 关闭连接
+			urlConn.disconnect();
+		} catch (Exception e) {
+			resultData = "连接超时";
+			Message mg = Message.obtain();
+			mg.obj = resultData;
+			handler.sendMessage(mg);
+			e.printStackTrace();
+		}
+	}
+
+	private void HttpURLConnection_Post() {
+		try {
+			// 通过openConnection 连接
+			URL url = new java.net.URL(URL_Post);
+			urlConn = (HttpURLConnection) url.openConnection();
+			// 设置输入和输出流
+			urlConn.setDoOutput(true);
+			urlConn.setDoInput(true);
+
+			urlConn.setRequestMethod("POST");
+			urlConn.setUseCaches(false);
+			// 配置本次连接的Content-type，配置为application/x-www-form-urlencoded的
+			urlConn.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
+			// 连接，从postUrl.openConnection()至此的配置必须要在connect之前完成，
+			// 要注意的是connection.getOutputStream会隐含的进行connect。
+			urlConn.connect();
+			// DataOutputStream流
+			DataOutputStream out = new DataOutputStream(
+					urlConn.getOutputStream());
+			// 要上传的参数
+			String content = "par=" + URLEncoder.encode("ylx_Post+中正", "UTF_8");
+			// 将要上传的内容写入流中
+			out.writeBytes(content);
+			// 刷新、关闭
+			out.flush();
+			out.close();
+
+		} catch (Exception e) {
+			resultData = "连接超时";
+			Message mg = Message.obtain();
+			mg.obj = resultData;
+			handler.sendMessage(mg);
+			e.printStackTrace();
+		}
+	}
+
+	private void HttpURL() {
+		new Thread() {
+			public void run() {
+
+				try {
+					// Get方式
+					// HttpURLConnection_Get();
+					// Post方式
+					HttpURLConnection_Post();
+
+					InputStreamReader in = new InputStreamReader(
+							urlConn.getInputStream());
+					BufferedReader buffer = new BufferedReader(in);
+					String inputLine = null;
+					while (((inputLine = buffer.readLine()) != null)) {
+						resultData += inputLine + "\n";
+					}
+					System.out.println(resultData);
+					in.close();
+
+				} catch (Exception e) {
+					resultData = "连接超时";
+					e.printStackTrace();
+				} finally {
+					try {
+						// 关闭连接
+						if (isPost)
+							urlConn.disconnect();
+
+						Message mg = Message.obtain();
+						mg.obj = resultData;
+						handler.sendMessage(mg);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+	}
+
+	private Handler handler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			String m = (String) msg.obj;
+
+			Intent intent = new Intent(ModifyActivity.this,
+					RequestActivity.class);
+
+			intent.putExtra("string", m);
+
+			startActivity(intent);
+
+			Log.i(TAG, m);
+		}
+	};
+
 	@Override
 	protected void onStop() {
 		try {
@@ -526,4 +605,5 @@ public class ModifyActivity extends Activity {
 		}
 		super.onStop();
 	}
+
 }

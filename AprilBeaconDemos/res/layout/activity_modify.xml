@@ -13,19 +13,32 @@
         android:layout_height="fill_parent" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="newUUID" />
+                android:background="@android:color/darker_gray"
+                android:padding="5dip"
+                android:text="修改beacon参数" />
 
-            <EditText
-                android:id="@+id/uuid"
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="newUUID" />
+
+                <EditText
+                    android:id="@+id/uuid"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -58,8 +71,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-            
-             <LinearLayout
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
@@ -76,10 +89,24 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_modify"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="sure"
-                android:text="开始修改" />
+                android:layout_marginBottom="5dip"
+                android:text="开始修改"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:padding="5dip"
+                android:text="获取设备信息" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -90,22 +117,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="电量："
-                    android:textSize="10sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/battery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_battery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dip"
+                    android:onClick="getBattery"
+                    android:text="获取电量"
                     android:textSize="10sp" />
             </LinearLayout>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="getBattery"
-                android:text="获取电量"
-                android:textSize="10sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -116,22 +151,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="发射功率："
-                    android:textSize="10sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/txpower"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_txpower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dip"
+                    android:onClick="getTxPower"
+                    android:text="获取发射功率"
                     android:textSize="10sp" />
             </LinearLayout>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="getTxPower"
-                android:text="获取发射功率"
-                android:textSize="10sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -142,29 +185,100 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="广播频率："
-                    android:textSize="10sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/advinterval"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_advinterval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dip"
+                    android:onClick="getAdvinterval"
+                    android:text="获取广播频率"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="固件版本："
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/firmwareRevision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_firmwareRevision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dip"
+                    android:onClick="getAdvinterval"
+                    android:text="获取固件版本"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="制造商："
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/manufacturerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_manufacturerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100dip"
+                    android:onClick="getAdvinterval"
+                    android:text="获取制造商"
                     android:textSize="10sp" />
             </LinearLayout>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="getAdvinterval"
-                android:text="获取广播频率"
-                android:textSize="10sp" />
-
-            <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="notify"
                 android:text="进入通知界面"
-                android:textSize="10sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 

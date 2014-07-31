@@ -17,13 +17,14 @@
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Holo.Light" >
         <activity
             android:name="com.aprilbrother.aprilbeacondemo.BeaconList"
             android:label="@string/app_name" >
@@ -35,16 +36,10 @@
         </activity>
         <activity android:name="com.aprilbrother.aprilbeacondemo.ModifyActivity" >
         </activity>
-        
         <activity android:name="com.aprilbrother.aprilbeacondemo.RequestActivity" >
         </activity>
 
         <!-- 扫描beacon的服务 -->
-        <!--
-             <service
-            android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
-            android:exported="false" />
-        -->
         <service
             android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
             android:exported="false" />

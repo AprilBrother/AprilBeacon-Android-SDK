@@ -277,7 +277,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="notify"
-                android:text="进入通知界面"
+                android:text="开启后台通知"
                 android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>

@@ -443,61 +443,39 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	}
 
 	public void notify(View v) {
-		beaconManager = new BeaconManager(this);
-		beaconManager.setMonitoringListener(new MonitoringListener() {
-
-			@Override
-			public void onExitedRegion(Region region) {
-				Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
-						.show();
-			}
-
-			@Override
-			public void onEnteredRegion(Region region, List<Beacon> beacons) {
-
-				// try {
-				// beaconManager.stopMonitoring(ALL_BEACONS_REGION);
-				// } catch (RemoteException e) {
-				// e.printStackTrace();
-				// }
-
-				Toast.makeText(getApplicationContext(),
-						"你进入beacon范围 beacons.size =" + beacons.size(), 0)
-						.show();
-				// HttpURL();
-				Intent it = new Intent(Intent.ACTION_VIEW, URI);
-				startActivity(it);
-			}
-		});
-		beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-			@Override
-			public void onServiceReady() {
-				try {
-					beaconManager.startMonitoring(ALL_BEACONS_REGION);
-				} catch (RemoteException e) {
-				}
-			}
-		});
-	}
-
-	private void HttpURLConnection_Get() {
-		try {
-			isPost = false;
-			// 通过openConnection 连接
-			URL url = new java.net.URL(URL);
-			urlConn = (HttpURLConnection) url.openConnection();
-			// 设置输入和输出流
-			urlConn.setDoOutput(true);
-			urlConn.setDoInput(true);
-			// 关闭连接
-			urlConn.disconnect();
-		} catch (Exception e) {
-			resultData = "连接超时";
-			Message mg = Message.obtain();
-			mg.obj = resultData;
-			handler.sendMessage(mg);
-			e.printStackTrace();
-		}
+		
+		Intent intent = new Intent(ModifyActivity.this,NotifyService.class);
+		startService(intent);
+		
+//		beaconManager = new BeaconManager(this);
+//		beaconManager.setMonitoringListener(new MonitoringListener() {
+//
+//			@Override
+//			public void onExitedRegion(Region region) {
+//				Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
+//						.show();
+//			}
+//
+//			@Override
+//			public void onEnteredRegion(Region region, List<Beacon> beacons) {
+//
+//				Toast.makeText(getApplicationContext(),
+//						"你进入beacon范围 beacons.size =" + beacons.size(), 0)
+//						.show();
+//				// HttpURL();
+//				Intent it = new Intent(Intent.ACTION_VIEW, URI);
+//				startActivity(it);
+//			}
+//		});
+//		beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
+//			@Override
+//			public void onServiceReady() {
+//				try {
+//					beaconManager.startMonitoring(ALL_BEACONS_REGION);
+//				} catch (RemoteException e) {
+//				}
+//			}
+//		});
 	}
 
 	private void HttpURLConnection_Post() {

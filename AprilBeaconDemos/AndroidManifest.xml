@@ -43,6 +43,10 @@
         <service
             android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
             android:exported="false" />
+        <service
+            android:name="com.aprilbrother.aprilbeacondemo.NotifyService"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

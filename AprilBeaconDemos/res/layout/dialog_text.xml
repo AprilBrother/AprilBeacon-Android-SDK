@@ -2,7 +2,7 @@
 <EditText xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:inputType="numberPassword"
+    android:inputType="textPassword"
     android:paddingBottom="10dip"
     android:paddingTop="10dip"
     android:singleLine="true"

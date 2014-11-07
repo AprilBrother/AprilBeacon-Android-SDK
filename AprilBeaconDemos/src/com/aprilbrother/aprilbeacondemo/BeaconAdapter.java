@@ -77,7 +77,6 @@ public class BeaconAdapter extends BaseAdapter {
 		default:
 			break;
 		}
-
 	}
 
 	private View inflateIfRequired(View view, int position, ViewGroup parent) {

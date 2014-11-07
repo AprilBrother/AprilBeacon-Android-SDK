@@ -63,7 +63,6 @@ public class BeaconList extends Activity {
 			@Override
 			public void onBeaconsDiscovered(Region region,
 					final List<Beacon> beacons) {
-				
 				myBeacons.addAll(beacons);
 				
 				if(beacons!=null && beacons.size()>0)

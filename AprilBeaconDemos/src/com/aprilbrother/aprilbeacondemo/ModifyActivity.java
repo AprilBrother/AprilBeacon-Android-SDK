@@ -37,6 +37,7 @@ import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics.MyReadCallBack;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection.MyWriteCallback;
+import com.aprilbrother.aprilbrothersdk.internal.ABAcceleration;
 
 public class ModifyActivity extends Activity implements OnClickListener {
 
@@ -57,7 +58,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	private String oldPassword;
 
 	private Button btn_modify, btn_battery, btn_txpower, btn_advinterval,
-			btn_firmwareRevision, btn_manufacturerName;
+			btn_firmwareRevision, btn_manufacturerName,btn_on,btn_off,btn_notify,btn_on_l,btn_off_l,btn_notify_l;
 
 	private AprilBeaconCharacteristics read;
 
@@ -90,11 +91,18 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	}
 
 	private void initView() {
-
+		Bundle bundle = getIntent().getExtras();
+		beacon = bundle.getParcelable("beacon");
+		
 		uuid = (EditText) findViewById(R.id.uuid);
 		major = (EditText) findViewById(R.id.major);
 		minor = (EditText) findViewById(R.id.minor);
 		password = (EditText) findViewById(R.id.password);
+		
+		String proximityUUID = beacon.getProximityUUID();
+		uuid.setHint(proximityUUID);
+		major.setHint(beacon.getMajor() + "");
+		minor.setHint(beacon.getMinor() + "");
 
 		tv_battery = (TextView) findViewById(R.id.battery);
 		tv_txpower = (TextView) findViewById(R.id.txpower);
@@ -108,25 +116,33 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		btn_advinterval = (Button) findViewById(R.id.btn_advinterval);
 		btn_firmwareRevision = (Button) findViewById(R.id.btn_firmwareRevision);
 		btn_manufacturerName = (Button) findViewById(R.id.btn_manufacturerName);
-
+		
+		btn_on = (Button) findViewById(R.id.bt_turn_on);
+		btn_on_l = (Button) findViewById(R.id.bt_turn_on_l);
+		btn_off = (Button) findViewById(R.id.bt_turn_off);
+		btn_off_l = (Button) findViewById(R.id.bt_turn_off_l);
+		btn_notify = (Button) findViewById(R.id.bt_notify);
+		btn_notify_l = (Button) findViewById(R.id.bt_notify_l);
+		
 		btn_modify.setOnClickListener(this);
 		btn_battery.setOnClickListener(this);
 		btn_txpower.setOnClickListener(this);
 		btn_advinterval.setOnClickListener(this);
 		btn_firmwareRevision.setOnClickListener(this);
 		btn_manufacturerName.setOnClickListener(this);
+		
+		btn_on.setOnClickListener(this);
+		btn_on_l.setOnClickListener(this);
+		btn_off.setOnClickListener(this);
+		btn_off_l.setOnClickListener(this);
+		btn_notify.setOnClickListener(this);
+		btn_notify_l.setOnClickListener(this);
+		
+		Button btn_conn = (Button) findViewById(R.id.bt_conn);
+		btn_conn.setOnClickListener(this);
+		
 
-		Bundle bundle = getIntent().getExtras();
-		beacon = bundle.getParcelable("beacon");
-
-		Log.i(TAG, beacon.getMacAddress());
-		Log.i(TAG, beacon.getMajor() + "");
-		Log.i(TAG, beacon.getMinor() + "");
-
-		String proximityUUID = beacon.getProximityUUID();
-		uuid.setHint(proximityUUID);
-		major.setHint(beacon.getMajor() + "");
-		minor.setHint(beacon.getMinor() + "");
+		
 	}
 
 	@Override
@@ -150,11 +166,53 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		case R.id.btn_manufacturerName:
 			setManufacturer();
 			break;
-
+		case R.id.bt_turn_on:
+			conn.turnOnCalu();
+			break;
+		case R.id.bt_turn_off:
+			conn.turnOffCalu();
+			break;
+		case R.id.bt_notify:
+			conn.enableACNotification();
+			break;
+		case R.id.bt_turn_on_l:
+			conn.turnOnLight();
+			break;
+		case R.id.bt_turn_off_l:
+			conn.turnOffLight();
+			break;
+		case R.id.bt_notify_l:
+			conn.enableLightNotification();
+			break;
+		case R.id.bt_conn:
+			conn = new AprilBeaconConnection(this, beacon);
+			conn.connectGattToWrite(new MyWriteCallback(){
+				@Override
+				public void notifyABAcceleration(ABAcceleration abAcceleration) {
+					Log.i(TAG, "-----------------");
+					Log.i(TAG, " x = "+abAcceleration.getX());
+					Log.i(TAG, " y = "+abAcceleration.getY());
+					Log.i(TAG, " z = "+abAcceleration.getZ());
+					super.notifyABAcceleration(abAcceleration);
+				}
+				
+				@Override
+				public void notifyABLight(double light) {
+					Log.i(TAG, "light = "+light);
+					super.notifyABLight(light);
+				}
+				
+				@Override
+				public void connected() {
+					Toast.makeText(ModifyActivity.this, "have connect", 0).show();
+					super.connected();
+				}
+				
+			}, null);
+			break;
 		default:
 			break;
 		}
-
 	}
 
 	private void setAdvinterval() {
@@ -310,12 +368,12 @@ public class ModifyActivity extends Activity implements OnClickListener {
 						oldPassword = et_pwd.getText().toString().trim();
 						aprilWrite();
 						dialog.dismiss();
-
 					}
 				}).create().show();
 	}
 
 	private void aprilWrite() {
+		
 		conn = new AprilBeaconConnection(this, beacon);
 
 		if (!TextUtils.isEmpty(major.getText().toString())) {

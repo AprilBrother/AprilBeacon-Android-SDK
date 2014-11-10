@@ -57,6 +57,8 @@ public class BeaconList extends Activity {
 		adapter = new BeaconAdapter(this);
 		lv.setAdapter(adapter);
 		beaconManager = new BeaconManager(this);
+		beaconManager.setMonitoringExpirationMill(10L);
+		beaconManager.setRangingExpirationMill(10L);
 //		beaconManager.setForegroundScanPeriod(100, 0);
 		beaconManager.setRangingListener(new RangingListener() {
 

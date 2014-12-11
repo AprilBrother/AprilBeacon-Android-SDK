@@ -1,4 +1,4 @@
-package com.aprilbrother.aprilbeacondemo;
+﻿package com.aprilbrother.aprilbeacondemo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,8 +67,14 @@ public class BeaconList extends Activity {
 					final List<Beacon> beacons) {
 				myBeacons.addAll(beacons);
 				
-				if(beacons!=null && beacons.size()>0)
-				Log.i(TAG, "rssi = "+beacons.get(0).getRssi());
+				if(beacons!=null && beacons.size()>0){
+					Log.i(TAG, "rssi = "+beacons.get(0).getRssi());
+					String macAddress = beacons.get(0).getMacAddress();
+					
+					//make sure the FW is 2.1 or above
+					int power = beacons.get(0).getPower();
+					Log.i(TAG, "address = "+macAddress +"------ battery = "+power);
+				}
 
 				runOnUiThread(new Runnable() {
 					@Override

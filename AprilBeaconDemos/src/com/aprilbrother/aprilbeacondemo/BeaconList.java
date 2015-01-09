@@ -72,16 +72,18 @@ public class BeaconList extends Activity {
 
 				Log.i("Test", "tttttttttt");
 				Log.i(TAG, "rssi = " + beacons.size());
+				myBeacons.clear();
 				myBeacons.addAll(beacons);
 				if (beacons != null && beacons.size() > 0)
 					Log.i(TAG, "rssi = " + beacons.get(0).getRssi());
-
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
 						getActionBar().setSubtitle(
 								"Found beacons: " + beacons.size());
-						adapter.replaceWith(beacons);
+						ComparatorBeaconByRssi com = new ComparatorBeaconByRssi();
+						Collections.sort(myBeacons, com);
+						adapter.replaceWith(myBeacons);
 					}
 				});
 			}

@@ -1,9 +1,13 @@
 package com.aprilbrother.aprilbeacondemo;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +56,7 @@ public class BeaconAdapter extends BaseAdapter {
 
 	private void bind(Beacon beacon, View view) {
 		ViewHolder holder = (ViewHolder) view.getTag();
-		holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
+        holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
 		holder.uuidTextView.setText("UUID: " + beacon.getProximityUUID());
 		holder.majorTextView.setText("Major: " + beacon.getMajor());
 		holder.minorTextView.setText("Minor: " + beacon.getMinor());

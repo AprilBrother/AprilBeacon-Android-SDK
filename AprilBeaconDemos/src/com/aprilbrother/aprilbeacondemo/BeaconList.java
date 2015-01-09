@@ -1,4 +1,4 @@
-﻿package com.aprilbrother.aprilbeacondemo;
+package com.aprilbrother.aprilbeacondemo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,15 +28,18 @@ import com.aprilbrother.aprilbrothersdk.Region;
 public class BeaconList extends Activity {
 	private static final int REQUEST_ENABLE_BT = 1234;
 	private static final String TAG = "BeaconList";
-	// private static final Region ALL_BEACONS_REGION = new Region("apr",
-	// "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
-	// null, null);
-	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
-			null, null);
-//	private static final Region ALL_BEACONS_REGION_1 = new Region("apr", "aa000000-0000-0000-0000-000000000000",
-//			null,null);
-//	private static final Region ALL_BEACONS_REGION = new Region("apr", "aa000000-0000-0000-0000-000000000000",
+//	private static final Region ALL_BEACONS_REGION = new Region("", "e2c56db5-dffb-48d2-b060-d0f5a71096e3",
 //			null, null);
+	
+	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
+	null, null);
+	// private static final Region ALL_BEACONS_REGION = new Region("apr",
+	// "e2c56db5-dffb-48d2-b060-d0f5a71096e0",
+	// 985,211);
+	// 扫描所有uuid为"aa000000-0000-0000-0000-000000000000"的beacon
+	// private static final Region ALL_BEACONS_REGION = new Region("apr",
+	// "aa000000-0000-0000-0000-000000000000",
+	// null, null);
 	private BeaconAdapter adapter;
 	private BeaconManager beaconManager;
 	private ArrayList<Beacon> myBeacons;
@@ -56,25 +59,22 @@ public class BeaconList extends Activity {
 		ListView lv = (ListView) findViewById(R.id.lv);
 		adapter = new BeaconAdapter(this);
 		lv.setAdapter(adapter);
+
 		beaconManager = new BeaconManager(this);
-		beaconManager.setMonitoringExpirationMill(10L);
-		beaconManager.setRangingExpirationMill(10L);
+//		beaconManager.setMonitoringExpirationMill(10L);
+//		beaconManager.setRangingExpirationMill(10L);
 //		beaconManager.setForegroundScanPeriod(100, 0);
 		beaconManager.setRangingListener(new RangingListener() {
 
 			@Override
 			public void onBeaconsDiscovered(Region region,
 					final List<Beacon> beacons) {
+
+				Log.i("Test", "tttttttttt");
+				Log.i(TAG, "rssi = " + beacons.size());
 				myBeacons.addAll(beacons);
-				
-				if(beacons!=null && beacons.size()>0){
-					Log.i(TAG, "rssi = "+beacons.get(0).getRssi());
-					String macAddress = beacons.get(0).getMacAddress();
-					
-					//make sure the FW is 2.1 or above
-					int power = beacons.get(0).getPower();
-					Log.i(TAG, "address = "+macAddress +"------ battery = "+power);
-				}
+				if (beacons != null && beacons.size() > 0)
+					Log.i(TAG, "rssi = " + beacons.get(0).getRssi());
 
 				runOnUiThread(new Runnable() {
 					@Override
@@ -86,21 +86,21 @@ public class BeaconList extends Activity {
 				});
 			}
 		});
-		
+
 		beaconManager.setMonitoringListener(new MonitoringListener() {
-			
+
 			@Override
 			public void onExitedRegion(Region arg0) {
 				Toast.makeText(BeaconList.this, "通知离开", 0).show();
-				
+
 			}
-			
+
 			@Override
 			public void onEnteredRegion(Region arg0, List<Beacon> arg1) {
 				Toast.makeText(BeaconList.this, "通知进入", 0).show();
 			}
 		});
-		
+
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -115,7 +115,7 @@ public class BeaconList extends Activity {
 			}
 		});
 	}
-	
+
 	/**
 	 * 连接服务 开始搜索beacon
 	 */
@@ -127,9 +127,9 @@ public class BeaconList extends Activity {
 			public void onServiceReady() {
 				try {
 					beaconManager.startRanging(ALL_BEACONS_REGION);
-					beaconManager.startMonitoring(ALL_BEACONS_REGION);
+					// beaconManager.startMonitoring(ALL_BEACONS_REGION);
 				} catch (RemoteException e) {
-					
+
 				}
 			}
 		});
@@ -176,12 +176,13 @@ public class BeaconList extends Activity {
 
 	@Override
 	protected void onStop() {
-		try {
-			myBeacons.clear();
-			beaconManager.stopRanging(ALL_BEACONS_REGION);
-		} catch (RemoteException e) {
-			Log.d(TAG, "Error while stopping ranging", e);
-		}
+		beaconManager.disconnect();
+//		try {
+//			myBeacons.clear();
+//			beaconManager.stopRanging(ALL_BEACONS_REGION);
+//		} catch (RemoteException e) {
+//			Log.d(TAG, "Error while stopping ranging", e);
+//		}
 		super.onStop();
 	}
 }

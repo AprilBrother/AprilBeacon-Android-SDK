@@ -6,8 +6,8 @@
 
     <!-- Android4.3及以上才可以使用 -->
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="21" />
 
     <!-- 需要添加蓝牙相关权限才可以使用 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />

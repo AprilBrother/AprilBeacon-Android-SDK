@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics.My
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection.MyWriteCallback;
 import com.aprilbrother.aprilbrothersdk.internal.ABAcceleration;
+import com.aprilbrother.aprilbrothersdk.utils.AprilL;
 
 public class ModifyActivity extends Activity implements OnClickListener {
 
@@ -45,6 +47,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	private EditText uuid;
 	private EditText major;
 	private EditText minor;
+	private EditText measuredPower;
 	private EditText password;
 	private Beacon beacon;
 	private EditText et_pwd;
@@ -91,18 +94,31 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	}
 
 	private void initView() {
+		AprilL.enableDebugLogging(true);
 		Bundle bundle = getIntent().getExtras();
 		beacon = bundle.getParcelable("beacon");
 		
 		uuid = (EditText) findViewById(R.id.uuid);
 		major = (EditText) findViewById(R.id.major);
 		minor = (EditText) findViewById(R.id.minor);
+		measuredPower = (EditText) findViewById(R.id.measuredPower);
 		password = (EditText) findViewById(R.id.password);
 		
 		String proximityUUID = beacon.getProximityUUID();
 		uuid.setHint(proximityUUID);
 		major.setHint(beacon.getMajor() + "");
 		minor.setHint(beacon.getMinor() + "");
+		measuredPower.setHint(beacon.getMeasuredPower()+"");
+		
+		ll_absensor = (LinearLayout) findViewById(R.id.ll_absensor);
+		if(beacon.getName()!=null){
+			if(beacon.getName().contains("ABSensor")){
+				ll_absensor.setVisibility(View.VISIBLE);
+			}else{
+				ll_absensor.setVisibility(View.GONE);
+			}
+		}
+		
 
 		tv_battery = (TextView) findViewById(R.id.battery);
 		tv_txpower = (TextView) findViewById(R.id.txpower);
@@ -384,6 +400,11 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			int newMinor = Integer.parseInt(minor.getText().toString());
 			conn.writeMinor(newMinor);
 		}
+		if (!TextUtils.isEmpty(measuredPower.getText().toString())) {
+			String strMeasuredPower = measuredPower.getText().toString();
+			int measuredPower = Integer.parseInt(strMeasuredPower);
+			conn.writeMeasuredPower(measuredPower);
+		}
 		if (!TextUtils.isEmpty(uuid.getText().toString())) {
 			String newUuid = uuid.getText().toString();
 			conn.writeUUID(newUuid);
@@ -447,6 +468,17 @@ public class ModifyActivity extends Activity implements OnClickListener {
 								ModifyActivity.this,
 								"oldMajor is " + oldMajor + "newMajor is "
 										+ newMajor, Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+			
+			@Override
+			public void onWriteMeasuredPowerSuccess(final int newMeasuredPower) {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(
+								ModifyActivity.this,"newMeasuredPower is"+newMeasuredPower, Toast.LENGTH_SHORT).show();
 					}
 				});
 			}
@@ -631,6 +663,8 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			Log.i(TAG, m);
 		}
 	};
+	private LinearLayout ll_absensor;
+	
 
 	@Override
 	protected void onStop() {

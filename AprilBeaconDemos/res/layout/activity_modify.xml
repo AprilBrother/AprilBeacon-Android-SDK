@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/darker_gray"
                 android:padding="5dip"
-                android:text="修改beacon参数" />
+                android:text="@string/modify_beacon" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -182,7 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dip"
-                android:text="开始修改"
+                android:text="@string/start_modify"
                 android:textSize="18sp" />
 
             <TextView
@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/darker_gray"
                 android:padding="5dip"
-                android:text="获取设备信息" />
+                android:text="@string/get_device_info" />
 
             <View
                 android:layout_width="match_parent"
@@ -205,7 +205,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="电量："
+                    android:text="@string/battery"
                     android:textSize="16sp" />
 
                 <TextView
@@ -222,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="100dip"
                     android:onClick="getBattery"
-                    android:text="获取电量"
+                    android:text="@string/getBattery"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -239,7 +239,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="发射功率："
+                    android:text="@string/transmitting_power"
                     android:textSize="16sp" />
 
                 <TextView
@@ -256,7 +256,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="100dip"
                     android:onClick="getTxPower"
-                    android:text="获取发射功率"
+                    android:text="@string/get_transmitting_power"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -273,7 +273,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="广播频率："
+                    android:text="@string/advinterval"
                     android:textSize="16sp" />
 
                 <TextView
@@ -290,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="100dip"
                     android:onClick="getAdvinterval"
-                    android:text="获取广播频率"
+                    android:text="@string/get_advinterval"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -307,7 +307,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="固件版本："
+                    android:text="@string/firmware_version"
                     android:textSize="16sp" />
 
                 <TextView
@@ -324,7 +324,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="100dip"
                     android:onClick="getAdvinterval"
-                    android:text="获取固件版本"
+                    android:text="@string/get_firmware_version"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -341,7 +341,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="制造商："
+                    android:text="@string/manufacturer"
                     android:textSize="16sp" />
 
                 <TextView
@@ -358,7 +358,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="100dip"
                     android:onClick="getAdvinterval"
-                    android:text="获取制造商"
+                    android:text="@string/get_manufacturer"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -366,7 +366,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="notify"
-                android:text="开启后台通知"
+                android:text="@string/start_background_notify"
                 android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>

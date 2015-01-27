@@ -24,6 +24,7 @@ import com.aprilbrother.aprilbrothersdk.Region;
 
 /**
  * 搜索展示beacon列表
+ * scan beacon show beacon list
  */
 public class BeaconList extends Activity {
 	private static final int REQUEST_ENABLE_BT = 1234;
@@ -51,9 +52,6 @@ public class BeaconList extends Activity {
 		init();
 	}
 
-	/**
-	 * 初始化操作
-	 */
 	private void init() {
 		myBeacons = new ArrayList<Beacon>();
 		ListView lv = (ListView) findViewById(R.id.lv);
@@ -70,7 +68,6 @@ public class BeaconList extends Activity {
 			public void onBeaconsDiscovered(Region region,
 					final List<Beacon> beacons) {
 
-				Log.i("Test", "tttttttttt");
 				Log.i(TAG, "rssi = " + beacons.size());
 				myBeacons.clear();
 				myBeacons.addAll(beacons);
@@ -93,13 +90,13 @@ public class BeaconList extends Activity {
 
 			@Override
 			public void onExitedRegion(Region arg0) {
-				Toast.makeText(BeaconList.this, "通知离开", 0).show();
+				Toast.makeText(BeaconList.this, "Notify in", 0).show();
 
 			}
 
 			@Override
 			public void onEnteredRegion(Region arg0, List<Beacon> arg1) {
-				Toast.makeText(BeaconList.this, "通知进入", 0).show();
+				Toast.makeText(BeaconList.this, "Notify out", 0).show();
 			}
 		});
 
@@ -120,6 +117,7 @@ public class BeaconList extends Activity {
 
 	/**
 	 * 连接服务 开始搜索beacon
+	 * connect service  start scan beacons
 	 */
 	private void connectToService() {
 		getActionBar().setSubtitle("Scanning...");

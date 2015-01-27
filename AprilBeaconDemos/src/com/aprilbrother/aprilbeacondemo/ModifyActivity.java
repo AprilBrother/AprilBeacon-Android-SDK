@@ -362,14 +362,15 @@ public class ModifyActivity extends Activity implements OnClickListener {
 
 	/**
 	 * 输入密码的对话框
+	 * 
 	 */
 	private void showEnterDialog() {
 		View view = (View) LayoutInflater.from(this).inflate(
 				R.layout.dialog_text, null);
 		et_pwd = (EditText) view.findViewById(R.id.et_pwd);
-		new AlertDialog.Builder(ModifyActivity.this).setTitle("输入密码")
+		new AlertDialog.Builder(ModifyActivity.this).setTitle(getResources().getString(R.string.input_password))
 				.setView(et_pwd)
-				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+				.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -377,7 +378,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 
 					}
 				})
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+				.setPositiveButton(getResources().getString(R.string.sure), new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -391,7 +392,6 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	private void aprilWrite() {
 		
 		conn = new AprilBeaconConnection(this, beacon);
-
 		if (!TextUtils.isEmpty(major.getText().toString())) {
 			int newMajor = Integer.parseInt(major.getText().toString());
 			conn.writeMajor(newMajor);

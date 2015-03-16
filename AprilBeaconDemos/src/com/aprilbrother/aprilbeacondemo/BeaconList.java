@@ -61,7 +61,7 @@ public class BeaconList extends Activity {
 		beaconManager = new BeaconManager(this);
 //		beaconManager.setMonitoringExpirationMill(10L);
 //		beaconManager.setRangingExpirationMill(10L);
-//		beaconManager.setForegroundScanPeriod(100, 0);
+		beaconManager.setForegroundScanPeriod(2000, 0);
 		beaconManager.setRangingListener(new RangingListener() {
 
 			@Override
@@ -170,19 +170,17 @@ public class BeaconList extends Activity {
 
 	@Override
 	protected void onDestroy() {
-//		beaconManager.disconnect();
 		super.onDestroy();
 	}
 
 	@Override
 	protected void onStop() {
-		beaconManager.disconnect();
-//		try {
-//			myBeacons.clear();
-//			beaconManager.stopRanging(ALL_BEACONS_REGION);
-//		} catch (RemoteException e) {
-//			Log.d(TAG, "Error while stopping ranging", e);
-//		}
+		try {
+			myBeacons.clear();
+			beaconManager.stopRanging(ALL_BEACONS_REGION);
+		} catch (RemoteException e) {
+			Log.d(TAG, "Error while stopping ranging", e);
+		}
 		super.onStop();
 	}
 }

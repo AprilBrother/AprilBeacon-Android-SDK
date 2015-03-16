@@ -23,9 +23,11 @@ import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics.My
 public class NotifyService extends Service{
 
 	private BeaconManager beaconManager;
-	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
-			null, 65535);
+//	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
+//			null, null);
 	
+	private static final Region ALL_BEACONS_REGION = new Region("apr", "999557e7-23e4-4bed-988a-a02fe47f9888",
+			1, 2);
 //	private static final Region ALL_BEACONS_REGION_TEST = new Region("apr", "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0",
 //			5, 5);
 	
@@ -52,12 +54,12 @@ public class NotifyService extends Service{
 		beaconManager.setMonitoringListener(new MonitoringListener() {
 			
 			@Override
-			public void onExitedRegion(Region arg0) {
+			public void onExitedRegion(Region region) {
 				generateNotification(getApplicationContext()," bye bye see you");
 			}
 			
 			@Override
-			public void onEnteredRegion(Region arg0, List<Beacon> beacons) {
+			public void onEnteredRegion(Region region, List<Beacon> beacons) {
 				generateNotification(getApplicationContext(),"I am come in ! haha !");
 			}
 		});

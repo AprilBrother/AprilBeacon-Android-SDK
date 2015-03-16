@@ -105,7 +105,8 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		password = (EditText) findViewById(R.id.password);
 		
 		String proximityUUID = beacon.getProximityUUID();
-		uuid.setHint(proximityUUID);
+//		uuid.setHint(proximityUUID);
+		uuid.setText(proximityUUID);
 		major.setHint(beacon.getMajor() + "");
 		minor.setHint(beacon.getMinor() + "");
 		measuredPower.setHint(beacon.getMeasuredPower()+"");
@@ -375,7 +376,6 @@ public class ModifyActivity extends Activity implements OnClickListener {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.dismiss();
-
 					}
 				})
 				.setPositiveButton(getResources().getString(R.string.sure), new DialogInterface.OnClickListener() {
@@ -400,11 +400,11 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			int newMinor = Integer.parseInt(minor.getText().toString());
 			conn.writeMinor(newMinor);
 		}
-		if (!TextUtils.isEmpty(measuredPower.getText().toString())) {
-			String strMeasuredPower = measuredPower.getText().toString();
-			int measuredPower = Integer.parseInt(strMeasuredPower);
-			conn.writeMeasuredPower(measuredPower);
-		}
+//		if (!TextUtils.isEmpty(measuredPower.getText().toString())) {
+//			String strMeasuredPower = measuredPower.getText().toString();
+//			int measuredPower = Integer.parseInt(strMeasuredPower);
+//			conn.writeMeasuredPower(measuredPower);
+//		}
 		if (!TextUtils.isEmpty(uuid.getText().toString())) {
 			String newUuid = uuid.getText().toString();
 			conn.writeUUID(newUuid);
@@ -472,16 +472,16 @@ public class ModifyActivity extends Activity implements OnClickListener {
 				});
 			}
 			
-			@Override
-			public void onWriteMeasuredPowerSuccess(final int newMeasuredPower) {
-				ModifyActivity.this.runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						Toast.makeText(
-								ModifyActivity.this,"newMeasuredPower is"+newMeasuredPower, Toast.LENGTH_SHORT).show();
-					}
-				});
-			}
+//			@Override
+//			public void onWriteMeasuredPowerSuccess(final int newMeasuredPower) {
+//				ModifyActivity.this.runOnUiThread(new Runnable() {
+//					@Override
+//					public void run() {
+//						Toast.makeText(
+//								ModifyActivity.this,"newMeasuredPower is"+newMeasuredPower, Toast.LENGTH_SHORT).show();
+//					}
+//				});
+//			}
 
 			@Override
 			public void onErrorOfPassword() {
@@ -515,7 +515,20 @@ public class ModifyActivity extends Activity implements OnClickListener {
 					}
 				});
 			}
+			
+			@Override
+			public void onWriteUUIDSuccess() {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(
+								ModifyActivity.this,"write uuid success", Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+			
 		}, oldPassword);
+		
 	}
 
 	@Override

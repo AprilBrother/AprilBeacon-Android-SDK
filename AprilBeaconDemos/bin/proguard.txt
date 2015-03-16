@@ -1,0 +1,29 @@
+# view AndroidManifest.xml #generated:28
+-keep class com.aprilbrother.aprilbeacondemo.BeaconList { <init>(...); }
+
+# view AndroidManifest.xml #generated:37
+-keep class com.aprilbrother.aprilbeacondemo.ModifyActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:46
+-keep class com.aprilbrother.aprilbeacondemo.NotifyService { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class com.aprilbrother.aprilbeacondemo.RequestActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:43
+-keep class com.aprilbrother.aprilbrothersdk.service.BeaconService { <init>(...); }
+
+# onClick res/layout/activity_modify.xml #generated:287
+# onClick res/layout/activity_modify.xml #generated:321
+# onClick res/layout/activity_modify.xml #generated:355
+-keepclassmembers class * { *** getAdvinterval(...); }
+
+# onClick res/layout/activity_modify.xml #generated:219
+-keepclassmembers class * { *** getBattery(...); }
+
+# onClick res/layout/activity_modify.xml #generated:253
+-keepclassmembers class * { *** getTxPower(...); }
+
+# onClick res/layout/activity_modify.xml #generated:365
+-keepclassmembers class * { *** notify(...); }
+

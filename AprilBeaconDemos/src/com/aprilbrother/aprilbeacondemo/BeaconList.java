@@ -23,17 +23,17 @@ import com.aprilbrother.aprilbrothersdk.BeaconManager.RangingListener;
 import com.aprilbrother.aprilbrothersdk.Region;
 
 /**
- * 搜索展示beacon列表
- * scan beacon show beacon list
+ * 搜索展示beacon列表 scan beacon show beacon list
  */
 public class BeaconList extends Activity {
 	private static final int REQUEST_ENABLE_BT = 1234;
 	private static final String TAG = "BeaconList";
-//	private static final Region ALL_BEACONS_REGION = new Region("", "e2c56db5-dffb-48d2-b060-d0f5a71096e3",
-//			null, null);
-	
+	// private static final Region ALL_BEACONS_REGION = new Region("",
+	// "e2c56db5-dffb-48d2-b060-d0f5a71096e3",
+	// null, null);
+
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
-	null, null);
+			null, null);
 	// private static final Region ALL_BEACONS_REGION = new Region("apr",
 	// "e2c56db5-dffb-48d2-b060-d0f5a71096e0",
 	// 985,211);
@@ -59,20 +59,26 @@ public class BeaconList extends Activity {
 		lv.setAdapter(adapter);
 
 		beaconManager = new BeaconManager(this);
-//		beaconManager.setMonitoringExpirationMill(10L);
-//		beaconManager.setRangingExpirationMill(10L);
+		// beaconManager.setMonitoringExpirationMill(10L);
+		// beaconManager.setRangingExpirationMill(10L);
 		beaconManager.setForegroundScanPeriod(2000, 0);
+
 		beaconManager.setRangingListener(new RangingListener() {
 
 			@Override
 			public void onBeaconsDiscovered(Region region,
 					final List<Beacon> beacons) {
-
-				Log.i(TAG, "rssi = " + beacons.size());
 				myBeacons.clear();
 				myBeacons.addAll(beacons);
-				if (beacons != null && beacons.size() > 0)
-					Log.i(TAG, "rssi = " + beacons.get(0).getRssi());
+				if (beacons != null && beacons.size() > 0) {
+					for (Beacon beacon : beacons) {
+						Log.i(TAG, "mac = " + beacon.getMacAddress()
+								+ "+++major = " + beacon.getMajor()
+								+ "+++minor = " + beacon.getMinor());
+						Log.i(TAG, "power = " + beacon.getPower());
+					}
+					Log.i(TAG, "-------------------------------");
+				}
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
@@ -104,9 +110,14 @@ public class BeaconList extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				Intent intent = new Intent(BeaconList.this,
-						ModifyActivity.class);
 				Beacon beacon = myBeacons.get(arg2);
+				Intent intent;
+				if (beacon.getName().contains("ABSensor")) {
+					intent = new Intent(BeaconList.this, SensorActivity.class);
+				} else {
+					intent = new Intent(BeaconList.this, ModifyActivity.class);
+					
+				}
 				Bundle bundle = new Bundle();
 				bundle.putParcelable("beacon", beacon);
 				intent.putExtras(bundle);
@@ -116,8 +127,7 @@ public class BeaconList extends Activity {
 	}
 
 	/**
-	 * 连接服务 开始搜索beacon
-	 * connect service  start scan beacons
+	 * 连接服务 开始搜索beacon connect service start scan beacons
 	 */
 	private void connectToService() {
 		getActionBar().setSubtitle("Scanning...");
@@ -158,7 +168,6 @@ public class BeaconList extends Activity {
 					Toast.LENGTH_LONG).show();
 			return;
 		}
-
 		if (!beaconManager.isBluetoothEnabled()) {
 			Intent enableBtIntent = new Intent(
 					BluetoothAdapter.ACTION_REQUEST_ENABLE);

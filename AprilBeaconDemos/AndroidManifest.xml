@@ -38,6 +38,11 @@
         </activity>
         <activity android:name="com.aprilbrother.aprilbeacondemo.RequestActivity" >
         </activity>
+        <activity android:name="com.aprilbrother.aprilbeacondemo.ResultActivity" >
+        </activity>
+        <activity android:name="com.aprilbrother.aprilbeacondemo.SensorActivity" >
+        </activity>
+        
 
         <!-- 扫描beacon的服务 -->
         <service

@@ -47,7 +47,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	private EditText uuid;
 	private EditText major;
 	private EditText minor;
-	private EditText measuredPower;
+	private EditText measuredPower, txPower;
 	private EditText password;
 	private Beacon beacon;
 	private EditText et_pwd;
@@ -61,7 +61,8 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	private String oldPassword;
 
 	private Button btn_modify, btn_battery, btn_txpower, btn_advinterval,
-			btn_firmwareRevision, btn_manufacturerName,btn_on,btn_off,btn_notify,btn_on_l,btn_off_l,btn_notify_l;
+			btn_firmwareRevision, btn_manufacturerName, btn_on, btn_off,
+			btn_notify, btn_on_l, btn_off_l, btn_notify_l;
 
 	private AprilBeaconCharacteristics read;
 
@@ -69,7 +70,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
-
+	
 	final String URL_Post = "http://bbs.aprbrother.com";
 	final String URL = "http://bbs.aprbrother.com";
 
@@ -97,30 +98,30 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		AprilL.enableDebugLogging(true);
 		Bundle bundle = getIntent().getExtras();
 		beacon = bundle.getParcelable("beacon");
-		
+
 		uuid = (EditText) findViewById(R.id.uuid);
 		major = (EditText) findViewById(R.id.major);
 		minor = (EditText) findViewById(R.id.minor);
 		measuredPower = (EditText) findViewById(R.id.measuredPower);
 		password = (EditText) findViewById(R.id.password);
-		
+		txPower = (EditText) findViewById(R.id.TxPower);
+
 		String proximityUUID = beacon.getProximityUUID();
-//		uuid.setHint(proximityUUID);
+		// uuid.setHint(proximityUUID);
 		uuid.setText(proximityUUID);
 		major.setHint(beacon.getMajor() + "");
 		minor.setHint(beacon.getMinor() + "");
-		measuredPower.setHint(beacon.getMeasuredPower()+"");
-		
-		ll_absensor = (LinearLayout) findViewById(R.id.ll_absensor);
-		if(beacon.getName()!=null){
-			if(beacon.getName().contains("ABSensor")){
-				ll_absensor.setVisibility(View.VISIBLE);
-			}else{
-				ll_absensor.setVisibility(View.GONE);
-			}
-		}
-		
+		measuredPower.setHint(beacon.getMeasuredPower() + "");
 
+		ll_absensor = (LinearLayout) findViewById(R.id.ll_absensor);
+//		if (beacon.getName() != null) {
+//			if (beacon.getName().contains("ABSensor")) {
+//				ll_absensor.setVisibility(View.VISIBLE);
+//			} else {
+//				ll_absensor.setVisibility(View.GONE);
+//			}
+//		}
+		ll_absensor.setVisibility(View.GONE);
 		tv_battery = (TextView) findViewById(R.id.battery);
 		tv_txpower = (TextView) findViewById(R.id.txpower);
 		tv_advinterval = (TextView) findViewById(R.id.advinterval);
@@ -133,33 +134,31 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		btn_advinterval = (Button) findViewById(R.id.btn_advinterval);
 		btn_firmwareRevision = (Button) findViewById(R.id.btn_firmwareRevision);
 		btn_manufacturerName = (Button) findViewById(R.id.btn_manufacturerName);
-		
+
 		btn_on = (Button) findViewById(R.id.bt_turn_on);
 		btn_on_l = (Button) findViewById(R.id.bt_turn_on_l);
 		btn_off = (Button) findViewById(R.id.bt_turn_off);
 		btn_off_l = (Button) findViewById(R.id.bt_turn_off_l);
 		btn_notify = (Button) findViewById(R.id.bt_notify);
 		btn_notify_l = (Button) findViewById(R.id.bt_notify_l);
-		
+
 		btn_modify.setOnClickListener(this);
 		btn_battery.setOnClickListener(this);
 		btn_txpower.setOnClickListener(this);
 		btn_advinterval.setOnClickListener(this);
 		btn_firmwareRevision.setOnClickListener(this);
 		btn_manufacturerName.setOnClickListener(this);
-		
+
 		btn_on.setOnClickListener(this);
 		btn_on_l.setOnClickListener(this);
 		btn_off.setOnClickListener(this);
 		btn_off_l.setOnClickListener(this);
 		btn_notify.setOnClickListener(this);
 		btn_notify_l.setOnClickListener(this);
-		
-		Button btn_conn = (Button) findViewById(R.id.bt_conn);
-		btn_conn.setOnClickListener(this);
-		
 
-		
+		btn_conn = (Button) findViewById(R.id.bt_conn);
+		btn_conn.setOnClickListener(this);
+
 	}
 
 	@Override
@@ -203,28 +202,29 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.bt_conn:
 			conn = new AprilBeaconConnection(this, beacon);
-			conn.connectGattToWrite(new MyWriteCallback(){
+			conn.connectGattToWrite(new MyWriteCallback() {
 				@Override
 				public void notifyABAcceleration(ABAcceleration abAcceleration) {
 					Log.i(TAG, "-----------------");
-					Log.i(TAG, " x = "+abAcceleration.getX());
-					Log.i(TAG, " y = "+abAcceleration.getY());
-					Log.i(TAG, " z = "+abAcceleration.getZ());
+					Log.i(TAG, " x = " + abAcceleration.getX());
+					Log.i(TAG, " y = " + abAcceleration.getY());
+					Log.i(TAG, " z = " + abAcceleration.getZ());
 					super.notifyABAcceleration(abAcceleration);
 				}
-				
+
 				@Override
 				public void notifyABLight(double light) {
-					Log.i(TAG, "light = "+light);
+					Log.i(TAG, "light = " + light);
 					super.notifyABLight(light);
 				}
-				
+
 				@Override
 				public void connected() {
-					Toast.makeText(ModifyActivity.this, "have connect", 0).show();
+					Toast.makeText(ModifyActivity.this, "have connect", 0)
+							.show();
 					super.connected();
 				}
-				
+
 			}, null);
 			break;
 		default:
@@ -369,28 +369,36 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		View view = (View) LayoutInflater.from(this).inflate(
 				R.layout.dialog_text, null);
 		et_pwd = (EditText) view.findViewById(R.id.et_pwd);
-		new AlertDialog.Builder(ModifyActivity.this).setTitle(getResources().getString(R.string.input_password))
+		et_pwd.setText("AprilBrother");
+
+		new AlertDialog.Builder(ModifyActivity.this)
+				.setTitle(getResources().getString(R.string.input_password))
 				.setView(et_pwd)
-				.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				.setNegativeButton(getResources().getString(R.string.cancel),
+						new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				})
-				.setPositiveButton(getResources().getString(R.string.sure), new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						})
+				.setPositiveButton(getResources().getString(R.string.sure),
+						new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						oldPassword = et_pwd.getText().toString().trim();
-						aprilWrite();
-						dialog.dismiss();
-					}
-				}).create().show();
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								oldPassword = et_pwd.getText().toString()
+										.trim();
+								aprilWrite();
+								dialog.dismiss();
+							}
+						}).create().show();
 	}
 
 	private void aprilWrite() {
-		
+
 		conn = new AprilBeaconConnection(this, beacon);
 		if (!TextUtils.isEmpty(major.getText().toString())) {
 			int newMajor = Integer.parseInt(major.getText().toString());
@@ -400,11 +408,16 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			int newMinor = Integer.parseInt(minor.getText().toString());
 			conn.writeMinor(newMinor);
 		}
-//		if (!TextUtils.isEmpty(measuredPower.getText().toString())) {
-//			String strMeasuredPower = measuredPower.getText().toString();
-//			int measuredPower = Integer.parseInt(strMeasuredPower);
-//			conn.writeMeasuredPower(measuredPower);
-//		}
+		if (!TextUtils.isEmpty(measuredPower.getText().toString())) {
+			String strMeasuredPower = measuredPower.getText().toString();
+			int measuredPower = Integer.parseInt(strMeasuredPower);
+			conn.writeMeasuredPower(measuredPower);
+		}
+		if (!TextUtils.isEmpty(txPower.getText().toString())) {
+			String strTxPower = txPower.getText().toString();
+			int txPower = Integer.parseInt(strTxPower);
+			conn.writeTxPower(txPower);
+		}
 		if (!TextUtils.isEmpty(uuid.getText().toString())) {
 			String newUuid = uuid.getText().toString();
 			conn.writeUUID(newUuid);
@@ -459,6 +472,17 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			}
 
 			@Override
+			public void onWriteTxPowerSuccess() {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(ModifyActivity.this,
+								" wirte TxPower success ", 0).show();
+					}
+				});
+			}
+
+			@Override
 			public void onWriteMajorSuccess(final int oldMajor,
 					final int newMajor) {
 				ModifyActivity.this.runOnUiThread(new Runnable() {
@@ -471,17 +495,19 @@ public class ModifyActivity extends Activity implements OnClickListener {
 					}
 				});
 			}
-			
-//			@Override
-//			public void onWriteMeasuredPowerSuccess(final int newMeasuredPower) {
-//				ModifyActivity.this.runOnUiThread(new Runnable() {
-//					@Override
-//					public void run() {
-//						Toast.makeText(
-//								ModifyActivity.this,"newMeasuredPower is"+newMeasuredPower, Toast.LENGTH_SHORT).show();
-//					}
-//				});
-//			}
+
+			// @Override
+			// public void onWriteMeasuredPowerSuccess(final int
+			// newMeasuredPower) {
+			// ModifyActivity.this.runOnUiThread(new Runnable() {
+			// @Override
+			// public void run() {
+			// Toast.makeText(
+			// ModifyActivity.this,"newMeasuredPower is"+newMeasuredPower,
+			// Toast.LENGTH_SHORT).show();
+			// }
+			// });
+			// }
 
 			@Override
 			public void onErrorOfPassword() {
@@ -515,20 +541,21 @@ public class ModifyActivity extends Activity implements OnClickListener {
 					}
 				});
 			}
-			
+
 			@Override
 			public void onWriteUUIDSuccess() {
 				ModifyActivity.this.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						Toast.makeText(
-								ModifyActivity.this,"write uuid success", Toast.LENGTH_SHORT).show();
+						Toast.makeText(ModifyActivity.this,
+								"write uuid success", Toast.LENGTH_SHORT)
+								.show();
 					}
 				});
 			}
-			
+
 		}, oldPassword);
-		
+
 	}
 
 	@Override
@@ -549,28 +576,32 @@ public class ModifyActivity extends Activity implements OnClickListener {
 	}
 
 	public void notify(View v) {
-		
-		Intent intent = new Intent(ModifyActivity.this,NotifyService.class);
-		startService(intent);
-		
+
+		 Intent intent = new Intent(ModifyActivity.this, NotifyService.class);
+		 startService(intent);
+
 //		beaconManager = new BeaconManager(this);
 //		beaconManager.setMonitoringListener(new MonitoringListener() {
 //
 //			@Override
 //			public void onExitedRegion(Region region) {
-//				Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
-//						.show();
+//				// Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
+//				// .show();
+//				NotificationUtils.generateNotification(ModifyActivity.this,
+//						"bye bye see you", "AprilBeaconDemos");
 //			}
 //
 //			@Override
 //			public void onEnteredRegion(Region region, List<Beacon> beacons) {
 //
-//				Toast.makeText(getApplicationContext(),
-//						"你进入beacon范围 beacons.size =" + beacons.size(), 0)
-//						.show();
-//				// HttpURL();
-//				Intent it = new Intent(Intent.ACTION_VIEW, URI);
-//				startActivity(it);
+//				// Toast.makeText(getApplicationContext(),
+//				// "你进入beacon范围 beacons.size =" + beacons.size(), 0)
+//				// .show();
+//				// // HttpURL();
+//				// Intent it = new Intent(Intent.ACTION_VIEW, URI);
+//				// startActivity(it);
+//				NotificationUtils.generateNotification(ModifyActivity.this,
+//						"i came in", "AprilBeaconDemos");
 //			}
 //		});
 //		beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
@@ -677,7 +708,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		}
 	};
 	private LinearLayout ll_absensor;
-	
+	private Button btn_conn;
 
 	@Override
 	protected void onStop() {

@@ -23,4 +23,11 @@
     <string name="input_password">Input Password</string>
     <string name="cancel">Cancel</string>
     <string name="sure">Sure</string>
+    
+    <string name="codeversed_logo">Codeversed Logo</string>
+    <string name="normal">Normal</string>
+    <string name="big_text_style">Big Text Style</string>
+    <string name="big_picture_style">Big Picture Style</string>
+    <string name="inbox_style">Inbox Style</string>
+    <string name="custom_view">Custom View</string>
 </resources>

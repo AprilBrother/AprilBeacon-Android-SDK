@@ -28,19 +28,8 @@ import com.aprilbrother.aprilbrothersdk.Region;
 public class BeaconList extends Activity {
 	private static final int REQUEST_ENABLE_BT = 1234;
 	private static final String TAG = "BeaconList";
-	// private static final Region ALL_BEACONS_REGION = new Region("",
-	// "e2c56db5-dffb-48d2-b060-d0f5a71096e3",
-	// null, null);
-
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
-	// private static final Region ALL_BEACONS_REGION = new Region("apr",
-	// "e2c56db5-dffb-48d2-b060-d0f5a71096e0",
-	// 985,211);
-	// 扫描所有uuid为"aa000000-0000-0000-0000-000000000000"的beacon
-	// private static final Region ALL_BEACONS_REGION = new Region("apr",
-	// "aa000000-0000-0000-0000-000000000000",
-	// null, null);
 	private BeaconAdapter adapter;
 	private BeaconManager beaconManager;
 	private ArrayList<Beacon> myBeacons;
@@ -59,8 +48,6 @@ public class BeaconList extends Activity {
 		lv.setAdapter(adapter);
 
 		beaconManager = new BeaconManager(this);
-		// beaconManager.setMonitoringExpirationMill(10L);
-		// beaconManager.setRangingExpirationMill(10L);
 		beaconManager.setForegroundScanPeriod(2000, 0);
 
 		beaconManager.setRangingListener(new RangingListener() {
@@ -89,20 +76,6 @@ public class BeaconList extends Activity {
 						adapter.replaceWith(myBeacons);
 					}
 				});
-			}
-		});
-
-		beaconManager.setMonitoringListener(new MonitoringListener() {
-
-			@Override
-			public void onExitedRegion(Region arg0) {
-				Toast.makeText(BeaconList.this, "Notify in", 0).show();
-
-			}
-
-			@Override
-			public void onEnteredRegion(Region arg0, List<Beacon> arg1) {
-				Toast.makeText(BeaconList.this, "Notify out", 0).show();
 			}
 		});
 
@@ -137,7 +110,6 @@ public class BeaconList extends Activity {
 			public void onServiceReady() {
 				try {
 					beaconManager.startRanging(ALL_BEACONS_REGION);
-					// beaconManager.startMonitoring(ALL_BEACONS_REGION);
 				} catch (RemoteException e) {
 
 				}

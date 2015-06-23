@@ -48,6 +48,11 @@
         <service
             android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
             android:exported="false" />
+        
+        <!-- 修改省电王需要配置的服务 -->
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
+            android:exported="false" />
         <service
             android:name="com.aprilbrother.aprilbeacondemo.NotifyService"
             android:exported="false" >

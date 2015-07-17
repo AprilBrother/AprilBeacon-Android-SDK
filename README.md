@@ -19,6 +19,9 @@ You can scan beacon and modify beacon
  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
  <service android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
          android:exported="false"/>
+<!--support modify abeacon  -->
+ <service android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
+          android:exported="false" />
 ```
 
 ## Precautions

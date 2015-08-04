@@ -24,6 +24,12 @@ You can scan beacon and modify beacon
           android:exported="false" />
 ```
 
+
 ## Precautions
 * If you want to use change the characteristic you should make sure that our beacon's hardware is above 2.0
 * the default password is AprilBrother
+
+## Proguard
+*-libraryjars libs/ab-sdk-beta1.6.1.jar
+*-keep class com.aprilbrother.aprilbrothersdk.**
+*-keep class com.aprilbrother.aprilbrothersdk.Utils{*;}

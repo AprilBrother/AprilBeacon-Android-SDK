@@ -30,6 +30,6 @@ You can scan beacon and modify beacon
 * the default password is AprilBrother
 
 ## Proguard
-*-libraryjars libs/ab-sdk-beta1.6.1.jar
-*-keep class com.aprilbrother.aprilbrothersdk.**
-*-keep class com.aprilbrother.aprilbrothersdk.Utils{*;}
+* -libraryjars libs/ab-sdk-beta1.6.1.jar
+* -keep class com.aprilbrother.aprilbrothersdk.**
+* -keep class com.aprilbrother.aprilbrothersdk.Utils{*;}

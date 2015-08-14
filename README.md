@@ -17,9 +17,14 @@ You can scan beacon and modify beacon
 ```
  <uses-permission android:name="android.permission.BLUETOOTH"/>
  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+ <!-- 声明应用需要使用设备的蓝牙BLE -->
+ <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
  <service android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
          android:exported="false"/>
-<!--support modify abeacon with sdk1.6.0 -->
+ <!--support modify abeacon with sdk1.6.0 -->
  <service android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
           android:exported="false" />
 ```

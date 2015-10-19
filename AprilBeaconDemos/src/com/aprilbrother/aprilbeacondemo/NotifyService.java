@@ -29,8 +29,8 @@ import com.aprilbrother.aprilbrothersdk.Region;
 public class NotifyService extends Service {
 	private final static String sample_url = "http://codeversed.com/androidifysteve.png";
 	private BeaconManager beaconManager;
-	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
-			null, null);
+//	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
+//			null, null);
 
 	// private static final Region ALL_BEACONS_REGION = new Region("apr",
 	// "b9407f30-f5f8-466e-aff9-25556b57fe6d",54910,27038);
@@ -42,6 +42,9 @@ public class NotifyService extends Service {
 	// private static final Region ALL_BEACONS_REGION_TEST = new Region("apr",
 	// "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0",
 	// 5, 5);
+	 private static final Region ALL_BEACONS_REGION = new Region("apr",
+	 "FDA50693-A4E2-4FB1-AFCF-C6EB07647825",
+	 555, 566);
 
 	public static final int READ_BATTERY = 0;
 
@@ -79,9 +82,10 @@ public class NotifyService extends Service {
 			@Override
 			public void onEnteredRegion(Region region, List<Beacon> beacons) {
 				Log.i("Test", "onEnteredRegion");
-				 generateNotification(getApplicationContext(),
-				 "I am come in ! haha !");
+				generateNotification(getApplicationContext(),
+						"I am come in ! haha !");
 				// new CreateNotification("I am come in ! haha !").execute();
+//				new NetAsyncTask().execute();
 			}
 		});
 		super.onCreate();

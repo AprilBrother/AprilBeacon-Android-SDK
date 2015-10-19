@@ -1,10 +1,16 @@
 # view AndroidManifest.xml #generated:28
 -keep class com.aprilbrother.aprilbeacondemo.BeaconList { <init>(...); }
 
+# view AndroidManifest.xml #generated:47
+-keep class com.aprilbrother.aprilbeacondemo.EddyStoneModifyActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:45
+-keep class com.aprilbrother.aprilbeacondemo.EddyStoneScanActivity { <init>(...); }
+
 # view AndroidManifest.xml #generated:37
 -keep class com.aprilbrother.aprilbeacondemo.ModifyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:51
+# view AndroidManifest.xml #generated:62
 -keep class com.aprilbrother.aprilbeacondemo.NotifyService { <init>(...); }
 
 # view AndroidManifest.xml #generated:39
@@ -16,8 +22,14 @@
 # view AndroidManifest.xml #generated:43
 -keep class com.aprilbrother.aprilbeacondemo.SensorActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:48
+# view AndroidManifest.xml #generated:52
 -keep class com.aprilbrother.aprilbrothersdk.service.BeaconService { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.aprilbrother.aprilbrothersdk.services.ABeaconUartService { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class com.aprilbrother.aprilbrothersdk.services.UartService { <init>(...); }
 
 # onClick res/layout/activity_modify.xml #generated:303
 # onClick res/layout/activity_modify.xml #generated:337

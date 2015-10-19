@@ -1,0 +1,2047 @@
+android.support.v4.app.ActivityCompatHoneycomb -> android.support.v4.app.a:
+    void invalidateOptionsMenu(android.app.Activity) -> a
+android.support.v4.app.BackStackRecord -> android.support.v4.app.b:
+    android.support.v4.app.FragmentManagerImpl mManager -> a
+    android.support.v4.app.BackStackRecord$Op mHead -> b
+    android.support.v4.app.BackStackRecord$Op mTail -> c
+    int mNumOp -> d
+    int mEnterAnim -> e
+    int mExitAnim -> f
+    int mPopEnterAnim -> g
+    int mPopExitAnim -> h
+    int mTransition -> i
+    int mTransitionStyle -> j
+    boolean mAddToBackStack -> k
+    boolean mAllowAddToBackStack -> l
+    java.lang.String mName -> m
+    boolean mCommitted -> n
+    int mIndex -> o
+    int mBreadCrumbTitleRes -> p
+    java.lang.CharSequence mBreadCrumbTitleText -> q
+    int mBreadCrumbShortTitleRes -> r
+    java.lang.CharSequence mBreadCrumbShortTitleText -> s
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    void dump(java.lang.String,java.io.PrintWriter,boolean) -> a
+    void addOp(android.support.v4.app.BackStackRecord$Op) -> a
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
+    void doAddOp(int,android.support.v4.app.Fragment,java.lang.String,int) -> a
+    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> b
+    void bumpBackStackNesting(int) -> a
+    int commit() -> a
+    int commitInternal(boolean) -> a
+    void run() -> run
+    void popFromBackStack(boolean) -> b
+    java.lang.String getName() -> b
+android.support.v4.app.BackStackRecord$Op -> android.support.v4.app.c:
+    android.support.v4.app.BackStackRecord$Op next -> a
+    android.support.v4.app.BackStackRecord$Op prev -> b
+    int cmd -> c
+    android.support.v4.app.Fragment fragment -> d
+    int enterAnim -> e
+    int exitAnim -> f
+    int popEnterAnim -> g
+    int popExitAnim -> h
+    java.util.ArrayList removed -> i
+android.support.v4.app.BackStackState -> android.support.v4.app.BackStackState:
+    int[] mOps -> a
+    int mTransition -> b
+    int mTransitionStyle -> c
+    java.lang.String mName -> d
+    int mIndex -> e
+    int mBreadCrumbTitleRes -> f
+    java.lang.CharSequence mBreadCrumbTitleText -> g
+    int mBreadCrumbShortTitleRes -> h
+    java.lang.CharSequence mBreadCrumbShortTitleText -> i
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    android.support.v4.app.BackStackRecord instantiate(android.support.v4.app.FragmentManagerImpl) -> a
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.BackStackState$1 -> android.support.v4.app.d:
+    android.support.v4.app.BackStackState createFromParcel(android.os.Parcel) -> a
+    android.support.v4.app.BackStackState[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
+    java.util.HashMap sClassMap -> P
+    int mState -> a
+    android.view.View mAnimatingAway -> b
+    int mStateAfterAnimating -> c
+    android.os.Bundle mSavedFragmentState -> d
+    android.util.SparseArray mSavedViewState -> e
+    int mIndex -> f
+    java.lang.String mWho -> g
+    android.os.Bundle mArguments -> h
+    android.support.v4.app.Fragment mTarget -> i
+    int mTargetIndex -> j
+    int mTargetRequestCode -> k
+    boolean mAdded -> l
+    boolean mRemoving -> m
+    boolean mResumed -> n
+    boolean mFromLayout -> o
+    boolean mInLayout -> p
+    boolean mRestored -> q
+    int mBackStackNesting -> r
+    android.support.v4.app.FragmentManagerImpl mFragmentManager -> s
+    android.support.v4.app.FragmentActivity mActivity -> t
+    android.support.v4.app.FragmentManagerImpl mChildFragmentManager -> u
+    android.support.v4.app.Fragment mParentFragment -> v
+    int mFragmentId -> w
+    int mContainerId -> x
+    java.lang.String mTag -> y
+    boolean mHidden -> z
+    boolean mDetached -> A
+    boolean mRetainInstance -> B
+    boolean mRetaining -> C
+    boolean mHasMenu -> D
+    boolean mMenuVisible -> E
+    boolean mCalled -> F
+    int mNextAnim -> G
+    android.view.ViewGroup mContainer -> H
+    android.view.View mView -> I
+    android.view.View mInnerView -> J
+    boolean mDeferStart -> K
+    boolean mUserVisibleHint -> L
+    android.support.v4.app.LoaderManagerImpl mLoaderManager -> M
+    boolean mLoadersStarted -> N
+    boolean mCheckedForLoaderManager -> O
+    android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String) -> a
+    android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle) -> a
+    void restoreViewState(android.os.Bundle) -> a
+    void setIndex(int,android.support.v4.app.Fragment) -> a
+    boolean isInBackStack() -> a
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    android.support.v4.app.FragmentActivity getActivity() -> b
+    android.content.res.Resources getResources() -> c
+    boolean isDetached() -> d
+    void onHiddenChanged(boolean) -> a
+    void onActivityResult(int,int,android.content.Intent) -> a
+    android.view.LayoutInflater getLayoutInflater(android.os.Bundle) -> b
+    void onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle) -> a
+    void onAttach(android.app.Activity) -> a
+    android.view.animation.Animation onCreateAnimation(int,boolean,int) -> a
+    void onCreate(android.os.Bundle) -> c
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    void onViewCreated(android.view.View,android.os.Bundle) -> a
+    void onActivityCreated(android.os.Bundle) -> d
+    void onViewStateRestored(android.os.Bundle) -> e
+    void onStart() -> e
+    void onResume() -> f
+    void onSaveInstanceState(android.os.Bundle) -> f
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onPause() -> g
+    void onStop() -> h
+    void onLowMemory() -> onLowMemory
+    void onDestroyView() -> i
+    void onDestroy() -> j
+    void initState() -> k
+    void onDetach() -> l
+    void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
+    void onPrepareOptionsMenu(android.view.Menu) -> a
+    void onDestroyOptionsMenu() -> m
+    boolean onOptionsItemSelected(android.view.MenuItem) -> a
+    void onOptionsMenuClosed(android.view.Menu) -> b
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> b
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    void instantiateChildFragmentManager() -> n
+    void performCreate(android.os.Bundle) -> g
+    android.view.View performCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> b
+    void performActivityCreated(android.os.Bundle) -> h
+    void performStart() -> o
+    void performResume() -> p
+    void performConfigurationChanged(android.content.res.Configuration) -> a
+    void performLowMemory() -> q
+    boolean performCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> b
+    boolean performPrepareOptionsMenu(android.view.Menu) -> c
+    boolean performOptionsItemSelected(android.view.MenuItem) -> c
+    boolean performContextItemSelected(android.view.MenuItem) -> d
+    void performOptionsMenuClosed(android.view.Menu) -> d
+    void performSaveInstanceState(android.os.Bundle) -> i
+    void performPause() -> r
+    void performStop() -> s
+    void performReallyStop() -> t
+    void performDestroyView() -> u
+    void performDestroy() -> v
+android.support.v4.app.Fragment$1 -> android.support.v4.app.e:
+    android.support.v4.app.Fragment this$0 -> a
+    android.view.View findViewById(int) -> a
+android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.f:
+android.support.v4.app.Fragment$SavedState -> android.support.v4.app.Fragment$SavedState:
+    android.os.Bundle mState -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.g:
+    android.support.v4.app.Fragment$SavedState createFromParcel(android.os.Parcel) -> a
+    android.support.v4.app.Fragment$SavedState[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentActivity -> android.support.v4.app.h:
+    android.os.Handler mHandler -> a
+    android.support.v4.app.FragmentManagerImpl mFragments -> b
+    android.support.v4.app.FragmentContainer mContainer -> c
+    boolean mCreated -> d
+    boolean mResumed -> e
+    boolean mStopped -> f
+    boolean mReallyStopped -> g
+    boolean mRetaining -> h
+    boolean mOptionsMenuInvalidated -> i
+    boolean mCheckedForLoaderManager -> j
+    boolean mLoadersStarted -> k
+    java.util.HashMap mAllLoaderManagers -> l
+    android.support.v4.app.LoaderManagerImpl mLoaderManager -> m
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onBackPressed() -> onBackPressed
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreatePanelMenu(int,android.view.Menu) -> onCreatePanelMenu
+    android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet) -> onCreateView
+    void onDestroy() -> onDestroy
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void onLowMemory() -> onLowMemory
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onPanelClosed(int,android.view.Menu) -> onPanelClosed
+    void onPause() -> onPause
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onResume() -> onResume
+    void onPostResume() -> onPostResume
+    void onResumeFragments() -> a
+    boolean onPreparePanel(int,android.view.View,android.view.Menu) -> onPreparePanel
+    java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
+    void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    void onStart() -> onStart
+    void onStop() -> onStop
+    java.lang.Object onRetainCustomNonConfigurationInstance() -> b
+    void supportInvalidateOptionsMenu() -> c
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> dump
+    java.lang.String viewToString(android.view.View) -> a
+    void dumpViewHierarchy(java.lang.String,java.io.PrintWriter,android.view.View) -> a
+    void doReallyStop(boolean) -> a
+    void onReallyStop() -> d
+    void onAttachFragment(android.support.v4.app.Fragment) -> a
+    void startActivityForResult(android.content.Intent,int) -> startActivityForResult
+    void invalidateSupportFragment(java.lang.String) -> a
+    android.support.v4.app.LoaderManagerImpl getLoaderManager(java.lang.String,boolean,boolean) -> a
+android.support.v4.app.FragmentActivity$FragmentTag -> android.support.v4.app.i:
+    int[] Fragment -> a
+android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.j:
+    java.lang.Object activity -> a
+    java.lang.Object custom -> b
+    java.util.HashMap children -> c
+    java.util.ArrayList fragments -> d
+    java.util.HashMap loaders -> e
+android.support.v4.app.FragmentContainer -> android.support.v4.app.k:
+    android.view.View findViewById(int) -> a
+android.support.v4.app.FragmentManager -> android.support.v4.app.l:
+    android.support.v4.app.FragmentTransaction beginTransaction() -> a
+    boolean executePendingTransactions() -> b
+    android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
+android.support.v4.app.FragmentManager$OnBackStackChangedListener -> android.support.v4.app.m:
+    void onBackStackChanged() -> a
+android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.n:
+    boolean DEBUG -> a
+    boolean HONEYCOMB -> b
+    java.util.ArrayList mPendingActions -> c
+    java.lang.Runnable[] mTmpActions -> d
+    boolean mExecutingActions -> e
+    java.util.ArrayList mActive -> f
+    java.util.ArrayList mAdded -> g
+    java.util.ArrayList mAvailIndices -> h
+    java.util.ArrayList mBackStack -> i
+    java.util.ArrayList mCreatedMenus -> j
+    java.util.ArrayList mBackStackIndices -> k
+    java.util.ArrayList mAvailBackStackIndices -> l
+    java.util.ArrayList mBackStackChangeListeners -> m
+    int mCurState -> n
+    android.support.v4.app.FragmentActivity mActivity -> o
+    android.support.v4.app.FragmentContainer mContainer -> p
+    android.support.v4.app.Fragment mParent -> q
+    boolean mNeedMenuInvalidate -> r
+    boolean mStateSaved -> s
+    boolean mDestroyed -> t
+    java.lang.String mNoTransactionsBecause -> u
+    boolean mHavePendingDeferredStart -> v
+    android.os.Bundle mStateBundle -> w
+    android.util.SparseArray mStateArray -> x
+    java.lang.Runnable mExecCommit -> y
+    android.view.animation.Interpolator DECELERATE_QUINT -> z
+    android.view.animation.Interpolator DECELERATE_CUBIC -> A
+    android.view.animation.Interpolator ACCELERATE_QUINT -> B
+    android.view.animation.Interpolator ACCELERATE_CUBIC -> C
+    void throwException(java.lang.RuntimeException) -> a
+    android.support.v4.app.FragmentTransaction beginTransaction() -> a
+    boolean executePendingTransactions() -> b
+    boolean popBackStackImmediate() -> c
+    void putFragment(android.os.Bundle,java.lang.String,android.support.v4.app.Fragment) -> a
+    android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String) -> a
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    android.view.animation.Animation makeOpenCloseAnimation(android.content.Context,float,float,float,float) -> a
+    android.view.animation.Animation makeFadeAnimation(android.content.Context,float,float) -> a
+    android.view.animation.Animation loadAnimation(android.support.v4.app.Fragment,int,boolean,int) -> a
+    void performPendingDeferredStart(android.support.v4.app.Fragment) -> a
+    void moveToState(android.support.v4.app.Fragment,int,int,int,boolean) -> a
+    void moveToState(android.support.v4.app.Fragment) -> b
+    void moveToState(int,boolean) -> a
+    void moveToState(int,int,int,boolean) -> a
+    void startPendingDeferredFragments() -> d
+    void makeActive(android.support.v4.app.Fragment) -> c
+    void makeInactive(android.support.v4.app.Fragment) -> d
+    void addFragment(android.support.v4.app.Fragment,boolean) -> a
+    void removeFragment(android.support.v4.app.Fragment,int,int) -> a
+    void hideFragment(android.support.v4.app.Fragment,int,int) -> b
+    void showFragment(android.support.v4.app.Fragment,int,int) -> c
+    void detachFragment(android.support.v4.app.Fragment,int,int) -> d
+    void attachFragment(android.support.v4.app.Fragment,int,int) -> e
+    android.support.v4.app.Fragment findFragmentById(int) -> a
+    android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
+    void checkStateLoss() -> t
+    void enqueueAction(java.lang.Runnable,boolean) -> a
+    int allocBackStackIndex(android.support.v4.app.BackStackRecord) -> a
+    void setBackStackIndex(int,android.support.v4.app.BackStackRecord) -> a
+    void freeBackStackIndex(int) -> b
+    boolean execPendingActions() -> e
+    void reportBackStackChanged() -> f
+    void addBackStackState(android.support.v4.app.BackStackRecord) -> b
+    boolean popBackStackState(android.os.Handler,java.lang.String,int,int) -> a
+    java.util.ArrayList retainNonConfig() -> g
+    void saveFragmentViewState(android.support.v4.app.Fragment) -> e
+    android.os.Bundle saveFragmentBasicState(android.support.v4.app.Fragment) -> f
+    android.os.Parcelable saveAllState() -> h
+    void restoreAllState(android.os.Parcelable,java.util.ArrayList) -> a
+    void attachActivity(android.support.v4.app.FragmentActivity,android.support.v4.app.FragmentContainer,android.support.v4.app.Fragment) -> a
+    void noteStateNotSaved() -> i
+    void dispatchCreate() -> j
+    void dispatchActivityCreated() -> k
+    void dispatchStart() -> l
+    void dispatchResume() -> m
+    void dispatchPause() -> n
+    void dispatchStop() -> o
+    void dispatchReallyStop() -> p
+    void dispatchDestroyView() -> q
+    void dispatchDestroy() -> r
+    void dispatchConfigurationChanged(android.content.res.Configuration) -> a
+    void dispatchLowMemory() -> s
+    boolean dispatchCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
+    boolean dispatchPrepareOptionsMenu(android.view.Menu) -> a
+    boolean dispatchOptionsItemSelected(android.view.MenuItem) -> a
+    boolean dispatchContextItemSelected(android.view.MenuItem) -> b
+    void dispatchOptionsMenuClosed(android.view.Menu) -> b
+    int reverseTransit(int) -> c
+    int transitToStyleIndex(int,boolean) -> b
+android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.o:
+    android.support.v4.app.FragmentManagerImpl this$0 -> a
+    void run() -> run
+android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.p:
+    android.support.v4.app.Fragment val$fragment -> a
+    android.support.v4.app.FragmentManagerImpl this$0 -> b
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+android.support.v4.app.FragmentManagerState -> android.support.v4.app.FragmentManagerState:
+    android.support.v4.app.FragmentState[] mActive -> a
+    int[] mAdded -> b
+    android.support.v4.app.BackStackState[] mBackStack -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.q:
+    android.support.v4.app.FragmentManagerState createFromParcel(android.os.Parcel) -> a
+    android.support.v4.app.FragmentManagerState[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentState -> android.support.v4.app.FragmentState:
+    java.lang.String mClassName -> a
+    int mIndex -> b
+    boolean mFromLayout -> c
+    int mFragmentId -> d
+    int mContainerId -> e
+    java.lang.String mTag -> f
+    boolean mRetainInstance -> g
+    boolean mDetached -> h
+    android.os.Bundle mArguments -> i
+    android.os.Bundle mSavedFragmentState -> j
+    android.support.v4.app.Fragment mInstance -> k
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    android.support.v4.app.Fragment instantiate(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment) -> a
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.FragmentState$1 -> android.support.v4.app.r:
+    android.support.v4.app.FragmentState createFromParcel(android.os.Parcel) -> a
+    android.support.v4.app.FragmentState[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentTabHost -> android.support.v4.app.FragmentTabHost:
+    java.util.ArrayList mTabs -> a
+    android.content.Context mContext -> b
+    android.support.v4.app.FragmentManager mFragmentManager -> c
+    int mContainerId -> d
+    android.widget.TabHost$OnTabChangeListener mOnTabChangeListener -> e
+    android.support.v4.app.FragmentTabHost$TabInfo mLastTab -> f
+    boolean mAttached -> g
+    void setup() -> setup
+    void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener) -> setOnTabChangedListener
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void onTabChanged(java.lang.String) -> onTabChanged
+    android.support.v4.app.FragmentTransaction doTabChanged(java.lang.String,android.support.v4.app.FragmentTransaction) -> a
+android.support.v4.app.FragmentTabHost$1 -> android.support.v4.app.s:
+android.support.v4.app.FragmentTabHost$SavedState -> android.support.v4.app.FragmentTabHost$SavedState:
+    java.lang.String curTab -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    java.lang.String toString() -> toString
+android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.t:
+    android.support.v4.app.FragmentTabHost$SavedState createFromParcel(android.os.Parcel) -> a
+    android.support.v4.app.FragmentTabHost$SavedState[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.u:
+    java.lang.String tag -> a
+    java.lang.Class clss -> b
+    android.os.Bundle args -> c
+    android.support.v4.app.Fragment fragment -> d
+    android.support.v4.app.Fragment access$102(android.support.v4.app.FragmentTabHost$TabInfo,android.support.v4.app.Fragment) -> a
+    android.support.v4.app.Fragment access$100(android.support.v4.app.FragmentTabHost$TabInfo) -> a
+    java.lang.String access$200(android.support.v4.app.FragmentTabHost$TabInfo) -> b
+    java.lang.Class access$300(android.support.v4.app.FragmentTabHost$TabInfo) -> c
+    android.os.Bundle access$400(android.support.v4.app.FragmentTabHost$TabInfo) -> d
+android.support.v4.app.FragmentTransaction -> android.support.v4.app.v:
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
+    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> b
+    int commit() -> a
+android.support.v4.app.LoaderManager -> android.support.v4.app.w:
+    boolean hasRunningLoaders() -> a
+android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.x:
+    android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
+    void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
+    void onLoaderReset(android.support.v4.content.Loader) -> a
+android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.y:
+    boolean DEBUG -> a
+    android.support.v4.util.SparseArrayCompat mLoaders -> b
+    android.support.v4.util.SparseArrayCompat mInactiveLoaders -> c
+    java.lang.String mWho -> d
+    android.support.v4.app.FragmentActivity mActivity -> e
+    boolean mStarted -> f
+    boolean mRetaining -> g
+    void updateActivity(android.support.v4.app.FragmentActivity) -> a
+    void doStart() -> b
+    void doStop() -> c
+    void doRetain() -> d
+    void finishRetain() -> e
+    void doReportNextStart() -> f
+    void doReportStart() -> g
+    void doDestroy() -> h
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    boolean hasRunningLoaders() -> a
+android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.z:
+    int mId -> a
+    android.os.Bundle mArgs -> b
+    android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks -> c
+    android.support.v4.content.Loader mLoader -> d
+    boolean mHaveData -> e
+    boolean mDeliveredData -> f
+    java.lang.Object mData -> g
+    boolean mStarted -> h
+    boolean mRetaining -> i
+    boolean mRetainingStarted -> j
+    boolean mReportNextStart -> k
+    boolean mDestroyed -> l
+    boolean mListenerRegistered -> m
+    android.support.v4.app.LoaderManagerImpl$LoaderInfo mPendingLoader -> n
+    android.support.v4.app.LoaderManagerImpl this$0 -> o
+    void start() -> a
+    void retain() -> b
+    void finishRetain() -> c
+    void reportStart() -> d
+    void stop() -> e
+    void destroy() -> f
+    void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.aa:
+    android.view.ViewGroup wrap(android.view.View) -> a
+    void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
+    void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
+android.support.v4.app.NotificationCompat -> android.support.v4.app.ab:
+    android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL -> a
+    android.support.v4.app.NotificationCompat$NotificationCompatImpl access$000() -> a
+android.support.v4.app.NotificationCompat$Action -> android.support.v4.app.ac:
+    int icon -> a
+    java.lang.CharSequence title -> b
+    android.app.PendingIntent actionIntent -> c
+android.support.v4.app.NotificationCompat$BigPictureStyle -> android.support.v4.app.ad:
+    android.graphics.Bitmap mPicture -> a
+android.support.v4.app.NotificationCompat$BigTextStyle -> android.support.v4.app.ae:
+    java.lang.CharSequence mBigText -> a
+android.support.v4.app.NotificationCompat$Builder -> android.support.v4.app.af:
+    android.content.Context mContext -> a
+    java.lang.CharSequence mContentTitle -> b
+    java.lang.CharSequence mContentText -> c
+    android.app.PendingIntent mContentIntent -> d
+    android.app.PendingIntent mFullScreenIntent -> e
+    android.widget.RemoteViews mTickerView -> f
+    android.graphics.Bitmap mLargeIcon -> g
+    java.lang.CharSequence mContentInfo -> h
+    int mNumber -> i
+    int mPriority -> j
+    boolean mUseChronometer -> k
+    android.support.v4.app.NotificationCompat$Style mStyle -> l
+    java.lang.CharSequence mSubText -> m
+    int mProgressMax -> n
+    int mProgress -> o
+    boolean mProgressIndeterminate -> p
+    java.util.ArrayList mActions -> q
+    android.app.Notification mNotification -> r
+    android.support.v4.app.NotificationCompat$Builder setWhen(long) -> a
+    android.support.v4.app.NotificationCompat$Builder setSmallIcon(int) -> a
+    android.support.v4.app.NotificationCompat$Builder setContentTitle(java.lang.CharSequence) -> a
+    android.support.v4.app.NotificationCompat$Builder setContentText(java.lang.CharSequence) -> b
+    android.support.v4.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent) -> a
+    android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence) -> c
+    android.support.v4.app.NotificationCompat$Builder setAutoCancel(boolean) -> a
+    void setFlag(int,boolean) -> a
+    android.app.Notification build() -> a
+android.support.v4.app.NotificationCompat$InboxStyle -> android.support.v4.app.ag:
+    java.util.ArrayList mTexts -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImpl -> android.support.v4.app.ah:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase -> android.support.v4.app.ai:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb -> android.support.v4.app.aj:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich -> android.support.v4.app.ak:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean -> android.support.v4.app.al:
+    android.app.Notification build(android.support.v4.app.NotificationCompat$Builder) -> a
+android.support.v4.app.NotificationCompat$Style -> android.support.v4.app.am:
+    java.lang.CharSequence mBigContentTitle -> b
+    java.lang.CharSequence mSummaryText -> c
+    boolean mSummaryTextSet -> d
+android.support.v4.app.NotificationCompatHoneycomb -> android.support.v4.app.an:
+    android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap) -> a
+android.support.v4.app.NotificationCompatIceCreamSandwich -> android.support.v4.app.ao:
+    android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean) -> a
+android.support.v4.app.NotificationCompatJellybean -> android.support.v4.app.ap:
+    android.app.Notification$Builder b -> a
+    void addAction(int,java.lang.CharSequence,android.app.PendingIntent) -> a
+    void addBigTextStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.lang.CharSequence) -> a
+    void addBigPictureStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,android.graphics.Bitmap) -> a
+    void addInboxStyle(java.lang.CharSequence,boolean,java.lang.CharSequence,java.util.ArrayList) -> a
+    android.app.Notification build() -> a
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.aq:
+android.support.v4.content.Loader -> android.support.v4.a.a:
+    int mId -> a
+    android.support.v4.content.Loader$OnLoadCompleteListener mListener -> b
+    boolean mStarted -> c
+    boolean mAbandoned -> d
+    boolean mReset -> e
+    boolean mContentChanged -> f
+    void registerListener(int,android.support.v4.content.Loader$OnLoadCompleteListener) -> a
+    void unregisterListener(android.support.v4.content.Loader$OnLoadCompleteListener) -> a
+    void startLoading() -> a
+    void onStartLoading() -> b
+    void stopLoading() -> c
+    void onStopLoading() -> d
+    void reset() -> e
+    void onReset() -> f
+    java.lang.String dataToString(java.lang.Object) -> a
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+android.support.v4.content.Loader$OnLoadCompleteListener -> android.support.v4.a.b:
+android.support.v4.content.LocalBroadcastManager -> android.support.v4.a.c:
+    android.content.Context mAppContext -> a
+    java.util.HashMap mReceivers -> b
+    java.util.HashMap mActions -> c
+    java.util.ArrayList mPendingBroadcasts -> d
+    android.os.Handler mHandler -> e
+    java.lang.Object mLock -> f
+    android.support.v4.content.LocalBroadcastManager mInstance -> g
+    android.support.v4.content.LocalBroadcastManager getInstance(android.content.Context) -> a
+    void registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter) -> a
+    void unregisterReceiver(android.content.BroadcastReceiver) -> a
+    boolean sendBroadcast(android.content.Intent) -> a
+    void executePendingBroadcasts() -> a
+    void access$000(android.support.v4.content.LocalBroadcastManager) -> a
+android.support.v4.content.LocalBroadcastManager$1 -> android.support.v4.a.d:
+    android.support.v4.content.LocalBroadcastManager this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+android.support.v4.content.LocalBroadcastManager$BroadcastRecord -> android.support.v4.a.e:
+    android.content.Intent intent -> a
+    java.util.ArrayList receivers -> b
+android.support.v4.content.LocalBroadcastManager$ReceiverRecord -> android.support.v4.a.f:
+    android.content.IntentFilter filter -> a
+    android.content.BroadcastReceiver receiver -> b
+    boolean broadcasting -> c
+    java.lang.String toString() -> toString
+android.support.v4.os.ParcelableCompat -> android.support.v4.b.a:
+    android.os.Parcelable$Creator newCreator(android.support.v4.os.ParcelableCompatCreatorCallbacks) -> a
+android.support.v4.os.ParcelableCompat$CompatCreator -> android.support.v4.b.b:
+    android.support.v4.os.ParcelableCompatCreatorCallbacks mCallbacks -> a
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+android.support.v4.os.ParcelableCompatCreatorCallbacks -> android.support.v4.b.c:
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> a
+    java.lang.Object[] newArray(int) -> a
+android.support.v4.os.ParcelableCompatCreatorHoneycombMR2 -> android.support.v4.b.d:
+    android.support.v4.os.ParcelableCompatCreatorCallbacks mCallbacks -> a
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+android.support.v4.os.ParcelableCompatCreatorHoneycombMR2Stub -> android.support.v4.b.e:
+    android.os.Parcelable$Creator instantiate(android.support.v4.os.ParcelableCompatCreatorCallbacks) -> a
+android.support.v4.util.DebugUtils -> android.support.v4.c.a:
+    void buildShortClassTag(java.lang.Object,java.lang.StringBuilder) -> a
+android.support.v4.util.LogWriter -> android.support.v4.c.b:
+    java.lang.String mTag -> a
+    java.lang.StringBuilder mBuilder -> b
+    void close() -> close
+    void flush() -> flush
+    void write(char[],int,int) -> write
+    void flushBuilder() -> a
+android.support.v4.util.SparseArrayCompat -> android.support.v4.c.c:
+    java.lang.Object DELETED -> a
+    boolean mGarbage -> b
+    int[] mKeys -> c
+    java.lang.Object[] mValues -> d
+    int mSize -> e
+    void gc() -> c
+    int size() -> a
+    int keyAt(int) -> a
+    java.lang.Object valueAt(int) -> b
+    void clear() -> b
+    int idealByteArraySize(int) -> c
+    int idealIntArraySize(int) -> d
+android.support.v4.view.KeyEventCompat -> android.support.v4.view.a:
+    android.support.v4.view.KeyEventCompat$KeyEventVersionImpl IMPL -> a
+    boolean hasModifiers(android.view.KeyEvent,int) -> a
+    boolean hasNoModifiers(android.view.KeyEvent) -> a
+android.support.v4.view.KeyEventCompat$BaseKeyEventVersionImpl -> android.support.v4.view.b:
+    int metaStateFilterDirectionalModifiers(int,int,int,int,int) -> a
+    int normalizeMetaState(int) -> a
+    boolean metaStateHasModifiers(int,int) -> a
+    boolean metaStateHasNoModifiers(int) -> b
+android.support.v4.view.KeyEventCompat$HoneycombKeyEventVersionImpl -> android.support.v4.view.c:
+    boolean metaStateHasModifiers(int,int) -> a
+    boolean metaStateHasNoModifiers(int) -> b
+android.support.v4.view.KeyEventCompat$KeyEventVersionImpl -> android.support.v4.view.d:
+    boolean metaStateHasModifiers(int,int) -> a
+    boolean metaStateHasNoModifiers(int) -> b
+android.support.v4.view.KeyEventCompatHoneycomb -> android.support.v4.view.e:
+    boolean metaStateHasModifiers(int,int) -> a
+    boolean metaStateHasNoModifiers(int) -> a
+android.support.v4.view.MotionEventCompat -> android.support.v4.view.f:
+    android.support.v4.view.MotionEventCompat$MotionEventVersionImpl IMPL -> a
+    int getActionIndex(android.view.MotionEvent) -> a
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+android.support.v4.view.MotionEventCompat$BaseMotionEventVersionImpl -> android.support.v4.view.g:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+android.support.v4.view.MotionEventCompat$EclairMotionEventVersionImpl -> android.support.v4.view.h:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+android.support.v4.view.MotionEventCompat$MotionEventVersionImpl -> android.support.v4.view.i:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+android.support.v4.view.MotionEventCompatEclair -> android.support.v4.view.j:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+android.support.v4.view.PagerAdapter -> android.support.v4.view.k:
+    android.database.DataSetObservable mObservable -> a
+    int getCount() -> a
+    void startUpdate(android.view.ViewGroup) -> a
+    java.lang.Object instantiateItem(android.view.ViewGroup,int) -> a
+    void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> a
+    void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object) -> b
+    void finishUpdate(android.view.ViewGroup) -> b
+    void startUpdate(android.view.View) -> a
+    java.lang.Object instantiateItem(android.view.View,int) -> a
+    void destroyItem(android.view.View,int,java.lang.Object) -> a
+    void setPrimaryItem(android.view.View,int,java.lang.Object) -> b
+    void finishUpdate(android.view.View) -> b
+    boolean isViewFromObject(android.view.View,java.lang.Object) -> a
+    android.os.Parcelable saveState() -> b
+    void restoreState(android.os.Parcelable,java.lang.ClassLoader) -> a
+    int getItemPosition(java.lang.Object) -> a
+    void registerDataSetObserver(android.database.DataSetObserver) -> a
+    void unregisterDataSetObserver(android.database.DataSetObserver) -> b
+    float getPageWidth(int) -> a
+android.support.v4.view.VelocityTrackerCompat -> android.support.v4.view.l:
+    android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl IMPL -> a
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+android.support.v4.view.VelocityTrackerCompat$BaseVelocityTrackerVersionImpl -> android.support.v4.view.m:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+android.support.v4.view.VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl -> android.support.v4.view.n:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl -> android.support.v4.view.o:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+android.support.v4.view.VelocityTrackerCompatHoneycomb -> android.support.v4.view.p:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+android.support.v4.view.ViewCompat -> android.support.v4.view.q:
+    android.support.v4.view.ViewCompat$ViewCompatImpl IMPL -> a
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompat$BaseViewCompatImpl -> android.support.v4.view.r:
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    long getFrameTime() -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompat$GBViewCompatImpl -> android.support.v4.view.s:
+    int getOverScrollMode(android.view.View) -> a
+android.support.v4.view.ViewCompat$HCViewCompatImpl -> android.support.v4.view.t:
+    long getFrameTime() -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompat$ICSViewCompatImpl -> android.support.v4.view.u:
+    boolean canScrollHorizontally(android.view.View,int) -> a
+android.support.v4.view.ViewCompat$JBViewCompatImpl -> android.support.v4.view.v:
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+android.support.v4.view.ViewCompat$JbMr1ViewCompatImpl -> android.support.v4.view.w:
+android.support.v4.view.ViewCompat$ViewCompatImpl -> android.support.v4.view.x:
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompatGingerbread -> android.support.v4.view.y:
+    int getOverScrollMode(android.view.View) -> a
+android.support.v4.view.ViewCompatHC -> android.support.v4.view.z:
+    long getFrameTime() -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompatICS -> android.support.v4.view.aa:
+    boolean canScrollHorizontally(android.view.View,int) -> a
+android.support.v4.view.ViewCompatJB -> android.support.v4.view.ab:
+    void postInvalidateOnAnimation(android.view.View) -> a
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+android.support.v4.view.ViewPager -> android.support.v4.view.ViewPager:
+    int[] LAYOUT_ATTRS -> a
+    java.util.Comparator COMPARATOR -> b
+    android.view.animation.Interpolator sInterpolator -> c
+    java.util.ArrayList mItems -> d
+    android.support.v4.view.ViewPager$ItemInfo mTempItem -> e
+    android.graphics.Rect mTempRect -> f
+    android.support.v4.view.PagerAdapter mAdapter -> g
+    int mCurItem -> h
+    int mRestoredCurItem -> i
+    android.os.Parcelable mRestoredAdapterState -> j
+    java.lang.ClassLoader mRestoredClassLoader -> k
+    android.widget.Scroller mScroller -> l
+    android.support.v4.view.ViewPager$PagerObserver mObserver -> m
+    int mPageMargin -> n
+    android.graphics.drawable.Drawable mMarginDrawable -> o
+    int mTopPageBounds -> p
+    int mBottomPageBounds -> q
+    float mFirstOffset -> r
+    float mLastOffset -> s
+    int mChildWidthMeasureSpec -> t
+    int mChildHeightMeasureSpec -> u
+    boolean mInLayout -> v
+    boolean mScrollingCacheEnabled -> w
+    boolean mPopulatePending -> x
+    int mOffscreenPageLimit -> y
+    boolean mIsBeingDragged -> z
+    boolean mIsUnableToDrag -> A
+    int mDefaultGutterSize -> B
+    int mGutterSize -> C
+    int mTouchSlop -> D
+    float mInitialMotionX -> E
+    float mLastMotionX -> F
+    float mLastMotionY -> G
+    int mActivePointerId -> H
+    android.view.VelocityTracker mVelocityTracker -> I
+    int mMinimumVelocity -> J
+    int mMaximumVelocity -> K
+    int mFlingDistance -> L
+    int mCloseEnough -> M
+    int mSeenPositionMin -> N
+    int mSeenPositionMax -> O
+    boolean mFakeDragging -> P
+    android.support.v4.widget.EdgeEffectCompat mLeftEdge -> Q
+    android.support.v4.widget.EdgeEffectCompat mRightEdge -> R
+    boolean mFirstLayout -> S
+    boolean mNeedCalculatePageOffsets -> T
+    boolean mCalledSuper -> U
+    int mDecorChildCount -> V
+    android.support.v4.view.ViewPager$OnPageChangeListener mOnPageChangeListener -> W
+    android.support.v4.view.ViewPager$OnPageChangeListener mInternalPageChangeListener -> Z
+    android.support.v4.view.ViewPager$OnAdapterChangeListener mAdapterChangeListener -> aa
+    android.support.v4.view.ViewPager$PageTransformer mPageTransformer -> ab
+    java.lang.reflect.Method mSetChildrenDrawingOrderEnabled -> ac
+    int mDrawingOrder -> ad
+    java.util.ArrayList mDrawingOrderedChildren -> ae
+    android.support.v4.view.ViewPager$ViewPositionComparator sPositionComparator -> af
+    java.lang.Runnable mEndScrollRunnable -> ag
+    int mScrollState -> ah
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    void setScrollState(int) -> setScrollState
+    void setAdapter(android.support.v4.view.PagerAdapter) -> setAdapter
+    void removeNonDecorViews() -> f
+    android.support.v4.view.PagerAdapter getAdapter() -> getAdapter
+    void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener) -> setOnAdapterChangeListener
+    void setCurrentItem(int) -> setCurrentItem
+    void setCurrentItem(int,boolean) -> a
+    int getCurrentItem() -> getCurrentItem
+    void setCurrentItemInternal(int,boolean,boolean) -> a
+    void setCurrentItemInternal(int,boolean,boolean,int) -> a
+    void scrollToItem(int,boolean,int,boolean) -> a
+    void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener) -> setOnPageChangeListener
+    void setChildrenDrawingOrderEnabledCompat(boolean) -> setChildrenDrawingOrderEnabledCompat
+    int getChildDrawingOrder(int,int) -> getChildDrawingOrder
+    int getOffscreenPageLimit() -> getOffscreenPageLimit
+    void setOffscreenPageLimit(int) -> setOffscreenPageLimit
+    void setPageMargin(int) -> setPageMargin
+    int getPageMargin() -> getPageMargin
+    void setPageMarginDrawable(android.graphics.drawable.Drawable) -> setPageMarginDrawable
+    void setPageMarginDrawable(int) -> setPageMarginDrawable
+    boolean verifyDrawable(android.graphics.drawable.Drawable) -> verifyDrawable
+    void drawableStateChanged() -> drawableStateChanged
+    float distanceInfluenceForSnapDuration(float) -> a
+    void smoothScrollTo(int,int,int) -> a
+    android.support.v4.view.ViewPager$ItemInfo addNewItem(int,int) -> a
+    void dataSetChanged() -> a
+    void populate() -> b
+    void populate(int) -> a
+    void calculatePageOffsets(android.support.v4.view.ViewPager$ItemInfo,int,android.support.v4.view.ViewPager$ItemInfo) -> a
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    android.support.v4.view.ViewPager$ItemInfo infoForChild(android.view.View) -> a
+    android.support.v4.view.ViewPager$ItemInfo infoForAnyChild(android.view.View) -> b
+    android.support.v4.view.ViewPager$ItemInfo infoForPosition(int) -> b
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onMeasure(int,int) -> onMeasure
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void recomputeScrollPosition(int,int,int,int) -> a
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void computeScroll() -> computeScroll
+    boolean pageScrolled(int) -> d
+    void onPageScrolled(int,float,int) -> a
+    void completeScroll(boolean) -> a
+    boolean isGutterDrag(float,float) -> a
+    void enableLayers(boolean) -> b
+    boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean performDrag(float) -> b
+    android.support.v4.view.ViewPager$ItemInfo infoForCurrentScrollPosition() -> g
+    int determineTargetPage(int,float,int,int) -> a
+    void draw(android.graphics.Canvas) -> draw
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void onSecondaryPointerUp(android.view.MotionEvent) -> a
+    void endDrag() -> h
+    void setScrollingCacheEnabled(boolean) -> setScrollingCacheEnabled
+    boolean canScroll(android.view.View,boolean,int,int,int) -> a
+    boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    boolean executeKeyEvent(android.view.KeyEvent) -> a
+    boolean arrowScroll(int) -> c
+    android.graphics.Rect getChildRectInPagerCoordinates(android.graphics.Rect,android.view.View) -> a
+    boolean pageLeft() -> c
+    boolean pageRight() -> d
+    void addFocusables(java.util.ArrayList,int,int) -> addFocusables
+    void addTouchables(java.util.ArrayList) -> addTouchables
+    boolean onRequestFocusInDescendants(int,android.graphics.Rect) -> onRequestFocusInDescendants
+    boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent) -> dispatchPopulateAccessibilityEvent
+    android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    int[] access$400() -> e
+android.support.v4.view.ViewPager$1 -> android.support.v4.view.ac:
+    int compare(android.support.v4.view.ViewPager$ItemInfo,android.support.v4.view.ViewPager$ItemInfo) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+android.support.v4.view.ViewPager$2 -> android.support.v4.view.ad:
+    float getInterpolation(float) -> getInterpolation
+android.support.v4.view.ViewPager$Decor -> android.support.v4.view.ae:
+android.support.v4.view.ViewPager$ItemInfo -> android.support.v4.view.af:
+    java.lang.Object object -> a
+    int position -> b
+    boolean scrolling -> c
+    float widthFactor -> d
+    float offset -> e
+android.support.v4.view.ViewPager$LayoutParams -> android.support.v4.view.ag:
+    boolean isDecor -> a
+    int gravity -> b
+    float widthFactor -> c
+    boolean needsMeasure -> d
+    int position -> e
+    int childIndex -> f
+android.support.v4.view.ViewPager$OnAdapterChangeListener -> android.support.v4.view.ah:
+    void onAdapterChanged(android.support.v4.view.PagerAdapter,android.support.v4.view.PagerAdapter) -> a
+android.support.v4.view.ViewPager$OnPageChangeListener -> android.support.v4.view.ai:
+    void onPageScrolled(int,float,int) -> a
+    void onPageSelected(int) -> a
+    void onPageScrollStateChanged(int) -> b
+android.support.v4.view.ViewPager$PageTransformer -> android.support.v4.view.aj:
+    void transformPage(android.view.View,float) -> a
+android.support.v4.view.ViewPager$PagerObserver -> android.support.v4.view.ak:
+    android.support.v4.view.ViewPager this$0 -> a
+    void onChanged() -> onChanged
+    void onInvalidated() -> onInvalidated
+android.support.v4.view.ViewPager$SavedState -> android.support.v4.view.ViewPager$SavedState:
+    int position -> a
+    android.os.Parcelable adapterState -> b
+    java.lang.ClassLoader loader -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    java.lang.String toString() -> toString
+android.support.v4.view.ViewPager$SavedState$1 -> android.support.v4.view.al:
+    android.support.v4.view.ViewPager$SavedState createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> b
+    android.support.v4.view.ViewPager$SavedState[] newArray(int) -> b
+    java.lang.Object[] newArray(int) -> a
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> a
+android.support.v4.view.ViewPager$ViewPositionComparator -> android.support.v4.view.am:
+    int compare(android.view.View,android.view.View) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+android.support.v4.widget.EdgeEffectCompat -> android.support.v4.d.a:
+    java.lang.Object mEdgeEffect -> a
+    android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl IMPL -> b
+    void setSize(int,int) -> a
+    boolean isFinished() -> a
+    void finish() -> b
+    boolean onPull(float) -> a
+    boolean onRelease() -> c
+    boolean draw(android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$BaseEdgeEffectImpl -> android.support.v4.d.b:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectIcsImpl -> android.support.v4.d.c:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl -> android.support.v4.d.d:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompatIcs -> android.support.v4.d.e:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+com.aprilbrother.aprilbeacondemo.BeaconAdapter -> com.aprilbrother.aprilbeacondemo.a:
+    java.util.ArrayList beacons -> a
+    android.view.LayoutInflater inflater -> b
+    void replaceWith(java.util.Collection) -> a
+    int getCount() -> getCount
+    com.aprilbrother.aprilbrothersdk.Beacon getItem(int) -> a
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void bind(com.aprilbrother.aprilbrothersdk.Beacon,android.view.View) -> a
+    android.view.View inflateIfRequired(android.view.View,int,android.view.ViewGroup) -> a
+    java.lang.Object getItem(int) -> getItem
+com.aprilbrother.aprilbeacondemo.BeaconAdapter$ViewHolder -> com.aprilbrother.aprilbeacondemo.b:
+    android.widget.TextView macTextView -> a
+    android.widget.TextView uuidTextView -> b
+    android.widget.TextView majorTextView -> c
+    android.widget.TextView minorTextView -> d
+    android.widget.TextView measuredPowerTextView -> e
+    android.widget.TextView rssiTextView -> f
+    android.widget.TextView proximityView -> g
+com.aprilbrother.aprilbeacondemo.BeaconList -> com.aprilbrother.aprilbeacondemo.BeaconList:
+    com.aprilbrother.aprilbrothersdk.Region ALL_BEACONS_REGION -> a
+    com.aprilbrother.aprilbrothersdk.Region TEST_ALL_BEACONS_REGION -> b
+    com.aprilbrother.aprilbeacondemo.BeaconAdapter adapter -> c
+    com.aprilbrother.aprilbrothersdk.BeaconManager beaconManager -> d
+    java.util.ArrayList myBeacons -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void init() -> b
+    void connectToService() -> c
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onStart() -> onStart
+    void onDestroy() -> onDestroy
+    void onStop() -> onStop
+    java.util.ArrayList access$0(com.aprilbrother.aprilbeacondemo.BeaconList) -> a
+    com.aprilbrother.aprilbeacondemo.BeaconAdapter access$1(com.aprilbrother.aprilbeacondemo.BeaconList) -> b
+    com.aprilbrother.aprilbrothersdk.BeaconManager access$2(com.aprilbrother.aprilbeacondemo.BeaconList) -> c
+    com.aprilbrother.aprilbrothersdk.Region access$3() -> a
+com.aprilbrother.aprilbeacondemo.BeaconList$1 -> com.aprilbrother.aprilbeacondemo.c:
+    com.aprilbrother.aprilbeacondemo.BeaconList this$0 -> a
+    void onBeaconsDiscovered(com.aprilbrother.aprilbrothersdk.Region,java.util.List) -> a
+com.aprilbrother.aprilbeacondemo.BeaconList$2 -> com.aprilbrother.aprilbeacondemo.d:
+    com.aprilbrother.aprilbeacondemo.BeaconList this$0 -> a
+    void onExitedRegion(com.aprilbrother.aprilbrothersdk.Region) -> a
+    void onEnteredRegion(com.aprilbrother.aprilbrothersdk.Region,java.util.List) -> a
+com.aprilbrother.aprilbeacondemo.BeaconList$3 -> com.aprilbrother.aprilbeacondemo.e:
+    com.aprilbrother.aprilbeacondemo.BeaconList this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.aprilbrother.aprilbeacondemo.BeaconList$4 -> com.aprilbrother.aprilbeacondemo.f:
+    com.aprilbrother.aprilbeacondemo.BeaconList this$0 -> a
+    android.widget.TextView val$tv -> b
+    void onClick(android.view.View) -> onClick
+com.aprilbrother.aprilbeacondemo.BeaconList$5 -> com.aprilbrother.aprilbeacondemo.g:
+    com.aprilbrother.aprilbeacondemo.BeaconList this$0 -> a
+    void onServiceReady() -> a
+com.aprilbrother.aprilbeacondemo.ComparatorBeaconByRssi -> com.aprilbrother.aprilbeacondemo.h:
+    int compare(com.aprilbrother.aprilbrothersdk.Beacon,com.aprilbrother.aprilbrothersdk.Beacon) -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+com.aprilbrother.aprilbeacondemo.ModifyActivity -> com.aprilbrother.aprilbeacondemo.ModifyActivity:
+    android.widget.EditText uuid -> d
+    android.widget.EditText major -> e
+    android.widget.EditText minor -> f
+    android.widget.EditText measuredPower -> g
+    android.widget.EditText txPower -> h
+    android.widget.EditText password -> i
+    com.aprilbrother.aprilbrothersdk.Beacon beacon -> j
+    android.widget.EditText et_pwd -> k
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection conn -> l
+    android.widget.TextView tv_battery -> m
+    android.widget.TextView tv_txpower -> n
+    android.widget.TextView tv_advinterval -> o
+    android.widget.TextView tv_firmwareRevision -> p
+    android.widget.TextView tv_manufacturerName -> q
+    java.lang.String oldPassword -> r
+    android.widget.Button btn_modify -> s
+    android.widget.Button btn_battery -> t
+    android.widget.Button btn_txpower -> u
+    android.widget.Button btn_advinterval -> v
+    android.widget.Button btn_firmwareRevision -> w
+    android.widget.Button btn_manufacturerName -> x
+    android.widget.Button btn_on -> y
+    android.widget.Button btn_off -> z
+    android.widget.Button btn_notify -> A
+    android.widget.Button btn_on_l -> B
+    android.widget.Button btn_off_l -> C
+    android.widget.Button btn_notify_l -> D
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics read -> E
+    com.aprilbrother.aprilbrothersdk.BeaconManager beaconManager -> F
+    com.aprilbrother.aprilbrothersdk.Region ALL_BEACONS_REGION -> G
+    java.lang.String URL_Post -> a
+    java.lang.String URL -> b
+    android.net.Uri URI -> c
+    java.lang.String resultData -> H
+    java.net.HttpURLConnection urlConn -> I
+    boolean isPost -> J
+    android.os.Handler handler -> K
+    android.widget.LinearLayout ll_absensor -> L
+    android.widget.Button btn_conn -> M
+    void onCreate(android.os.Bundle) -> onCreate
+    void initView() -> a
+    void onClick(android.view.View) -> onClick
+    void setAdvinterval() -> b
+    void setTxPower() -> c
+    void setBattery() -> d
+    void setFWRevision() -> e
+    void setManufacturer() -> f
+    void showEnterDialog() -> g
+    void aprilWrite() -> h
+    void onResume() -> onResume
+    void onDestroy() -> onDestroy
+    void notify(android.view.View) -> notify
+    void onStop() -> onStop
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> a
+    android.widget.TextView access$1(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> b
+    android.widget.TextView access$2(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> c
+    android.widget.TextView access$3(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> d
+    android.widget.TextView access$4(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> e
+    android.widget.TextView access$5(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> f
+    android.widget.EditText access$6(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> g
+    void access$7(com.aprilbrother.aprilbeacondemo.ModifyActivity,java.lang.String) -> a
+    void access$8(com.aprilbrother.aprilbeacondemo.ModifyActivity) -> h
+com.aprilbrother.aprilbeacondemo.ModifyActivity$1 -> com.aprilbrother.aprilbeacondemo.i:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10 -> com.aprilbrother.aprilbeacondemo.j:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void onWriteNewPasswordSuccess(java.lang.String,java.lang.String) -> a
+    void onBeaconError() -> a
+    void onPasswordWrong(java.lang.String) -> a
+    void onWriteTxPowerSuccess() -> b
+    void onWriteMajorSuccess(int,int) -> a
+    void onErrorOfPassword() -> c
+    void onErrorOfConnection() -> d
+    void onErrorOfDiscoveredServices() -> e
+    void onWriteMinorSuccess(int,int) -> b
+    void connected() -> f
+    void onWriteUUIDSuccess() -> g
+    void onErrorOfWrite(int) -> a
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$10) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$1 -> com.aprilbrother.aprilbeacondemo.k:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    java.lang.String val$oldPassword -> b
+    java.lang.String val$newPassword -> c
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$2 -> com.aprilbrother.aprilbeacondemo.l:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$3 -> com.aprilbrother.aprilbeacondemo.m:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    java.lang.String val$password -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$4 -> com.aprilbrother.aprilbeacondemo.n:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$5 -> com.aprilbrother.aprilbeacondemo.o:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    int val$oldMajor -> b
+    int val$newMajor -> c
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$6 -> com.aprilbrother.aprilbeacondemo.p:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    int val$oldMionr -> b
+    int val$newMinor -> c
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$7 -> com.aprilbrother.aprilbeacondemo.q:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$10$8 -> com.aprilbrother.aprilbeacondemo.r:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$10 this$1 -> a
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$2 -> com.aprilbrother.aprilbeacondemo.s:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void notifyABAcceleration(com.aprilbrother.aprilbrothersdk.internal.ABAcceleration) -> a
+    void notifyABLight(double) -> a
+    void connected() -> f
+com.aprilbrother.aprilbeacondemo.ModifyActivity$3 -> com.aprilbrother.aprilbeacondemo.t:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void readyToGetAdvinterval() -> a
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$3) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$3$1 -> com.aprilbrother.aprilbeacondemo.u:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$3 this$1 -> a
+    java.lang.Integer val$advinterval -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$4 -> com.aprilbrother.aprilbeacondemo.v:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void readyToGetTxPower() -> b
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$4) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$4$1 -> com.aprilbrother.aprilbeacondemo.w:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$4 this$1 -> a
+    java.lang.Integer val$txPower -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$5 -> com.aprilbrother.aprilbeacondemo.x:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void readyToGetBattery() -> c
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$5) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$5$1 -> com.aprilbrother.aprilbeacondemo.y:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$5 this$1 -> a
+    java.lang.Integer val$battery -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$6 -> com.aprilbrother.aprilbeacondemo.z:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void readyToGetFWRevision() -> d
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$6) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$6$1 -> com.aprilbrother.aprilbeacondemo.aa:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$6 this$1 -> a
+    java.lang.String val$firmwareRevision -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$7 -> com.aprilbrother.aprilbeacondemo.ab:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void readyToGetManufacturer() -> e
+    com.aprilbrother.aprilbeacondemo.ModifyActivity access$0(com.aprilbrother.aprilbeacondemo.ModifyActivity$7) -> a
+com.aprilbrother.aprilbeacondemo.ModifyActivity$7$1 -> com.aprilbrother.aprilbeacondemo.ac:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity$7 this$1 -> a
+    java.lang.String val$manufacturerName -> b
+    void run() -> run
+com.aprilbrother.aprilbeacondemo.ModifyActivity$8 -> com.aprilbrother.aprilbeacondemo.ad:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.aprilbrother.aprilbeacondemo.ModifyActivity$9 -> com.aprilbrother.aprilbeacondemo.ae:
+    com.aprilbrother.aprilbeacondemo.ModifyActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.aprilbrother.aprilbeacondemo.NotifyInContentActivity -> com.aprilbrother.aprilbeacondemo.af:
+    void onCreate(android.os.Bundle) -> onCreate
+    void init() -> a
+    void setAnimtionStart() -> b
+    void setClickFinish() -> c
+com.aprilbrother.aprilbeacondemo.NotifyInContentActivity$1 -> com.aprilbrother.aprilbeacondemo.ag:
+    com.aprilbrother.aprilbeacondemo.NotifyInContentActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.aprilbrother.aprilbeacondemo.NotifyService -> com.aprilbrother.aprilbeacondemo.NotifyService:
+    com.aprilbrother.aprilbrothersdk.BeaconManager beaconManager -> a
+    android.app.NotificationManager mNotificationManager -> b
+    com.aprilbrother.aprilbrothersdk.Region ALL_BEACONS_REGION -> c
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    void generateNotification(android.content.Context,java.lang.String) -> b
+    com.aprilbrother.aprilbrothersdk.BeaconManager access$2(com.aprilbrother.aprilbeacondemo.NotifyService) -> a
+    com.aprilbrother.aprilbrothersdk.Region access$3() -> a
+    void access$4(android.content.Context,java.lang.String) -> a
+com.aprilbrother.aprilbeacondemo.NotifyService$1 -> com.aprilbrother.aprilbeacondemo.ah:
+    com.aprilbrother.aprilbeacondemo.NotifyService this$0 -> a
+    void onServiceReady() -> a
+com.aprilbrother.aprilbeacondemo.NotifyService$2 -> com.aprilbrother.aprilbeacondemo.ai:
+    com.aprilbrother.aprilbeacondemo.NotifyService this$0 -> a
+    void onExitedRegion(com.aprilbrother.aprilbrothersdk.Region) -> a
+    void onEnteredRegion(com.aprilbrother.aprilbrothersdk.Region,java.util.List) -> a
+com.aprilbrother.aprilbeacondemo.RequestActivity -> com.aprilbrother.aprilbeacondemo.RequestActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+    void init() -> a
+com.aprilbrother.aprilbeacondemo.ResultActivity -> com.aprilbrother.aprilbeacondemo.ResultActivity:
+com.aprilbrother.aprilbeacondemo.SensorActivity -> com.aprilbrother.aprilbeacondemo.SensorActivity:
+    android.widget.Button btn_conn -> a
+    android.widget.Button btn_on -> b
+    android.widget.Button btn_off -> c
+    android.widget.Button btn_notify -> d
+    android.widget.Button btn_on_l -> e
+    android.widget.Button btn_off_l -> f
+    android.widget.Button btn_notify_l -> g
+    android.widget.TextView tv_ac_x -> h
+    android.widget.TextView tv_ac_y -> i
+    android.widget.TextView tv_ac_z -> j
+    android.widget.TextView tv_light -> k
+    android.widget.TextView tv_conn_status -> l
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection conn -> m
+    com.aprilbrother.aprilbrothersdk.Beacon beacon -> n
+    android.app.ProgressDialog proDialog -> o
+    android.os.Handler handler -> p
+    void onCreate(android.os.Bundle) -> onCreate
+    void initView() -> a
+    void onClick(android.view.View) -> onClick
+    void onStop() -> onStop
+    android.widget.TextView access$0(com.aprilbrother.aprilbeacondemo.SensorActivity) -> a
+    android.widget.TextView access$1(com.aprilbrother.aprilbeacondemo.SensorActivity) -> b
+    android.widget.TextView access$2(com.aprilbrother.aprilbeacondemo.SensorActivity) -> c
+    android.widget.TextView access$3(com.aprilbrother.aprilbeacondemo.SensorActivity) -> d
+    android.app.ProgressDialog access$4(com.aprilbrother.aprilbeacondemo.SensorActivity) -> e
+    android.widget.TextView access$5(com.aprilbrother.aprilbeacondemo.SensorActivity) -> f
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection access$6(com.aprilbrother.aprilbeacondemo.SensorActivity) -> g
+com.aprilbrother.aprilbeacondemo.SensorActivity$1 -> com.aprilbrother.aprilbeacondemo.aj:
+    com.aprilbrother.aprilbeacondemo.SensorActivity this$0 -> a
+    void notifyABAcceleration(com.aprilbrother.aprilbrothersdk.internal.ABAcceleration) -> a
+    void notifyABLight(double) -> a
+    void connected() -> f
+com.aprilbrother.aprilbeacondemo.SensorActivity$2 -> com.aprilbrother.aprilbeacondemo.ak:
+    com.aprilbrother.aprilbeacondemo.SensorActivity this$0 -> a
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.Beacon -> com.aprilbrother.aprilbrothersdk.Beacon:
+    java.lang.Integer a -> a
+    java.lang.String e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    int h -> h
+    int i -> i
+    int j -> j
+    int k -> k
+    java.lang.Double b -> b
+    java.lang.Double c -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int d -> d
+    int describeContents() -> describeContents
+    boolean equals(java.lang.Object) -> equals
+    double getDistance() -> a
+    java.lang.String getMacAddress() -> b
+    int getMajor() -> c
+    int getMeasuredPower() -> d
+    int getMinor() -> e
+    java.lang.String getName() -> f
+    int getProximity() -> g
+    java.lang.String getProximityUUID() -> h
+    int getRssi() -> i
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.aprilbrother.aprilbrothersdk.Beacon$1 -> com.aprilbrother.aprilbrothersdk.Beacon$1:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+com.aprilbrother.aprilbrothersdk.BeaconManager -> com.aprilbrother.aprilbrothersdk.BeaconManager:
+    android.content.Context a -> a
+    com.aprilbrother.aprilbrothersdk.BeaconManager$b b -> b
+    android.os.Messenger c -> c
+    java.util.Set d -> d
+    java.util.Set e -> e
+    android.os.Messenger f -> f
+    com.aprilbrother.aprilbrothersdk.BeaconManager$RangingListener g -> g
+    com.aprilbrother.aprilbrothersdk.BeaconManager$MonitoringListener h -> h
+    com.aprilbrother.aprilbrothersdk.BeaconManager$ErrorListener i -> i
+    com.aprilbrother.aprilbrothersdk.BeaconManager$ServiceReadyCallback j -> j
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData k -> k
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData l -> l
+    boolean hasBluetooth() -> a
+    boolean isBluetoothEnabled() -> b
+    boolean checkPermissionsAndService() -> c
+    void connect(com.aprilbrother.aprilbrothersdk.BeaconManager$ServiceReadyCallback) -> a
+    void disconnect() -> d
+    void setRangingListener(com.aprilbrother.aprilbrothersdk.BeaconManager$RangingListener) -> a
+    void setMonitoringListener(com.aprilbrother.aprilbrothersdk.BeaconManager$MonitoringListener) -> a
+    void a(com.aprilbrother.aprilbrothersdk.service.ScanPeriodData,int) -> a
+    void a() -> e
+    void startRanging(com.aprilbrother.aprilbrothersdk.Region) -> a
+    void stopRanging(com.aprilbrother.aprilbrothersdk.Region) -> b
+    void a(java.lang.String) -> a
+    void startMonitoring(com.aprilbrother.aprilbrothersdk.Region) -> c
+    void b(java.lang.String) -> b
+    boolean b() -> f
+    void setMonitoringExpirationMill(long) -> a
+    void a(com.aprilbrother.aprilbrothersdk.BeaconManager,android.os.Messenger) -> a
+    com.aprilbrother.aprilbrothersdk.BeaconManager$ErrorListener a(com.aprilbrother.aprilbrothersdk.BeaconManager) -> a
+    void b(com.aprilbrother.aprilbrothersdk.BeaconManager) -> b
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData c(com.aprilbrother.aprilbrothersdk.BeaconManager) -> c
+    void a(com.aprilbrother.aprilbrothersdk.BeaconManager,com.aprilbrother.aprilbrothersdk.service.ScanPeriodData,int) -> a
+    void d(com.aprilbrother.aprilbrothersdk.BeaconManager) -> d
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData e(com.aprilbrother.aprilbrothersdk.BeaconManager) -> e
+    void f(com.aprilbrother.aprilbrothersdk.BeaconManager) -> f
+    com.aprilbrother.aprilbrothersdk.BeaconManager$ServiceReadyCallback g(com.aprilbrother.aprilbrothersdk.BeaconManager) -> g
+    void h(com.aprilbrother.aprilbrothersdk.BeaconManager) -> h
+    com.aprilbrother.aprilbrothersdk.BeaconManager$RangingListener i(com.aprilbrother.aprilbrothersdk.BeaconManager) -> i
+    com.aprilbrother.aprilbrothersdk.BeaconManager$MonitoringListener j(com.aprilbrother.aprilbrothersdk.BeaconManager) -> j
+com.aprilbrother.aprilbrothersdk.BeaconManager$ErrorListener -> com.aprilbrother.aprilbrothersdk.BeaconManager$ErrorListener:
+    void onError(java.lang.Integer) -> a
+com.aprilbrother.aprilbrothersdk.BeaconManager$MonitoringListener -> com.aprilbrother.aprilbrothersdk.BeaconManager$MonitoringListener:
+    void onEnteredRegion(com.aprilbrother.aprilbrothersdk.Region,java.util.List) -> a
+    void onExitedRegion(com.aprilbrother.aprilbrothersdk.Region) -> a
+com.aprilbrother.aprilbrothersdk.BeaconManager$RangingListener -> com.aprilbrother.aprilbrothersdk.BeaconManager$RangingListener:
+    void onBeaconsDiscovered(com.aprilbrother.aprilbrothersdk.Region,java.util.List) -> a
+com.aprilbrother.aprilbrothersdk.BeaconManager$ServiceReadyCallback -> com.aprilbrother.aprilbrothersdk.BeaconManager$ServiceReadyCallback:
+    void onServiceReady() -> a
+com.aprilbrother.aprilbrothersdk.BeaconManager$a -> com.aprilbrother.aprilbrothersdk.BeaconManager$a:
+    com.aprilbrother.aprilbrothersdk.BeaconManager a -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.aprilbrother.aprilbrothersdk.BeaconManager$b -> com.aprilbrother.aprilbrothersdk.BeaconManager$b:
+    com.aprilbrother.aprilbrothersdk.BeaconManager a -> a
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.aprilbrother.aprilbrothersdk.Region -> com.aprilbrother.aprilbrothersdk.Region:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.Integer c -> c
+    java.lang.Integer d -> d
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    java.lang.String getIdentifier() -> a
+    java.lang.String getProximityUUID() -> b
+    java.lang.Integer getMajor() -> c
+    java.lang.Integer getMinor() -> d
+    java.lang.String toString() -> toString
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.aprilbrother.aprilbrothersdk.Region$1 -> com.aprilbrother.aprilbrothersdk.Region$1:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+com.aprilbrother.aprilbrothersdk.Region$State -> com.aprilbrother.aprilbrothersdk.Region$State:
+    com.aprilbrother.aprilbrothersdk.Region$State a -> a
+    com.aprilbrother.aprilbrothersdk.Region$State b -> b
+    com.aprilbrother.aprilbrothersdk.Region$State[] c -> c
+    com.aprilbrother.aprilbrothersdk.Region$State[] values() -> values
+    com.aprilbrother.aprilbrothersdk.Region$State valueOf(java.lang.String) -> valueOf
+com.aprilbrother.aprilbrothersdk.Utils -> com.aprilbrother.aprilbrothersdk.Utils:
+    java.lang.String a -> a
+    char[] b -> b
+    com.aprilbrother.aprilbrothersdk.Beacon beaconFromLeScan(android.bluetooth.BluetoothDevice,int,byte[]) -> beaconFromLeScan
+    java.lang.String normalizeProximityUUID(java.lang.String) -> normalizeProximityUUID
+    boolean isBeaconInRegion(com.aprilbrother.aprilbrothersdk.Beacon,com.aprilbrother.aprilbrothersdk.Region) -> isBeaconInRegion
+    double computeAccuracy(com.aprilbrother.aprilbrothersdk.Beacon) -> computeAccuracy
+    int parseInt(java.lang.String) -> parseInt
+    int normalize16BitUnsignedInt(int) -> normalize16BitUnsignedInt
+    void restartBluetooth(android.content.Context,com.aprilbrother.aprilbrothersdk.Utils$RestartCompletedListener) -> restartBluetooth
+com.aprilbrother.aprilbrothersdk.Utils$1 -> com.aprilbrother.aprilbrothersdk.Utils$1:
+    java.lang.Object a -> a
+    com.aprilbrother.aprilbrothersdk.Utils$RestartCompletedListener b -> b
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.aprilbrother.aprilbrothersdk.Utils$Proximity -> com.aprilbrother.aprilbrothersdk.Utils$Proximity:
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity a -> a
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity b -> b
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity c -> c
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity d -> d
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity[] e -> e
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity[] values() -> values
+    com.aprilbrother.aprilbrothersdk.Utils$Proximity valueOf(java.lang.String) -> valueOf
+com.aprilbrother.aprilbrothersdk.Utils$RestartCompletedListener -> com.aprilbrother.aprilbrothersdk.Utils$RestartCompletedListener:
+    void onRestartCompleted() -> a
+com.aprilbrother.aprilbrothersdk.a.a -> com.aprilbrother.aprilbrothersdk.a.a:
+    java.lang.String a -> a
+    int b -> b
+    int c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    int g -> g
+    java.lang.String h -> h
+    java.lang.String i -> i
+    java.lang.String j -> j
+    java.lang.String k -> k
+    java.lang.String l -> l
+    java.lang.String m -> m
+    java.lang.String n -> n
+    java.lang.String o -> o
+    java.lang.String p -> p
+    void a(java.lang.String) -> a
+    void a(int) -> a
+    void b(int) -> b
+    int a() -> a
+    void c(int) -> c
+    void d(int) -> d
+    int b() -> b
+    void e(int) -> e
+    void f(int) -> f
+    void b(java.lang.String) -> b
+    void c(java.lang.String) -> c
+    void d(java.lang.String) -> d
+    void e(java.lang.String) -> e
+    void f(java.lang.String) -> f
+    void g(java.lang.String) -> g
+    void h(java.lang.String) -> h
+    java.lang.String toString() -> toString
+com.aprilbrother.aprilbrothersdk.a.b -> com.aprilbrother.aprilbrothersdk.a.b:
+    java.lang.String a -> a
+    int b -> b
+    int c -> c
+    int d -> d
+    int e -> e
+    int f -> f
+    java.lang.String g -> g
+    java.lang.String a() -> a
+    void a(java.lang.String) -> a
+    int b() -> b
+    void a(int) -> a
+    int c() -> c
+    void b(int) -> b
+    int d() -> d
+    void c(int) -> c
+    int e() -> e
+    void d(int) -> d
+    int f() -> f
+    java.lang.String g() -> g
+    void b(java.lang.String) -> b
+    java.lang.String toString() -> toString
+com.aprilbrother.aprilbrothersdk.b.a -> com.aprilbrother.aprilbrothersdk.b.a:
+    com.aprilbrother.aprilbrothersdk.a.b a -> a
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics:
+    android.content.Context a -> a
+    com.aprilbrother.aprilbrothersdk.Beacon b -> b
+    android.bluetooth.BluetoothGatt c -> c
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack d -> d
+    java.util.ArrayList e -> e
+    int f -> f
+    java.lang.Integer g -> g
+    java.lang.Integer h -> h
+    java.lang.Integer i -> i
+    java.lang.String j -> j
+    java.lang.String k -> k
+    android.bluetooth.BluetoothGattCallback l -> l
+    java.lang.Integer getBattery() -> getBattery
+    java.lang.Integer getTxPower() -> getTxPower
+    java.lang.Integer getAdvinterval() -> getAdvinterval
+    java.lang.String getFWRevision() -> a
+    java.lang.String getManufacturer() -> b
+    void connectGattToRead(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack,int) -> a
+    void close() -> c
+    int a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> a
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics,java.lang.Integer) -> a
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack b(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> b
+    void b(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics,java.lang.Integer) -> b
+    java.lang.Integer c(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> c
+    void c(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics,java.lang.Integer) -> c
+    java.lang.Integer d(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> d
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics,java.lang.String) -> a
+    java.lang.String e(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> e
+    void b(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics,java.lang.String) -> b
+    java.lang.String f(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> f
+    java.util.ArrayList g(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics) -> g
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$1 -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$1:
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics a -> a
+    void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int) -> onConnectionStateChange
+    void onServicesDiscovered(android.bluetooth.BluetoothGatt,int) -> onServicesDiscovered
+    void a(android.bluetooth.BluetoothGatt,java.util.UUID,java.util.UUID) -> a
+    void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicWrite
+    void onCharacteristicRead(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicRead
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$2 -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$2:
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics a -> a
+    int b -> b
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack c -> c
+    void a(com.aprilbrother.aprilbrothersdk.a.a) -> a
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$MyReadCallBack:
+    void readyToGetBattery() -> c
+    void readyToGetAdvinterval() -> a
+    void readyToGetTxPower() -> b
+    void readyToGetFWRevision() -> d
+    void readyToGetManufacturer() -> e
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$ReadCallback -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics$ReadCallback:
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection:
+    android.content.Context h -> h
+    com.aprilbrother.aprilbrothersdk.Beacon i -> i
+    java.lang.String j -> j
+    android.bluetooth.BluetoothGatt k -> k
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$MyWriteCallback l -> l
+    java.lang.String m -> m
+    com.aprilbrother.aprilbrothersdk.internal.ABAcceleration n -> n
+    boolean o -> o
+    java.util.ArrayList p -> p
+    boolean a -> a
+    int q -> q
+    boolean b -> b
+    int r -> r
+    boolean c -> c
+    int s -> s
+    boolean d -> d
+    java.lang.String t -> t
+    boolean e -> e
+    int u -> u
+    boolean f -> f
+    int v -> v
+    boolean g -> g
+    java.lang.String w -> w
+    android.bluetooth.BluetoothGattCallback x -> x
+    boolean y -> y
+    boolean z -> z
+    boolean A -> A
+    boolean B -> B
+    boolean C -> C
+    boolean D -> D
+    android.content.BroadcastReceiver E -> E
+    void a() -> i
+    void connectGattToWrite(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$MyWriteCallback,java.lang.String) -> a
+    void writeMajor(int) -> a
+    void writeMinor(int) -> b
+    void writeMeasuredPower(int) -> c
+    void writeUUID(java.lang.String) -> a
+    void writeTxPower(int) -> d
+    void writePassword(java.lang.String) -> b
+    android.bluetooth.BluetoothDevice a(com.aprilbrother.aprilbrothersdk.Beacon) -> a
+    android.bluetooth.BluetoothDevice b(java.lang.String) -> d
+    void a(android.bluetooth.BluetoothGatt) -> a
+    void b(android.bluetooth.BluetoothGatt) -> b
+    boolean isConnected() -> a
+    void close() -> b
+    android.content.IntentFilter b() -> j
+    void c(java.lang.String) -> e
+    boolean a(java.util.UUID,java.util.UUID,java.util.UUID) -> a
+    boolean a(byte[],java.util.UUID,java.util.UUID) -> a
+    void turnOnCalu() -> c
+    void turnOffCalu() -> d
+    void enableACNotification() -> e
+    void turnOnLight() -> f
+    void turnOffLight() -> g
+    void enableLightNotification() -> h
+    android.bluetooth.BluetoothGatt a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> a
+    boolean b(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> b
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$MyWriteCallback c(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> c
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,java.lang.String) -> a
+    java.lang.String d(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> d
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGattService,android.bluetooth.BluetoothGatt) -> a
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,java.lang.String,android.bluetooth.BluetoothGattCharacteristic,byte[]) -> a
+    java.util.ArrayList e(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> e
+    com.aprilbrother.aprilbrothersdk.Beacon f(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> f
+    int g(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> g
+    int h(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> h
+    int i(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> i
+    java.lang.String j(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> j
+    void a(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> a
+    void b(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> b
+    void c(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> c
+    void d(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> d
+    void e(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> e
+    void f(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection,android.bluetooth.BluetoothGatt,java.util.UUID) -> f
+    com.aprilbrother.aprilbrothersdk.internal.ABAcceleration k(com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection) -> k
+    byte[] a(java.lang.String) -> c
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$1 -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$1:
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection a -> a
+    void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int) -> onConnectionStateChange
+    void onServicesDiscovered(android.bluetooth.BluetoothGatt,int) -> onServicesDiscovered
+    void onCharacteristicChanged(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic) -> onCharacteristicChanged
+    void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicWrite
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$2 -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$2:
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$3 -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$3:
+    com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection a -> a
+    java.lang.String b -> b
+    void a() -> a
+    void b() -> b
+    void c() -> c
+    void d() -> d
+    void e() -> e
+    void f() -> f
+    void g() -> g
+    void h() -> h
+    void i() -> i
+    void j() -> j
+    void k() -> k
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$MyWriteCallback -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$MyWriteCallback:
+    void onErrorOfConnection() -> d
+    void onErrorOfPassword() -> c
+    void onErrorOfDiscoveredServices() -> e
+    void onWriteMajorSuccess(int,int) -> a
+    void onWritePasswordSuccess() -> h
+    void onWriteMinorSuccess(int,int) -> b
+    void onWriteUUIDSuccess() -> g
+    void onWriteAdvertisingIntervalSuccess() -> i
+    void onWriteTxPowerSuccess() -> b
+    void onWriteNewPasswordSuccess(java.lang.String,java.lang.String) -> a
+    void onErrorOfWriteNewPassword(java.lang.String,java.lang.String) -> b
+    void onPasswordWrong(java.lang.String) -> a
+    void onBeaconError() -> a
+    void notifyABAcceleration(com.aprilbrother.aprilbrothersdk.internal.ABAcceleration) -> a
+    void notifyABLight(double) -> a
+    void accelerometerStateChange(boolean) -> a
+    void turnOnOffError() -> j
+    void lightStateChange(boolean) -> b
+    void enableAccelerometerNotification() -> k
+    void enableAccelerometerNotificationError() -> l
+    void enableLightNotification() -> m
+    void enableLightNotificationError() -> n
+    void connected() -> f
+    void onWriteMeasuredPowerSuccess(int) -> b
+    void onResetSuccess() -> o
+    void onErrorOfWrite(int) -> a
+    void onWriteSuccess() -> p
+com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$WriteCallback -> com.aprilbrother.aprilbrothersdk.connection.AprilBeaconConnection$WriteCallback:
+com.aprilbrother.aprilbrothersdk.connection.a -> com.aprilbrother.aprilbrothersdk.connection.a:
+    java.util.UUID a -> a
+    java.util.UUID b -> b
+    java.util.UUID c -> c
+    java.util.UUID d -> d
+    java.util.UUID e -> e
+    java.util.UUID f -> f
+    java.util.UUID g -> g
+    java.util.UUID h -> h
+    java.util.UUID i -> i
+    java.util.UUID j -> j
+    java.util.UUID k -> k
+    java.util.UUID l -> l
+    java.util.UUID m -> m
+    java.util.UUID n -> n
+    java.util.UUID o -> o
+    java.util.UUID p -> p
+    java.util.UUID q -> q
+    java.util.UUID r -> r
+    java.util.UUID s -> s
+    java.util.UUID t -> t
+    java.util.UUID u -> u
+    java.util.UUID v -> v
+    java.util.UUID w -> w
+    java.util.UUID x -> x
+    java.util.UUID y -> y
+    java.util.UUID z -> z
+    java.util.UUID A -> A
+    java.util.UUID B -> B
+    java.util.UUID C -> C
+    java.util.UUID D -> D
+    java.util.UUID E -> E
+    java.util.UUID F -> F
+    java.util.UUID G -> G
+    java.util.UUID H -> H
+    java.util.UUID I -> I
+    java.util.UUID J -> J
+    java.util.UUID K -> K
+com.aprilbrother.aprilbrothersdk.connection.b -> com.aprilbrother.aprilbrothersdk.connection.b:
+    java.lang.String a -> a
+    com.aprilbrother.aprilbrothersdk.services.a b -> b
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService c -> c
+    java.lang.String d -> d
+    android.content.Context e -> e
+    com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver$a f -> f
+    com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a g -> g
+    boolean h -> h
+    boolean i -> i
+    boolean j -> j
+    boolean k -> k
+    com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver l -> l
+    android.content.ServiceConnection m -> m
+    com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver n -> n
+    android.content.ServiceConnection o -> o
+    void a(android.content.Context,java.lang.String,boolean,com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a) -> a
+    void a() -> a
+    void a(java.util.UUID,java.util.UUID,byte[],java.lang.String) -> a
+    void a(com.aprilbrother.aprilbrothersdk.services.ABeaconUartService) -> a
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService b() -> b
+    java.lang.String c() -> c
+    boolean d() -> d
+    com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a e() -> e
+    void a(com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver) -> a
+    android.content.Context f() -> f
+    com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver g() -> g
+    android.content.IntentFilter h() -> h
+    void a(com.aprilbrother.aprilbrothersdk.services.a) -> a
+    com.aprilbrother.aprilbrothersdk.services.a i() -> i
+    boolean j() -> j
+    com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver$a k() -> k
+    void a(com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver) -> a
+    com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver l() -> l
+com.aprilbrother.aprilbrothersdk.connection.b$1 -> com.aprilbrother.aprilbrothersdk.connection.b$1:
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.aprilbrother.aprilbrothersdk.connection.b$2 -> com.aprilbrother.aprilbrothersdk.connection.b$2:
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.aprilbrother.aprilbrothersdk.internal.ABAcceleration -> com.aprilbrother.aprilbrothersdk.internal.ABAcceleration:
+    double a -> a
+    double b -> b
+    double c -> c
+    double getX() -> a
+    void setX(double) -> a
+    double getY() -> b
+    void setY(double) -> b
+    double getZ() -> c
+    void setZ(double) -> c
+com.aprilbrother.aprilbrothersdk.internal.a -> com.aprilbrother.aprilbrothersdk.internal.a:
+    char[] a -> a
+    int a() -> a
+    byte[] b() -> b
+    com.aprilbrother.aprilbrothersdk.internal.a a(byte[]) -> a
+    int c() -> c
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+com.aprilbrother.aprilbrothersdk.internal.a$a -> com.aprilbrother.aprilbrothersdk.internal.a$a:
+    byte[] a -> a
+    int c() -> c
+    byte[] b() -> b
+    int a() -> a
+com.aprilbrother.aprilbrothersdk.internal.b -> com.aprilbrother.aprilbrothersdk.internal.b:
+    com.aprilbrother.aprilbrothersdk.internal.b$a a(java.lang.Object) -> a
+com.aprilbrother.aprilbrothersdk.internal.b$a -> com.aprilbrother.aprilbrothersdk.internal.b$a:
+    java.lang.String a -> a
+    com.aprilbrother.aprilbrothersdk.internal.b$a$a b -> b
+    com.aprilbrother.aprilbrothersdk.internal.b$a$a c -> c
+    boolean d -> d
+    com.aprilbrother.aprilbrothersdk.internal.b$a a(java.lang.String,java.lang.Object) -> a
+    com.aprilbrother.aprilbrothersdk.internal.b$a a(java.lang.String,int) -> a
+    com.aprilbrother.aprilbrothersdk.internal.b$a a(java.lang.String,long) -> a
+    java.lang.String toString() -> toString
+    com.aprilbrother.aprilbrothersdk.internal.b$a b(java.lang.String,java.lang.Object) -> b
+com.aprilbrother.aprilbrothersdk.internal.b$a$a -> com.aprilbrother.aprilbrothersdk.internal.b$a$a:
+    java.lang.String a -> a
+    java.lang.Object b -> b
+    com.aprilbrother.aprilbrothersdk.internal.b$a$a c -> c
+com.aprilbrother.aprilbrothersdk.internal.c -> com.aprilbrother.aprilbrothersdk.internal.c:
+    java.lang.Object a(java.lang.Object,java.lang.Object) -> a
+    java.lang.Object a(java.lang.Object) -> a
+    void a(boolean,java.lang.Object) -> a
+com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver -> com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver:
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService b -> b
+    com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a c -> c
+    boolean d -> d
+    com.aprilbrother.aprilbrothersdk.a.a a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void a() -> a
+    void b() -> b
+    void c() -> c
+    void d() -> d
+    void e() -> e
+    void f() -> f
+    void a(int,int) -> a
+    void a(byte[],java.util.UUID,java.util.UUID) -> a
+    void a(int) -> a
+com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a -> com.aprilbrother.aprilbrothersdk.receiver.ABeaconUARTStatusChangeReceiver$a:
+    void a(com.aprilbrother.aprilbrothersdk.a.a) -> a
+    void k() -> k
+    void a() -> a
+    void d() -> d
+    void b() -> b
+    void c() -> c
+    void e() -> e
+    void f() -> f
+    void g() -> g
+    void h() -> h
+    void i() -> i
+    void j() -> j
+com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver -> com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver:
+    com.aprilbrother.aprilbrothersdk.services.a b -> b
+    com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver$a c -> c
+    boolean d -> d
+    com.aprilbrother.aprilbrothersdk.a.a a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void a(java.util.UUID,java.util.UUID) -> a
+com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver$a -> com.aprilbrother.aprilbrothersdk.receiver.AprilBeaconUARTStatusChangeReceiver$a:
+com.aprilbrother.aprilbrothersdk.service.BeaconService -> com.aprilbrother.aprilbrothersdk.service.BeaconService:
+    long a -> a
+    long b -> b
+    android.content.Intent c -> c
+    android.content.Intent d -> d
+    android.os.Messenger e -> e
+    android.bluetooth.BluetoothAdapter$LeScanCallback f -> f
+    java.util.concurrent.ConcurrentHashMap g -> g
+    java.util.List h -> h
+    java.util.List i -> i
+    android.bluetooth.BluetoothAdapter j -> j
+    android.app.AlarmManager k -> k
+    android.os.HandlerThread l -> l
+    android.os.Handler m -> m
+    java.lang.Runnable n -> n
+    boolean o -> o
+    android.os.Messenger p -> p
+    android.content.BroadcastReceiver q -> q
+    android.content.BroadcastReceiver r -> r
+    android.app.PendingIntent s -> s
+    android.content.BroadcastReceiver t -> t
+    android.app.PendingIntent u -> u
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData v -> v
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData w -> w
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void startMonitoring(com.aprilbrother.aprilbrothersdk.service.a) -> a
+    void stopMonitoring(java.lang.String) -> a
+    void a() -> a
+    void a(android.app.PendingIntent,long) -> a
+    void b() -> b
+    java.util.List a(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> a
+    java.util.concurrent.ConcurrentHashMap b(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> b
+    java.util.List c(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> c
+    void d(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> d
+    void e(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> e
+    long f(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> f
+    void g(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> g
+    android.app.PendingIntent h(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> h
+    void a(com.aprilbrother.aprilbrothersdk.service.BeaconService,android.app.PendingIntent,long) -> a
+    android.os.Handler i(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> i
+    void a(com.aprilbrother.aprilbrothersdk.service.BeaconService,com.aprilbrother.aprilbrothersdk.service.b) -> a
+    void a(com.aprilbrother.aprilbrothersdk.service.BeaconService,java.lang.String) -> a
+    void a(com.aprilbrother.aprilbrothersdk.service.BeaconService,android.os.Messenger) -> a
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData j(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> j
+    void a(com.aprilbrother.aprilbrothersdk.service.BeaconService,com.aprilbrother.aprilbrothersdk.service.ScanPeriodData) -> a
+    void b(com.aprilbrother.aprilbrothersdk.service.BeaconService,com.aprilbrother.aprilbrothersdk.service.ScanPeriodData) -> b
+    com.aprilbrother.aprilbrothersdk.service.ScanPeriodData k(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> k
+    android.bluetooth.BluetoothAdapter l(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> l
+    void m(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> m
+    android.app.PendingIntent n(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> n
+    java.lang.Runnable o(com.aprilbrother.aprilbrothersdk.service.BeaconService) -> o
+com.aprilbrother.aprilbrothersdk.service.BeaconService$1 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$1:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    com.aprilbrother.aprilbrothersdk.service.b b -> b
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$10 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$10:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    java.lang.String b -> b
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$11 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$11:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$12 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$12:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    android.app.PendingIntent b -> b
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$2 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$2:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a(com.aprilbrother.aprilbrothersdk.service.BeaconService$2) -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$2$1 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$2$1:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$2 a -> a
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$2$2 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$2$2:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$2 a -> a
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$3 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$3:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.aprilbrother.aprilbrothersdk.service.BeaconService$4 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$4:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a(com.aprilbrother.aprilbrothersdk.service.BeaconService$4) -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$4$1 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$4$1:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$4 a -> a
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$5 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$5:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$6 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$6:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    java.lang.String b -> b
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$7 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$7:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$8 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$8:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    com.aprilbrother.aprilbrothersdk.service.a b -> b
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$9 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$9:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$a -> com.aprilbrother.aprilbrothersdk.service.BeaconService$a:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    java.util.List a(com.aprilbrother.aprilbrothersdk.Beacon) -> a
+    void a(long) -> a
+    java.util.List b(long) -> b
+    void a(java.util.List,java.util.List) -> a
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$b -> com.aprilbrother.aprilbrothersdk.service.BeaconService$b:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    void handleMessage(android.os.Message) -> handleMessage
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a(com.aprilbrother.aprilbrothersdk.service.BeaconService$b) -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$b$1 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$b$1:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$b a -> a
+    int b -> b
+    java.lang.Object c -> c
+    android.os.Messenger d -> d
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$c -> com.aprilbrother.aprilbrothersdk.service.BeaconService$c:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a -> a
+    void onLeScan(android.bluetooth.BluetoothDevice,int,byte[]) -> onLeScan
+    com.aprilbrother.aprilbrothersdk.service.BeaconService a(com.aprilbrother.aprilbrothersdk.service.BeaconService$c) -> a
+com.aprilbrother.aprilbrothersdk.service.BeaconService$c$1 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$c$1:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$c a -> a
+    android.bluetooth.BluetoothDevice b -> b
+    int c -> c
+    byte[] d -> d
+    void run() -> run
+com.aprilbrother.aprilbrothersdk.service.BeaconService$c$2 -> com.aprilbrother.aprilbrothersdk.service.BeaconService$c$2:
+    com.aprilbrother.aprilbrothersdk.service.BeaconService$c a -> a
+com.aprilbrother.aprilbrothersdk.service.MonitoringResult -> com.aprilbrother.aprilbrothersdk.service.MonitoringResult:
+    com.aprilbrother.aprilbrothersdk.Region a -> a
+    com.aprilbrother.aprilbrothersdk.Region$State b -> b
+    java.util.List c -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.aprilbrother.aprilbrothersdk.service.MonitoringResult$1 -> com.aprilbrother.aprilbrothersdk.service.MonitoringResult$1:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+com.aprilbrother.aprilbrothersdk.service.RangingResult -> com.aprilbrother.aprilbrothersdk.service.RangingResult:
+    com.aprilbrother.aprilbrothersdk.Region a -> a
+    java.util.List b -> b
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.aprilbrother.aprilbrothersdk.service.RangingResult$1 -> com.aprilbrother.aprilbrothersdk.service.RangingResult$1:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+com.aprilbrother.aprilbrothersdk.service.ScanPeriodData -> com.aprilbrother.aprilbrothersdk.service.ScanPeriodData:
+    long a -> a
+    long b -> b
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.aprilbrother.aprilbrothersdk.service.ScanPeriodData$1 -> com.aprilbrother.aprilbrothersdk.service.ScanPeriodData$1:
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+com.aprilbrother.aprilbrothersdk.service.a -> com.aprilbrother.aprilbrothersdk.service.a:
+    long c -> c
+    boolean d -> d
+    boolean a(long) -> a
+    boolean b(long) -> b
+com.aprilbrother.aprilbrothersdk.service.b -> com.aprilbrother.aprilbrothersdk.service.b:
+    java.util.Comparator c -> c
+    java.util.concurrent.ConcurrentHashMap d -> d
+    com.aprilbrother.aprilbrothersdk.Region a -> a
+    android.os.Messenger b -> b
+    java.util.Collection a() -> a
+    void a(java.util.Map) -> a
+    void c(long) -> c
+com.aprilbrother.aprilbrothersdk.service.b$1 -> com.aprilbrother.aprilbrothersdk.service.b$1:
+    int compare(java.lang.Object,java.lang.Object) -> compare
+com.aprilbrother.aprilbrothersdk.services.ABeaconUartService -> com.aprilbrother.aprilbrothersdk.services.ABeaconUartService:
+    java.lang.String b -> b
+    android.bluetooth.BluetoothManager c -> c
+    android.bluetooth.BluetoothAdapter d -> d
+    java.lang.String e -> e
+    android.bluetooth.BluetoothGatt a -> a
+    int f -> f
+    android.bluetooth.BluetoothGattCallback g -> g
+    android.os.IBinder h -> h
+    java.lang.String a(byte[]) -> a
+    void a(java.lang.String) -> b
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    boolean onUnbind(android.content.Intent) -> onUnbind
+    boolean initialize() -> a
+    boolean connect(java.lang.String) -> a
+    void close() -> b
+    void enableTXNotification(java.util.UUID,java.util.UUID,java.util.UUID) -> a
+    void writeRXCharacteristic(java.util.UUID,java.util.UUID,byte[]) -> a
+    void b(java.lang.String) -> c
+    void a(com.aprilbrother.aprilbrothersdk.services.ABeaconUartService,int) -> a
+    void a(com.aprilbrother.aprilbrothersdk.services.ABeaconUartService,java.lang.String) -> a
+    java.lang.String a() -> c
+    void a(com.aprilbrother.aprilbrothersdk.services.ABeaconUartService,java.lang.String,android.bluetooth.BluetoothGattCharacteristic) -> a
+com.aprilbrother.aprilbrothersdk.services.ABeaconUartService$1 -> com.aprilbrother.aprilbrothersdk.services.ABeaconUartService$1:
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService a -> a
+    void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int) -> onConnectionStateChange
+    void onServicesDiscovered(android.bluetooth.BluetoothGatt,int) -> onServicesDiscovered
+    void onCharacteristicRead(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicRead
+    void onCharacteristicChanged(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic) -> onCharacteristicChanged
+    void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicWrite
+    void onDescriptorWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattDescriptor,int) -> onDescriptorWrite
+com.aprilbrother.aprilbrothersdk.services.ABeaconUartService$LocalBinder -> com.aprilbrother.aprilbrothersdk.services.ABeaconUartService$LocalBinder:
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService a -> a
+    com.aprilbrother.aprilbrothersdk.services.ABeaconUartService getService() -> a
+com.aprilbrother.aprilbrothersdk.services.a -> com.aprilbrother.aprilbrothersdk.services.a:
+    java.lang.String j -> j
+    android.bluetooth.BluetoothManager k -> k
+    android.bluetooth.BluetoothAdapter l -> l
+    java.lang.String m -> m
+    android.bluetooth.BluetoothGatt a -> a
+    int n -> n
+    java.util.UUID b -> b
+    java.util.UUID c -> c
+    java.util.UUID d -> d
+    java.util.UUID e -> e
+    java.util.UUID f -> f
+    java.util.UUID g -> g
+    java.util.UUID h -> h
+    java.util.UUID i -> i
+    android.bluetooth.BluetoothGattCallback o -> o
+    android.os.IBinder p -> p
+    void b(java.lang.String) -> b
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    boolean onUnbind(android.content.Intent) -> onUnbind
+    boolean a() -> a
+    boolean a(java.lang.String) -> a
+    void b() -> b
+    void a(android.bluetooth.BluetoothGattCharacteristic) -> a
+    void a(java.util.UUID,java.util.UUID,byte[]) -> a
+    void c(java.lang.String) -> c
+    void a(com.aprilbrother.aprilbrothersdk.services.a,int) -> a
+    void a(com.aprilbrother.aprilbrothersdk.services.a,java.lang.String) -> a
+    java.lang.String c() -> c
+    void a(com.aprilbrother.aprilbrothersdk.services.a,java.lang.String,android.bluetooth.BluetoothGattCharacteristic) -> a
+com.aprilbrother.aprilbrothersdk.services.a$1 -> com.aprilbrother.aprilbrothersdk.services.a$1:
+    com.aprilbrother.aprilbrothersdk.services.a a -> a
+    void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int) -> onConnectionStateChange
+    void onServicesDiscovered(android.bluetooth.BluetoothGatt,int) -> onServicesDiscovered
+    void onCharacteristicRead(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicRead
+    void onCharacteristicChanged(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic) -> onCharacteristicChanged
+    void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicWrite
+com.aprilbrother.aprilbrothersdk.services.a$a -> com.aprilbrother.aprilbrothersdk.services.a$a:
+    com.aprilbrother.aprilbrothersdk.services.a a -> a
+    com.aprilbrother.aprilbrothersdk.services.a a() -> a
+com.aprilbrother.aprilbrothersdk.utils.AprilL -> com.aprilbrother.aprilbrothersdk.utils.AprilL:
+    boolean a -> a
+    boolean b -> b
+    java.lang.reflect.Method c -> c
+    void enableDebugLogging(boolean) -> a
+    void v(java.lang.String) -> a
+    void d(java.lang.String) -> b
+    void i(java.lang.String) -> c
+    void i(java.lang.String,java.lang.String) -> a
+    void w(java.lang.String) -> d
+    void e(java.lang.String) -> e
+    void e(java.lang.String,java.lang.Throwable) -> a
+    void wtf(java.lang.String) -> f
+    void wtf(java.lang.String,java.lang.Exception) -> a
+    java.lang.String a() -> a
+    void a(java.lang.String) -> g
+    java.lang.String a(java.lang.Throwable) -> a
+com.aprilbrother.aprilbrothersdk.utils.a -> com.aprilbrother.aprilbrothersdk.utils.a:
+    char[] a -> a
+    byte[] a(java.lang.String) -> a
+    byte[] b(java.lang.String) -> b

@@ -141,8 +141,6 @@ public class SensorActivity extends Activity implements OnClickListener {
 						}
 						tv_conn_status.setText("disConnect");
 					}
-						
-					
 				}
 			}, 10000);
 			break;

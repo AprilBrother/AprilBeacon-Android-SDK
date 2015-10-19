@@ -6,20 +6,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.RemoteException;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +28,6 @@ import android.widget.Toast;
 
 import com.aprilbrother.aprilbrothersdk.Beacon;
 import com.aprilbrother.aprilbrothersdk.BeaconManager;
-import com.aprilbrother.aprilbrothersdk.BeaconManager.MonitoringListener;
 import com.aprilbrother.aprilbrothersdk.Region;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics;
 import com.aprilbrother.aprilbrothersdk.connection.AprilBeaconCharacteristics.MyReadCallBack;
@@ -70,7 +65,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 
 	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
 			null, null);
-	
+
 	final String URL_Post = "http://bbs.aprbrother.com";
 	final String URL = "http://bbs.aprbrother.com";
 
@@ -114,13 +109,13 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		measuredPower.setHint(beacon.getMeasuredPower() + "");
 
 		ll_absensor = (LinearLayout) findViewById(R.id.ll_absensor);
-//		if (beacon.getName() != null) {
-//			if (beacon.getName().contains("ABSensor")) {
-//				ll_absensor.setVisibility(View.VISIBLE);
-//			} else {
-//				ll_absensor.setVisibility(View.GONE);
-//			}
-//		}
+		// if (beacon.getName() != null) {
+		// if (beacon.getName().contains("ABSensor")) {
+		// ll_absensor.setVisibility(View.VISIBLE);
+		// } else {
+		// ll_absensor.setVisibility(View.GONE);
+		// }
+		// }
 		ll_absensor.setVisibility(View.GONE);
 		tv_battery = (TextView) findViewById(R.id.battery);
 		tv_txpower = (TextView) findViewById(R.id.txpower);
@@ -369,7 +364,7 @@ public class ModifyActivity extends Activity implements OnClickListener {
 		View view = (View) LayoutInflater.from(this).inflate(
 				R.layout.dialog_text, null);
 		et_pwd = (EditText) view.findViewById(R.id.et_pwd);
-		et_pwd.setText("AprilBrother");
+		et_pwd.setText("195660");
 
 		new AlertDialog.Builder(ModifyActivity.this)
 				.setTitle(getResources().getString(R.string.input_password))
@@ -426,7 +421,6 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			String newPassword = password.getText().toString();
 			conn.writePassword(newPassword);
 		}
-
 		conn.connectGattToWrite(new MyWriteCallback() {
 
 			@Override
@@ -543,6 +537,17 @@ public class ModifyActivity extends Activity implements OnClickListener {
 			}
 
 			@Override
+			public void connected() {
+				ModifyActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						Toast.makeText(ModifyActivity.this, "connect",
+								Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+
+			@Override
 			public void onWriteUUIDSuccess() {
 				ModifyActivity.this.runOnUiThread(new Runnable() {
 					@Override
@@ -554,8 +559,12 @@ public class ModifyActivity extends Activity implements OnClickListener {
 				});
 			}
 
-		}, oldPassword);
+			@Override
+			public void onErrorOfWrite(int arg0) {
+				super.onErrorOfWrite(arg0);
+			}
 
+		}, oldPassword);
 	}
 
 	@Override
@@ -577,42 +586,42 @@ public class ModifyActivity extends Activity implements OnClickListener {
 
 	public void notify(View v) {
 
-		 Intent intent = new Intent(ModifyActivity.this, NotifyService.class);
-		 startService(intent);
+		Intent intent = new Intent(ModifyActivity.this, NotifyService.class);
+		startService(intent);
 
-//		beaconManager = new BeaconManager(this);
-//		beaconManager.setMonitoringListener(new MonitoringListener() {
-//
-//			@Override
-//			public void onExitedRegion(Region region) {
-//				// Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
-//				// .show();
-//				NotificationUtils.generateNotification(ModifyActivity.this,
-//						"bye bye see you", "AprilBeaconDemos");
-//			}
-//
-//			@Override
-//			public void onEnteredRegion(Region region, List<Beacon> beacons) {
-//
-//				// Toast.makeText(getApplicationContext(),
-//				// "你进入beacon范围 beacons.size =" + beacons.size(), 0)
-//				// .show();
-//				// // HttpURL();
-//				// Intent it = new Intent(Intent.ACTION_VIEW, URI);
-//				// startActivity(it);
-//				NotificationUtils.generateNotification(ModifyActivity.this,
-//						"i came in", "AprilBeaconDemos");
-//			}
-//		});
-//		beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-//			@Override
-//			public void onServiceReady() {
-//				try {
-//					beaconManager.startMonitoring(ALL_BEACONS_REGION);
-//				} catch (RemoteException e) {
-//				}
-//			}
-//		});
+		// beaconManager = new BeaconManager(this);
+		// beaconManager.setMonitoringListener(new MonitoringListener() {
+		//
+		// @Override
+		// public void onExitedRegion(Region region) {
+		// // Toast.makeText(getApplicationContext(), "你离开beacon范围", 0)
+		// // .show();
+		// NotificationUtils.generateNotification(ModifyActivity.this,
+		// "bye bye see you", "AprilBeaconDemos");
+		// }
+		//
+		// @Override
+		// public void onEnteredRegion(Region region, List<Beacon> beacons) {
+		//
+		// // Toast.makeText(getApplicationContext(),
+		// // "你进入beacon范围 beacons.size =" + beacons.size(), 0)
+		// // .show();
+		// // // HttpURL();
+		// // Intent it = new Intent(Intent.ACTION_VIEW, URI);
+		// // startActivity(it);
+		// NotificationUtils.generateNotification(ModifyActivity.this,
+		// "i came in", "AprilBeaconDemos");
+		// }
+		// });
+		// beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
+		// @Override
+		// public void onServiceReady() {
+		// try {
+		// beaconManager.startMonitoring(ALL_BEACONS_REGION);
+		// } catch (RemoteException e) {
+		// }
+		// }
+		// });
 	}
 
 	private void HttpURLConnection_Post() {

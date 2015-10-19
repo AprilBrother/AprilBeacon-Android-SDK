@@ -6,7 +6,7 @@
 
     <!-- Android4.3及以上才可以使用 -->
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="18"
         android:targetSdkVersion="21" />
 
     <!-- 需要添加蓝牙相关权限才可以使用 -->
@@ -42,11 +42,22 @@
         </activity>
         <activity android:name="com.aprilbrother.aprilbeacondemo.SensorActivity" >
         </activity>
+        <activity android:name="com.aprilbrother.aprilbeacondemo.EddyStoneScanActivity" >
+        </activity>
+        <activity android:name="com.aprilbrother.aprilbeacondemo.EddyStoneModifyActivity" >
+        </activity>
         
 
         <!-- 扫描beacon的服务 -->
         <service
             android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
+            android:exported="false" />
+        <!-- 修改省电王需要配置的服务 -->
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
+            android:exported="false" />
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.services.UartService"
             android:exported="false" />
         <service
             android:name="com.aprilbrother.aprilbeacondemo.NotifyService"

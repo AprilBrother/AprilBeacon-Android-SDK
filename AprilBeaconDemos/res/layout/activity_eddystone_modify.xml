@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="当前模式：xxx" />
+
+    <TextView
+        android:id="@+id/tv_change_model_to_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="更改模式为ULR" />
+
+    <TextView
+        android:id="@+id/tv_change_model_to_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="更改模式为UID" />
+
+    <TextView
+        android:id="@+id/tv_change_model_to_ibeacon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="更改模式为iBeacon" />
+
+    <EditText
+        android:id="@+id/et_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="url" />
+
+    <TextView
+        android:id="@+id/tv_change_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="更改ULR" />
+    
+    <EditText
+        android:id="@+id/et_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="url" />
+
+    <TextView
+        android:id="@+id/tv_change_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#22000000"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="更改UID" />
+
+</LinearLayout>

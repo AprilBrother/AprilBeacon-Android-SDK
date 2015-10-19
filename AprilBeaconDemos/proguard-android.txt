@@ -56,7 +56,6 @@
 # platform version.  We know about them, and they are safe.
 -dontwarn android.support.**
 
--libraryjars libs/ab-sdk-beta1.5.2.jar
+-libraryjars libs/ab-sdk-beta1.6.1.jar
 -keep class com.aprilbrother.aprilbrothersdk.**
 -keep class com.aprilbrother.aprilbrothersdk.Utils{*;}
-

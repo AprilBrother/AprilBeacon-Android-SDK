@@ -27,6 +27,8 @@ You can scan beacon and modify beacon
  <!--support modify abeacon with sdk1.6.0 -->
  <service android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
           android:exported="false" />
+ <service android:name="com.aprilbrother.aprilbrothersdk.services.UartService"
+          android:exported="false" />
 ```
 
 

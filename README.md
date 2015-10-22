@@ -21,6 +21,8 @@ You can scan beacon and modify beacon
  <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
+ <!-- use permission on Android M -->
+ <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
  <service android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
          android:exported="false"/>
@@ -35,7 +37,7 @@ You can scan beacon and modify beacon
 ## Precautions
 * If you want to use change the characteristic you should make sure that our beacon's hardware is above 2.0
 * the default password is AprilBrother
-
+* Android M to access the hardware identifiers of nearby external devices via Bluetooth and Wi-Fi scans, your app must now have the ACCESS_FINE_LOCATION or ACCESS_COARSE_LOCATION permissions
 ## Proguard
 * -libraryjars libs/ab-sdk-beta1.6.1.jar
 * -keep class com.aprilbrother.aprilbrothersdk.**

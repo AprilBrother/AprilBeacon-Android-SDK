@@ -43,3 +43,4 @@ You can scan beacon and modify beacon
 * -libraryjars libs/ab-sdk-beta1.6.1.jar
 * -keep class com.aprilbrother.aprilbrothersdk.**
 * -keep class com.aprilbrother.aprilbrothersdk.Utils{*;}
+* if have this question (Can't process class [com/aprilbrother/aprilbrothersdk/services/ABeaconUartService$1.class] (Unknown verification type [18] in stack map frame)) repalce the proguard.jar

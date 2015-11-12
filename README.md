@@ -40,7 +40,7 @@ You can scan beacon and modify beacon
 * Android M to access the hardware identifiers of nearby external devices via Bluetooth and Wi-Fi scans, your app must now have the ACCESS_FINE_LOCATION or ACCESS_COARSE_LOCATION permissions
 
 ## Proguard
-* -libraryjars libs/ab-sdk-beta1.6.1.jar
+* -libraryjars libs/ab-sdk-beta1.6.2.jar
 * -keep class com.aprilbrother.aprilbrothersdk.**
 * -keep class com.aprilbrother.aprilbrothersdk.Utils{*;}
 * if have this question (Can't process class [com/aprilbrother/aprilbrothersdk/services/ABeaconUartService$1.class] (Unknown verification type [18] in stack map frame)) repalce the proguard.jar

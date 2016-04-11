@@ -55,35 +55,8 @@ public class BeaconAdapter extends BaseAdapter {
 
 	private void bind(Beacon beacon, View view) {
 		ViewHolder holder = (ViewHolder) view.getTag();
-		String mac = holder.macTextView.getText().toString().trim();
-		if(!TextUtils.isEmpty(mac)){
-			String lastDistanceStr = mac.substring(mac.indexOf("(")+1, mac.lastIndexOf("m"));
-			double  lastDistance= Double.parseDouble(lastDistanceStr);
-			if(lastDistance>beacon.getDistance()){
-				if(lastDistance-beacon.getDistance()>0.2){
-					double tempDistance = lastDistance-0.2;
-					BigDecimal bg = new BigDecimal(tempDistance);
-					double showDistance = bg.setScale(2, BigDecimal.ROUND_HALF_UP)
-							.doubleValue();
-					holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+showDistance+"m)");
-				}else{
-					holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
-				}
-			}else if(lastDistance<beacon.getDistance()){
-				if(beacon.getDistance()-lastDistance>0.2){
-					double tempDistance = lastDistance+0.2;
-					BigDecimal bg = new BigDecimal(tempDistance);
-					double showDistance = bg.setScale(2, BigDecimal.ROUND_HALF_UP)
-							.doubleValue();
-					holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+showDistance+"m)");
-				}else{
-					holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
-				}
-			}
-		}else{
-			holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
-		}
-//        holder.macTextView.setText("MAC : "+beacon.getMacAddress()+"("+beacon.getDistance()+"m)");
+		holder.macTextView.setText("MAC : " + beacon.getMacAddress() + "("
+				+ beacon.getDistance() + "m)");
 		holder.uuidTextView.setText("UUID: " + beacon.getProximityUUID());
 		holder.majorTextView.setText("Major: " + beacon.getMajor());
 		holder.minorTextView.setText("Minor: " + beacon.getMinor());

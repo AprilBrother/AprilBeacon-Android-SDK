@@ -94,13 +94,13 @@ public class BeaconList extends Activity {
 		beaconManager.setMonitoringListener(new MonitoringListener() {
 
 			@Override
-			public void onExitedRegion(Region arg0) {
+			public void onExitedRegion(Region region) {
 				Toast.makeText(BeaconList.this, "Notify in", 0).show();
 
 			}
 
 			@Override
-			public void onEnteredRegion(Region arg0, List<Beacon> arg1) {
+			public void onEnteredRegion(Region region, List<Beacon> beacons) {
 				Toast.makeText(BeaconList.this, "Notify out", 0).show();
 			}
 		});

@@ -37,15 +37,15 @@ public class BeaconList extends Activity {
 	// "e2c56db5-dffb-48d2-b060-d0f5a71096e3",
 	// null, null);
 
-	private static final Region ALL_BEACONS_REGION = new Region("apr", null,
+	private static final Region ALL_BEACONS_REGION = new Region("customRegionName", null,
 			null, null);
-	private static final Region TEST_ALL_BEACONS_REGION = new Region("AA",
+	private static final Region TEST_ALL_BEACONS_REGION = new Region("customRegionName",
 			null, 2, null);
-	// private static final Region ALL_BEACONS_REGION = new Region("apr",
+	// private static final Region ALL_BEACONS_REGION = new Region("customRegionName",
 	// "e2c56db5-dffb-48d2-b060-d0f5a71096e0",
 	// 985,211);
 	// 扫描所有uuid为"aa000000-0000-0000-0000-000000000000"的beacon
-	// private static final Region ALL_BEACONS_REGION = new Region("apr",
+	// private static final Region ALL_BEACONS_REGION = new Region("customRegionName",
 	// "aa000000-0000-0000-0000-000000000000",
 	// null, null);
 	private BeaconAdapter adapter;

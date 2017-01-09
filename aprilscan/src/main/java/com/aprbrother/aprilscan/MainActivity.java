@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void startScan() {
         scanManager = new ScanManager(this);
+//        scanManager.setUuid("00000000-0000-0000-0000-000000000000");//添加需要扫描的uuid 只有符合的才会返回 不设置返回所有
+//        scanManager.setMajor(222);//添加需要扫描的beacon的major 只有符合的major才会返回 不设置返回所有
+//        scanManager.setMinor(111);//添加需要扫描的beacon的minor 只有符合的minor才会返回 不设置返回所有
+//        scanManager.setScanPeriod(1000);//设置beacon扫描 反馈结果时间间隔  时间越久 扫描丢失率越低 默认3000ms
+//        scanManager.startScan();//启动扫描
+//        scanManager.stopScan();//停止扫描
+//        scanManager.setScanListener(new ScanManager.MyScanListener());//设置扫描监听 监听扫描返回数据
         scanManager.setScanListener(new ScanManager.MyScanListener() {
             @Override
             public void onScanListenre(ArrayList<Beacon> beacons) {

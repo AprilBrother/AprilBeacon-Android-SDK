@@ -4,6 +4,9 @@ AprilBrother SDK for Android
 
 You can scan beacon and modify beacon
 
+##Add aprilscansdk for only scan
+*the demo aprilscan is a android studio moudle 
+
 ## Docs
 
 * [Current JavaDoc documentation](//aprilbrother.github.io/aprilbeacon-android-sdk/JavaDocs/index.html)

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AprilBeaconDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="modify_beacon">Modify Beacon</string>
+    <string name="start_modify">Start Modify</string>
+    <string name="get_device_info">Get Device Information</string>
+    <string name="battery">Battery：</string>
+    <string name="getBattery"> Get Battery</string>
+    <string name="transmitting_power">Power：</string>
+    <string name="get_transmitting_power">Get Power</string>
+    <string name="advinterval">Advinterval：</string>
+    <string name="get_advinterval">Get Advinterval</string>
+    <string name="firmware_version">Firmware:</string>
+    <string name="get_firmware_version">Get Firmware</string>
+    <string name="manufacturer">Manufacturer:</string>
+    <string name="get_manufacturer">Get Manufacturer</string>
+    <string name="start_background_notify">Start Background Notify</string>
+
+    <string name="input_password">Input Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="sure">Sure</string>
+    
+    <string name="codeversed_logo">Codeversed Logo</string>
+    <string name="normal">Normal</string>
+    <string name="big_text_style">Big Text Style</string>
+    <string name="big_picture_style">Big Picture Style</string>
+    <string name="inbox_style">Inbox Style</string>
+    <string name="custom_view">Custom View</string>
+</resources>

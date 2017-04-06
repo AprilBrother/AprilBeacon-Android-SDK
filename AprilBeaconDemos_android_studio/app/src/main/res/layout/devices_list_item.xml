@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/ll_bluetooth_list_fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dip"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:paddingTop="5dip" >
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_name"
+                style="@style/tv_beacon_list_item_fragment"
+                android:tag="name"
+                android:text="AprilBeacon_123456" />
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_mac"
+                style="@style/tv_beacon_list_item_fragment"
+                android:tag="mac"
+                android:text="Mac: 12:12:12:12:12:12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:paddingTop="5dip" >
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_uuid"
+                style="@style/tv_beacon_list_item_fragment"
+                android:tag="uuid"
+                android:text="UUID:00000000-0000-0000-0000-000000000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:paddingTop="5dip" >
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_major"
+                style="@style/tv_beacon_list_item_fragment"
+                android:tag="model"
+                android:text="Major:65535" />
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_minor"
+                style="@style/tv_beacon_list_item_fragment"
+                android:visibility="gone"
+                android:text="Minor:65535" />
+
+            <TextView
+                android:id="@+id/tv_bluetooth_list_item_fragment_rssi"
+                style="@style/tv_beacon_list_item_fragment"
+                android:tag="rssi"
+                android:text="Rssi:-78" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

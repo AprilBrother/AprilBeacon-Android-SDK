@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.aprbrother.aprilbeacondemo"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- 需要添加蓝牙相关权限才可以使用 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 声明应用需要使用设备的蓝牙BLE -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light">
+        <activity
+            android:name="com.aprbrother.aprilbeacondemos.BeaconList"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.ModifyActivity"></activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.RequestActivity"></activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.ResultActivity"></activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.SensorActivity"></activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.EddyStoneScanActivity"></activity>
+        <activity android:name="com.aprbrother.aprilbeacondemos.EddyStoneModifyActivity"></activity>
+
+
+        <!-- 扫描beacon的服务 -->
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.service.BeaconService"
+            android:exported="false" />
+        <!-- 修改省电王需要配置的服务 -->
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.services.ABeaconUartService"
+            android:exported="false" />
+        <service
+            android:name="com.aprilbrother.aprilbrothersdk.services.UartService"
+            android:exported="false" />
+        <service
+            android:name="com.aprbrother.aprilbeacondemos.NotifyService"
+            android:exported="false"></service>
+    </application>
+
+</manifest>

@@ -29,5 +29,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     testCompile 'junit:junit:4.12'
-    compile files('libs/ab-sdk-beta1.6.7.jar')
+    compile files('libs/ab-sdk-beta1.7.1.jar')
 }

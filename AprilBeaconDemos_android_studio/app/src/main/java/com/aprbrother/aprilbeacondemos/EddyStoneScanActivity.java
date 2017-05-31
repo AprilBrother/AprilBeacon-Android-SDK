@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.aprbrother.aprilbeacondemo.R;
@@ -20,7 +21,7 @@ public class EddyStoneScanActivity extends Activity {
 	BeaconManager manager;
 	EddyStoneAdapter adapter;
 	private ArrayList<EddyStone> eddyStones;
-
+	private Button button;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,19 +68,41 @@ public class EddyStoneScanActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		button = (Button) findViewById(R.id.button);
+		button.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if(button.getText().toString().equals("stopScan")){
+					button.setText("startScan");
+					manager.stopEddyStoneScan();
+				}else{
+					button.setText("stopScan");
+					manager.startEddyStoneScan();
+				}
+			}
+		});
 	}
-	
+
 	@Override
 	protected void onStart() {
-		manager.startEddyStoneScan();
+		if(button.getText().toString().equals("startScan")){
+			manager.startEddyStoneScan();
+			button.setText("stopScan");
+		}
+
 		super.onStart();
 	}
-	
+
 	@Override
 	protected void onStop() {
-		manager.stopEddyStoneScan();
+		if(button.getText().toString().equals("stopScan")){
+			manager.stopEddyStoneScan();
+			button.setText("startScan");
+		}
 		super.onStop();
 	}
+
 
 	@Override
 	protected void onDestroy() {

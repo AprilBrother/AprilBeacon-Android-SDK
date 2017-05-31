@@ -65,6 +65,7 @@
                 android:id="@+id/tv_bluetooth_list_item_fragment_minor"
                 style="@style/tv_beacon_list_item_fragment"
                 android:visibility="gone"
+                android:tag="minor"
                 android:text="Minor:65535" />
 
             <TextView

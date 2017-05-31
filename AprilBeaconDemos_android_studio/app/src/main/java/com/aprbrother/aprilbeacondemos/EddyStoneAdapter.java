@@ -58,9 +58,16 @@ public class EddyStoneAdapter extends BaseAdapter {
 		if(eddyStone.getModel().equals("url")){
 			holder.uuidTextView.setText("URL : "+eddyStone.getUrl());
 			holder.modelTextView.setText("MODEL ： "+"url");
+			holder.minorTextView.setVisibility(View.GONE);
 		}else if(eddyStone.getModel().equals("uid")){
 			holder.uuidTextView.setText("UID : "+eddyStone.getUid());
 			holder.modelTextView.setText("MODEL ： "+"uid");
+			holder.minorTextView.setVisibility(View.GONE);
+		}else if(eddyStone.getModel().equals("iBeacon")){
+			holder.uuidTextView.setText("UUID : "+eddyStone.getUuid());
+			holder.modelTextView.setText("Major ： "+eddyStone.getMajor());
+			holder.minorTextView.setText("Minor ： "+eddyStone.getMinor());
+			holder.minorTextView.setVisibility(View.VISIBLE);
 		}
 		holder.rssiTextView.setText("RSSI : "+eddyStone.getRssi());
 	}
@@ -79,6 +86,7 @@ public class EddyStoneAdapter extends BaseAdapter {
 		final TextView uuidTextView;
 		final TextView modelTextView;
 		final TextView rssiTextView;
+		final TextView minorTextView;
 
 		ViewHolder(View view) {
 			name = (TextView) view.findViewWithTag("name");
@@ -86,6 +94,7 @@ public class EddyStoneAdapter extends BaseAdapter {
 			uuidTextView = (TextView) view.findViewWithTag("uuid");
 			modelTextView = (TextView) view.findViewWithTag("model");
 			rssiTextView = (TextView) view.findViewWithTag("rssi");
+			minorTextView = (TextView) view.findViewWithTag("minor");
 		}
 	}
 }

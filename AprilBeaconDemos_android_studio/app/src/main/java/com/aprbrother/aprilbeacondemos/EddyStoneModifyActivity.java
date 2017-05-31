@@ -26,7 +26,8 @@ public class EddyStoneModifyActivity extends Activity implements
 	private EditText et_uid_name_space;
 	private EditText et_uid_custom;
 
-	private String password = "PROXIoTSetup";
+//	private String password = "PROXIoTSetup";
+	private String password = "195660";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

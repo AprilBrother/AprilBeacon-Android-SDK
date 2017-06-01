@@ -2,78 +2,155 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_model"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="当前模式：xxx" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_change_model_to_url"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="更改模式为ULR" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_change_model_to_uid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="更改模式为UID" />
+            <TextView
+                android:id="@+id/tv_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/current_model" />
 
-    <TextView
-        android:id="@+id/tv_change_model_to_ibeacon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="更改模式为iBeacon" />
+            <TextView
+                android:id="@+id/tv_change_model_to_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_model_to_ulr" />
 
-    <EditText
-        android:id="@+id/et_url"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="url" />
+            <TextView
+                android:id="@+id/tv_change_model_to_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_model_to_uid" />
 
-    <TextView
-        android:id="@+id/tv_change_url"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="更改ULR" />
-    
-    <EditText
-        android:id="@+id/et_uid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="url" />
+            <TextView
+                android:id="@+id/tv_change_model_to_ibeacon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_model_to_ibeacon" />
 
-    <TextView
-        android:id="@+id/tv_change_uid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#22000000"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="更改UID" />
+            <TextView
+                android:id="@+id/tv_change_model_to_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_model_to_ibeacon_uid_url" />
+
+            <EditText
+                android:id="@+id/et_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="url"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_change_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_url"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/et_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="uid"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_change_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_uid"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/et_uid_name_space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="uid_name_space" />
+
+            <TextView
+                android:id="@+id/tv_change_uid_name_space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_uid_name_space" />
+
+            <EditText
+                android:id="@+id/et_uid_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="uid_custom" />
+
+            <TextView
+                android:id="@+id/tv_change_uid_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#22000000"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/change_uid_custom" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

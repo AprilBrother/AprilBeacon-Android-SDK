@@ -30,4 +30,14 @@
     <string name="big_picture_style">Big Picture Style</string>
     <string name="inbox_style">Inbox Style</string>
     <string name="custom_view">Custom View</string>
+
+    <string name="change_model_to_ulr">change model to URL</string>
+    <string name="current_model">current model:</string>
+    <string name="change_model_to_uid">change model to UID</string>
+    <string name="change_model_to_ibeacon">change model to iBeacon</string>
+    <string name="change_model_to_ibeacon_uid_url">change model to iBeacon_UID_URL</string>
+    <string name="change_url">change ULR</string>
+    <string name="change_uid">change UID</string>
+    <string name="change_uid_name_space">change uid_name_space</string>
+    <string name="change_uid_custom">change uid_custom</string>
 </resources>

@@ -48,7 +48,8 @@ public class EddyStoneModifyActivity extends Activity implements
 		TextView changeUid = (TextView) findViewById(R.id.tv_change_uid);
 		TextView changeUidNameSpace = (TextView) findViewById(R.id.tv_change_uid_name_space);
 		TextView changeUidCustom = (TextView) findViewById(R.id.tv_change_uid_custom);
-		model.setText("当前模式：" + eddyStone.getModel());
+		model.setText(getResources().getString(R.string.current_model)
+				+ eddyStone.getModel());
 		changeModelToIBeacon.setOnClickListener(this);
 		changeModelToUrl.setOnClickListener(this);
 		changeModelToUid.setOnClickListener(this);
@@ -108,7 +109,7 @@ public class EddyStoneModifyActivity extends Activity implements
 
 			@Override
 			public void onWriteSuccess() {
-				Toast.makeText(EddyStoneModifyActivity.this, "UID CUSTOM 更改成功",
+				Toast.makeText(EddyStoneModifyActivity.this, "UID CUSTOM change success",
 						Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -125,7 +126,7 @@ public class EddyStoneModifyActivity extends Activity implements
 			@Override
 			public void onWriteSuccess() {
 				Toast.makeText(EddyStoneModifyActivity.this,
-						"UID NAME SPACE更改成功", Toast.LENGTH_SHORT).show();
+						"UID NAME SPACE change success", Toast.LENGTH_SHORT).show();
 			}
 		});
 
@@ -140,7 +141,7 @@ public class EddyStoneModifyActivity extends Activity implements
 
 			@Override
 			public void onWriteSuccess() {
-				Toast.makeText(EddyStoneModifyActivity.this, "UID更改成功",
+				Toast.makeText(EddyStoneModifyActivity.this, "UID change success",
 						Toast.LENGTH_SHORT).show();
 			}
 			@Override
@@ -160,7 +161,7 @@ public class EddyStoneModifyActivity extends Activity implements
 
 			@Override
 			public void onWriteSuccess() {
-				Toast.makeText(EddyStoneModifyActivity.this, "URL更改成功",
+				Toast.makeText(EddyStoneModifyActivity.this, "URL change success",
 						Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -190,7 +191,7 @@ public class EddyStoneModifyActivity extends Activity implements
 
 			@Override
 			public void onWriteSuccess() {
-				Toast.makeText(EddyStoneModifyActivity.this, "模式更改成功",
+				Toast.makeText(EddyStoneModifyActivity.this, "change model success",
 						Toast.LENGTH_SHORT).show();
 			}
 		});

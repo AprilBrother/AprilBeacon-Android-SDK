@@ -23,4 +23,13 @@
     <string name="cancel">取消</string>
     <string name="sure">确定</string>
 
+    <string name="change_model_to_ulr">更改模式为ULR</string>
+    <string name="current_model">当前模式：</string>
+    <string name="change_model_to_uid">更改模式为UID</string>
+    <string name="change_model_to_ibeacon">更改模式为iBeacon</string>
+    <string name="change_model_to_ibeacon_uid_url">更改模式为iBeacon_UID_URL</string>
+    <string name="change_url">更改ULR</string>
+    <string name="change_uid">更改UID</string>
+    <string name="change_uid_name_space">更改uid_name_space</string>
+    <string name="change_uid_custom">更改uid_custom</string>
 </resources>

@@ -37,11 +37,12 @@ You can scan beacon and modify beacon
 ```
 
 
-## Precautions
+## Note
+
+* For Android 7.0, you should set `beaconManager.setRangingExpirationMill(30L);` before start scan
 * If you want to use change the characteristic you should make sure that our beacon's hardware is above 2.0
-* the default password is AprilBrother
+* the default password is `195660`
 * Android M to access the hardware identifiers of nearby external devices via Bluetooth and Wi-Fi scans, your app must now have the ACCESS_FINE_LOCATION or ACCESS_COARSE_LOCATION permissions
-* Android 7.0 should set beaconManager.setRangingExpirationMill(30L); before start scan
 
 ## Proguard
 * -libraryjars libs/ab-sdk-beta1.6.3.jar
